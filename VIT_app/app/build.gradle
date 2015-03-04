@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.vitunterwegs.vit"
+        applicationId "com.vitunterwegs.vit_app"
         minSdkVersion 19
         targetSdkVersion 21
         versionCode 1
