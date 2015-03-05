@@ -2,8 +2,6 @@
 
 	body, input, select, textarea {
 		font-size: 11pt;
-        overflow-y: hidden;
-        overflow-x: hidden;
 	}
 
 	h2 {
@@ -110,6 +108,7 @@
 	body.landing #main {
 		padding: 0;
 		margin-top: 0;
+        overflow: hidden;
 	}
 
 /* Footer */

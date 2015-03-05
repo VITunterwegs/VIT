@@ -4,7 +4,7 @@
 /* Basic */
 
 	body {
-		background: #f5f5f5;
+		background: #bdbdbd;
 	}
 
 	body, input, select, textarea {
@@ -401,9 +401,9 @@
 /* Box */
 
 	.box {
-		background: #fff;
+		background: #eeeeee;
 		border-radius: 6px;
-		box-shadow: 0 2px 0 0 #e5e5e5;
+		<!--box-shadow: 0 2px 0 0 #8c8c8c;-->
 		margin: 0 0 2em 0;
 		padding: 3em;
 	}
@@ -857,7 +857,7 @@
 			background-color: #595959;
 		}
 
-		input[type="submit"].icon,
+		[type="submit"].icon,
 		input[type="reset"].icon,
 		input[type="button"].icon,
 		.button.icon {
@@ -933,21 +933,21 @@
 		input[type="button"].special,
 		.button.special {
 			background-color: #e89980;
-			color: #ffffff !important;
+			color: #eeeeee !important;
 		}
 
 			input[type="submit"].special:hover,
 			input[type="reset"].special:hover,
 			input[type="button"].special:hover,
 			.button.special:hover {
-				background-color: #ecaa96;
+				background-color: #e89980;
 			}
 
 			input[type="submit"].special:active,
 			input[type="reset"].special:active,
 			input[type="button"].special:active,
 			.button.special:active {
-				background-color: #e4886a;
+				background-color: #e89980;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -1216,7 +1216,7 @@
 	#banner {
 		background-attachment: scroll,							fixed;
 		background-color: #666;
-		background-image: url("images/overlay.png"), url("../images/banner.jpg");
+		background-image: url("images/overlay.png"), url("../images/startscreen_header.png");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
