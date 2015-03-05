@@ -4,7 +4,7 @@
 /* Basic */
 
 	body {
-		background: #bdbdbd;
+		background: #f5f5f5;
 	}
 
 	body, input, select, textarea {
@@ -1273,7 +1273,7 @@
 			#banner input[type="reset"].special,
 			#banner input[type="button"].special,
 			#banner .button.special {
-				background: #fff;
+				background: #eee;
 				color: #666 !important;
 			}
 
