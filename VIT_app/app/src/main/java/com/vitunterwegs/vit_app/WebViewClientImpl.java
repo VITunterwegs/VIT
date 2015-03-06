@@ -22,8 +22,13 @@ public class WebViewClientImpl extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView webView, String url) {
-
+        webView.loadUrl(url);
         return false;
+    }
+
+    @Override
+    public void onLoadResource (WebView view, String URL){
+        
     }
 
 

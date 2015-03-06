@@ -1,6 +1,7 @@
 package com.vitunterwegs.vit_app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,6 +30,9 @@ public class MainActivity extends Activity {
                 return (event.getAction() == MotionEvent.ACTION_MOVE);
             }
         });
+
+        Intent i = new Intent(android.content.);
+        i.
 
         WebViewClientImpl webViewClient = new WebViewClientImpl(this);
         webView.setWebViewClient(webViewClient);
