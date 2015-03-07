@@ -14,10 +14,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"></WebView>
 
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo_gross"/>
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
+        android:id="@+id/splash_progressBar"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
