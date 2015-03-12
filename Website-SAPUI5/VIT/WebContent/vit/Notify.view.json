@@ -1,0 +1,17 @@
+{
+	"Type": "sap.ui.core.mvc.JSONView",
+	"controllerName": "vit.Notify",
+	"content": 
+	[
+		{
+			"Type": "sap.m.Page",
+			"id": "notify",
+			"showHeader": false,
+			"backgroundDesign": "Transparent",
+			"content": 
+			[
+				
+			]
+		}
+	]
+}

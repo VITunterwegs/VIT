@@ -1,0 +1,17 @@
+{
+	"Type": "sap.ui.core.mvc.JSONView",
+	"controllerName": "vit.Search",
+	"content": 
+	[
+		{
+			"Type": "sap.m.Page",
+			"id": "search",
+			"showHeader": false,
+			"backgroundDesign": "Transparent",
+			"content": 
+			[
+				
+			]
+		}
+	]
+}
