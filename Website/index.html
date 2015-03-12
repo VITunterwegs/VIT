@@ -7,14 +7,19 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js">
+        </script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+        </script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.dropotron.min.js"></script>
 		<script src="js/jquery.scrollgress.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<noscript>
-            
+
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
@@ -35,18 +40,9 @@
 						<li>
 							<a href="" class="icon fa-angle-down">Layouts</a>
 							<ul>
-								<li><a href="generic.html">Generic</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="elements.html">Elements</a></li>
-								<li>
-									<a href="">Submenu</a>
-									<ul>
-										<li><a href="#">Option One</a></li>
-										<li><a href="#">Option Two</a></li>
-										<li><a href="#">Option Three</a></li>
-										<li><a href="#">Option Four</a></li>
-									</ul>
-								</li>
+								<li><a href="generic.html">Suchen</a></li>
+								<li><a href="contact.html">Melden</a></li>
+								<li><a href="elements.html">Favoriten</a></li>
 							</ul>
 						</li>
 						<li><a href="#" class="button">Sign Up</a></li>
@@ -65,26 +61,25 @@
 			</section>
 
 		<!-- Main -->
-			<section id="main" class="container dashboard">
-				    <table>
-                        <tr>
-                            <td>
-					        Linie S3
-                            </td>
-                            <td>
-                            Verspätung von 2 min
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
-			</section>
+            <section id="dashboard" class="itemlist">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>S11</strong></td>
+                      <td>nach</td>
+                      <td>Hochstetten</td>
+                      <td>+ <strong>4 min</strong></td>
+                      <td>Mühlburger Tor</td>
+                    </tr>
+                    <tr>
+                      <td><strong>S55</strong></td>
+                      <td>nach</td>
+                      <td>Daxlanden</td>
+                      <td>+ <strong>4 min</strong></td>
+                      <td>Mühlburger Tor</td>
+                    </tr>
+                  </tbody>
+            </table>
+        </section>
 	</body>
 </html>
