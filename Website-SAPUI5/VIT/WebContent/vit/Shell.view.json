@@ -13,7 +13,8 @@
 					"Type": "sap.ui.unified.ShellHeaderItem",
 					"tooltip": "Menu",
 					"icon": "sap-icon://menu2",
-					"press": "handlePressConfiguration"
+					"press": "handlePressConfiguration",
+					"id": "menuItem"
 				}
 			],
 

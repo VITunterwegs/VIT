@@ -10,7 +10,104 @@
 			"backgroundDesign": "Transparent",
 			"content": 
 			[
-				
+				{
+					"Type": "sap.ui.layout.form.Form",
+					"layout": 
+					{
+						"Type": "sap.ui.layout.form.ResponsiveGridLayout",
+						"id": "L1"
+					},
+
+					"formContainers": 
+					[
+						{
+							"Type": " sap.ui.layout.form.FormContainer",
+							"title": "Verspätung melden",
+							"formElements": 
+							[
+								{
+									"Type": "sap.ui.layout.form.FormElement",
+									"label": "Standort",
+									"fields": 
+									[
+										{
+											"Type": "sap.m.Input",
+											"type": "Text"
+										},
+
+										{
+											"Type": "sap.m.Button",
+											"icon": "sap-icon://target-group",
+											"iconFirst": true,
+											"text" : "Standortdienste nutzen",
+											"press": "handleLocatePress"
+										}
+									]
+								},
+
+								{
+									"Type": "sap.ui.layout.form.FormElement",
+									"label": "Verkehrsmittel",
+									"fields": 
+									[
+										{
+											"Type": "sap.m.Input",
+											"type": "Text"
+										}
+									]
+								},
+
+								{
+									"Type": "sap.ui.layout.form.FormElement",
+									"label": "Haltestelle",
+									"fields": 
+									[
+										{
+											"Type": "sap.m.Input",
+											"type": "Text"
+										}
+									]
+								},
+
+								{
+									"Type": "sap.ui.layout.form.FormElement",
+									"label": "Line > Richtung",
+									"fields": 
+									[
+										{
+											"Type": "sap.m.Input",
+											"type": "Text"
+										}
+									]
+								},
+
+								{
+									"Type": "sap.ui.layout.form.FormElement",
+									"label": "Verspätung",
+									"fields": 
+									[
+										{
+											"Type": "sap.m.Input",
+											"type": "Text"
+										}
+									]
+								},
+
+								{
+									"Type": "sap.ui.layout.form.FormElement",
+									"fields": 
+									[
+										{
+											"Type": "sap.m.Button",
+											"text": "Melden",
+											"press": "handleSendNotificationPress"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
 			]
 		}
 	]

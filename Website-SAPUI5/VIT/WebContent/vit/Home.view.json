@@ -39,7 +39,8 @@
 													"text": "Suchen",
 													"icon": "sap-icon://search",
 													"iconFirst": true,
-													"width": "180px"
+													"width": "180px",
+													"press": "handleSearchPress"
 												}
 											]
 										}
@@ -61,7 +62,8 @@
 													"text": "Melden",
 													"icon": "sap-icon://action",
 													"iconFirst": true,
-													"width": "180px"
+													"width": "180px",
+													"press": "handleNotifyPress"
 												}
 											]
 										}

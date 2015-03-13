@@ -13,39 +13,37 @@ sap.ui.controller("vit.Shell", {
     oItem.setShowMarker(!bState);
     oItem.setSelected(!bState);
   },
-
-  handleLogoffPress: function(oEvent) {
-    sap.m.MessageToast.show("Logoff Button Pressed");
-  },
-
-  handleHomePressed: function(oEvent) {
-    sap.m.MessageToast.show("Home Button Pressed");
-  },
-  
-  handleSearchItemSelect: function(oEvent) {
-    sap.m.MessageToast.show("Search Entry Selected: " + oEvent.getSource().getTitle());
-  },
-
-  handleShellOverlayClosed: function() {
-    sap.m.MessageToast.show("Overlay closed");
-  },
   
   handleFavoritesPress: function(oEvent){
 	  var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
 	  app.to("shellArea" + "--" + "favPage");
+	  sap.ui.getCore().byId("shellArea").getController().closeMenu();
   },
   handleHomePress: function(oEvent){
 	  var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
 	  app.to("shellArea" + "--" + "homePage");
+	  sap.ui.getCore().byId("shellArea").getController().closeMenu();
   },
   
   handleSearchPress: function(oEvent){
 	  var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
 	  app.to("shellArea" + "--" + "searchPage");
+	  sap.ui.getCore().byId("shellArea").getController().closeMenu();
+	  
   },
   handleNotifyPress: function(oEvent){
 	  var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
 	  app.to("shellArea" + "--" + "notifyPage");
+	  sap.ui.getCore().byId("shellArea").getController().closeMenu();
+  },
+  
+  closeMenu: function(){
+	  var oShell = this.getView().byId("shellArea" + "--" +"myShell");
+	  oShell.setShowPane(false);
+	  var oItem = this.getView().byId("shellArea" + "--" +"menuItem");
+	  oItem.setShowMarker(false);
+	  oItem.setSelected(false);
+	  
   }
 
 
