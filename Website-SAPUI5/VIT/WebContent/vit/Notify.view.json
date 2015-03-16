@@ -56,7 +56,6 @@
 										}
 									]
 								},
-
 								{
 									"Type": "sap.ui.layout.form.FormElement",
 									"label": "Haltestelle",
@@ -100,7 +99,8 @@
 										{
 											"Type": "sap.m.Button",
 											"text": "Melden",
-											"press": "handleSendNotificationPress"
+											"press": "handleSendNotificationPress",
+											"type": "Accept"
 										}
 									]
 								}
