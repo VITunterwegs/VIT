@@ -7,7 +7,7 @@
 			"Type": "sap.ui.unified.Shell",
 			"id": "myShell",
 			"icon": "img/Logo_96x96_320dpi.png",
-			"headItems": 
+			"headItems":
 			[
 				{
 					"Type": "sap.ui.unified.ShellHeaderItem",
