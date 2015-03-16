@@ -14,8 +14,6 @@
 					"Type": "sap.ui.commons.Splitter",
 					"splitterOrientation": "Horizontal",
 					"splitterPosition": "50%",
-					"minSizeFirstPane": "50%",
-					"minSizeSecondPane": "50%",
 					"firstPaneContent": 
 					[
 						{
