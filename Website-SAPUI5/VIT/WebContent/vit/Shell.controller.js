@@ -5,6 +5,11 @@ sap.ui.controller("vit.Shell", {
 
 	},
 
+	onSwipeLeft : function(oEvent) {
+		handleSearchPress(oEvent);
+	},
+	
+	
 	handlePressConfiguration : function(oEvent) {
 		var oItem = oEvent.getSource();
 		var oShell = this.getView().byId("myShell");
@@ -38,7 +43,7 @@ sap.ui.controller("vit.Shell", {
 	},
 	
 	handleMenuPress: function(oEvent){
-		if(sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").getShowSecondaryContent()== true){
+		if(sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").getShowSecondaryContent()){
 			sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").setShowSecondaryContent(false);
 		}else{
 			sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").setShowSecondaryContent(true);
@@ -53,5 +58,4 @@ sap.ui.controller("vit.Shell", {
 		oItem.setSelected(false);
 
 	}
-
 });

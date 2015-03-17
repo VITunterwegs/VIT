@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
 
-<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
+<script src="https://sapui5.netweaver.ondemand.com/sdk/resources/sap-ui-core.js" id="sap-ui-bootstrap"
 	data-sap-ui-libs="sap.m, sap.ui.unified, sap.ui.layout"
 	data-sap-ui-theme="sap_bluecrystal">
 	
@@ -34,8 +34,22 @@ background-color: black !important;
 	shell.placeAt("content");
 </script>
 
+<script>
+	$(function(){
+		// Bind the swipeleftHandler callback function to the swipe event on div.box
+  		$( "body.sapUIBody" ).on( "swipeleft", swipeleftHandler );
+ 
+		// Callback function references the event target and adds the 'swipeleft' class to it
+  		function swipeleftHandler( event ){
+    	 new sap.m.MessageToast("Test");
+  }
+});
+</script>
+
 </head>
 <body class="sapUiBody" role="application">
 	<div id="content"></div>
+	
+
 </body>
 </html>
