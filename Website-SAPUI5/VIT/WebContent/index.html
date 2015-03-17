@@ -4,13 +4,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
 
-<script src="resources/sap-ui-core.js"
-	id="sap-ui-bootstrap"
+<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
 	data-sap-ui-libs="sap.m, sap.ui.unified, sap.ui.layout"
 	data-sap-ui-theme="sap_bluecrystal">
 	
 </script>
 <!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+
+
+<style>
+.sapUiBody{
+background-color: black !important;
+}
+
+
+
+</style>
+
 
 <script>
 	sap.ui.localResources("vit");
@@ -20,7 +30,7 @@
 		viewName : "vit.Shell",
 		type : sap.ui.core.mvc.ViewType.JSON
 	});
-	
+
 	shell.placeAt("content");
 </script>
 

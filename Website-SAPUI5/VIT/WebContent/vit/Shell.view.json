@@ -3,57 +3,59 @@
 	"controllerName":"vit.Shell",
 	"content":[
 		{
-			"Type":"sap.ui.unified.Shell",
-			"id":"myShell",
-			"icon":"img/Logo_96x96_320dpi.png",
-			"headItems":[
-				{
-					"Type":"sap.ui.unified.ShellHeaderItem",
-					"tooltip":"Menu",
-					"icon":"sap-icon://menu2",
-					"press":"handlePressConfiguration",
-					"id":"menuItem"
-				}
-				
-			],
-			"headEndItems":[
-				{
-					"Type":"sap.ui.unified.ShellHeaderItem",
-					"tooltip":"Home",
-					"icon":"sap-icon://home",
-					"press":"handleHomePress"
-				}
-				
-			],
+			"Type":"sap.ui.unified.SplitContainer",
+			"id":"splitContainer",
 			"content":[
 				{
 					"Type":"sap.m.App",
-					"id":"myApp",
+					"id":"shellApp",
 					"backgroundImage":"img/startscreen_header.png",
 					"pages":[
 						{
-							"Type":"sap.ui.view",
-							"id":"homePage",
-							"viewName":"vit.Home",
-							"type":"JSON"
-						},
-						{
-							"Type":"sap.ui.view",
-							"id":"searchPage",
-							"viewName":"vit.Search",
-							"type":"JSON"
-						},
-						{
-							"Type":"sap.ui.view",
-							"id":"favPage",
-							"viewName":"vit.Favorites",
-							"type":"JSON"
-						},
-						{
-							"Type":"sap.ui.view",
-							"id":"notifyPage",
-							"viewName":"vit.Notify",
-							"type":"JSON"
+							"Type":"sap.m.Page",
+							"id":"myShell",
+							"showHeader":false,
+							"content":[
+								{
+									"Type":"sap.m.Button",
+									"icon":"sap-icon://menu2",
+									"press:":"handleMenuPress"
+								},
+								{
+									"Type":"sap.m.App",
+									"id":"myApp",
+									"pages":[
+										{
+											"Type":"sap.ui.view",
+											"id":"homePage",
+											"viewName":"vit.Home",
+											"type":"JSON"
+										},
+										{
+											"Type":"sap.ui.view",
+											"id":"searchPage",
+											"viewName":"vit.Search",
+											"type":"JSON"
+										},
+										{
+											"Type":"sap.ui.view",
+											"id":"favPage",
+											"viewName":"vit.Favorites",
+											"type":"JSON"
+										},
+										{
+											"Type":"sap.ui.view",
+											"id":"notifyPage",
+											"viewName":"vit.Notify",
+											"type":"JSON"
+										}
+										
+									]
+									
+								}
+								
+							]
+							
 						}
 						
 					]
@@ -61,7 +63,7 @@
 				}
 				
 			],
-			"paneContent":[
+			"secondaryContent":[
 				{
 					"Type":"sap.m.List",
 					"items":[
@@ -110,4 +112,5 @@
 		}
 		
 	]
+	
 }

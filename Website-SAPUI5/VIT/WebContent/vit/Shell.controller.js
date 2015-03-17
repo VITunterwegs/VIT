@@ -36,6 +36,14 @@ sap.ui.controller("vit.Shell", {
 		app.to("shellArea" + "--" + "notifyPage");
 		sap.ui.getCore().byId("shellArea").getController().closeMenu();
 	},
+	
+	handleMenuPress: function(oEvent){
+		if(sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").getShowSecondaryContent()== true){
+			sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").setShowSecondaryContent(false);
+		}else{
+			sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").setShowSecondaryContent(true);
+		}
+	},
 
 	closeMenu : function() {
 		var oShell = this.getView().byId("shellArea" + "--" + "myShell");

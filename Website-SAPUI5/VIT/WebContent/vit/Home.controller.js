@@ -11,6 +11,9 @@ sap.ui.controller("vit.Home", {
 	handleNotifyPress : function(oEvent) {
 		var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
 		app.to("shellArea" + "--" + "notifyPage");
+	},
+	handleChange: function(oEvent){
+		
 	}
 
 });

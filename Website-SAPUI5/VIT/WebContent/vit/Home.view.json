@@ -25,9 +25,6 @@
 					"press":"handleNotifyPress"
 				},
 				{
-					"Type":"sap.m.Select"
-				},
-				{
 					"Type":"sap.m.Table",
 					"columns":[
 						{
