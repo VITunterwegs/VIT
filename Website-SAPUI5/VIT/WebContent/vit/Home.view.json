@@ -1,122 +1,76 @@
 {
-	"Type": "sap.ui.core.mvc.JSONView",
-	"controllerName": "vit.Home",
-	"content": 
-	[
+	"Type":"sap.ui.core.mvc.JSONView",
+	"controllerName":"vit.Home",
+	"content":[
 		{
-			"Type": "sap.m.Page",
-			"id": "home",
-			"showHeader": false,
-			"backgroundDesign": "Transparent",
-			"content": 
-			[
+			"Type":"sap.m.Page",
+			"id":"home",
+			"showHeader":false,
+			"backgroundDesign":"Transparent",
+			"content":[
 				{
-					"Type": "sap.ui.commons.Splitter",
-					"splitterOrientation": "Horizontal",
-					"splitterPosition": "50%",
-					"firstPaneContent": 
-					[
+					"Type":"sap.m.Button",
+					"text":"Suchen",
+					"icon":"sap-icon://search",
+					"iconFirst":true,
+					"width":"180px",
+					"press":"handleSearchPress"
+				},
+				{
+					"Type":"sap.m.Button",
+					"text":"Melden",
+					"icon":"sap-icon://action",
+					"iconFirst":true,
+					"width":"180px",
+					"press":"handleNotifyPress"
+				},
+				{
+					"Type":"sap.m.Select"
+				},
+				{
+					"Type":"sap.m.Table",
+					"columns":[
 						{
-							"Type": "sap.ui.commons.layout.MatrixLayout",
-							"height": "100%",
-							"columns": 1,
-							"rows": 
-							[
-								{
-									"Type": "sap.ui.commons.layout.MatrixLayoutRow",
-									"cells": 
-									[
-										{
-											"Type": "sap.ui.layout.MatrixLayoutCell",
-											"hAlign": "Center",
-											"vAlign": "Bottom",
-											"content": 
-											[
-												{
-													"Type": "sap.m.Button",
-													"text": "Suchen",
-													"icon": "sap-icon://search",
-													"iconFirst": true,
-													"width": "180px",
-													"press": "handleSearchPress"
-												}
-											]
-										}
-									]
-								},
-
-								{
-									"Type": "sap.ui.commons.layout.MatrixLayoutRow",
-									"cells": 
-									[
-										{
-											"Type": "sap.ui.layout.MatrixLayoutCell",
-											"hAlign": "Center",
-											"vAlign": "Top",
-											"content": 
-											[
-												{
-													"Type": "sap.m.Button",
-													"text": "Melden",
-													"icon": "sap-icon://action",
-													"iconFirst": true,
-													"width": "180px",
-													"press": "handleNotifyPress"
-												}
-											]
-										}
-									]
-								}
-							]
-						}
-					],
-
-					"secondPaneContent": 
-					[
+							"Type":"sap.m.Column",
+							"header":{
+								"Type":"sap.m.Label",
+								"text":"Linie"
+							}
+							
+						},
 						{
-							"Type": "sap.m.Table",
-							"columns": 
-							[
-								{
-									"Type": "sap.m.Column",
-									"header": 
-									{
-										"Type": "sap.m.Label",
-										"text": "Linie"
-									}
-								},
-
-								{
-									"Type": "sap.m.Column",
-									"header": 
-									{
-										"Type": "sap.m.Label",
-										"text": "Richtung"
-									}
-								},
-
-								{
-									"Type": "sap.m.Column",
-									"header": 
-									{
-										"Type": "sap.m.Label",
-										"text": "Verspätung"
-									}
-								},
-
-								{
-									"Type": "sap.m.Column",
-									"header": 
-									{
-										"Type": "sap.m.Label",
-										"text": "Ankunft"
-									}
-								}
-							]
+							"Type":"sap.m.Column",
+							"header":{
+								"Type":"sap.m.Label",
+								"text":"Richtung"
+							}
+							
+						},
+						{
+							"Type":"sap.m.Column",
+							"header":{
+								"Type":"sap.m.Label",
+								"text":"Verspätung"
+							}
+							
+						},
+						{
+							"Type":"sap.m.Column",
+							"header":{
+								"Type":"sap.m.Label",
+								"text":"Ankunft"
+							}
+							
 						}
+						
 					]
+					
 				}
+				
 			]
+			
 		}
+		
 	]
+	
 }

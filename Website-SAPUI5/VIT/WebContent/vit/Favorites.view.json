@@ -1,17 +1,17 @@
 {
-	"Type": "sap.ui.core.mvc.JSONView",
-	"controllerName": "vit.Favorites",
-	"content": 
-	[
+	"Type":"sap.ui.core.mvc.JSONView",
+	"controllerName":"vit.Favorites",
+	"content":[
 		{
-			"Type": "sap.m.Page",
-			"id": "favorites",
-			"showHeader": false,
-			"backgroundDesign": "Transparent",
-			"content": 
-			[
+			"Type":"sap.m.Page",
+			"id":"favorites",
+			"showHeader":false,
+			"backgroundDesign":"Transparent",
+			"content":[
 				
 			]
+			
 		}
+		
 	]
 }

@@ -4,10 +4,10 @@ sap.ui.controller("vit.Notify", {
 	onInit : function() {
 
 	},
-	handleLocatePress: function(oEvent){
-		
+	handleLocatePress : function(oEvent) {
+
 	},
-	handleSendNotificationPress: function(oEvent){
-		
+	handleSendNotificationPress : function(oEvent) {
+
 	}
 });
