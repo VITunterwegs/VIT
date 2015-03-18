@@ -3,67 +3,48 @@
 	"controllerName":"vit.Shell",
 	"content":[
 		{
-			"Type":"sap.ui.unified.SplitContainer",
-			"id":"splitContainer",
+			"Type":"sap.ui.unified.ShellLayout",
+			"id":"shell",
+			"showCurtain":true,
+			"headerHiding":true,
 			"content":[
 				{
 					"Type":"sap.m.App",
-					"id":"shellApp",
+					"id":"myApp",
 					"backgroundImage":"img/startscreen_header.png",
 					"pages":[
 						{
-							"Type":"sap.m.Page",
-							"id":"myShell",
-							"showHeader":false,
-							"content":[
-								{
-									"Type":"sap.m.Button",
-									"icon":"sap-icon://menu2",
-									"press:":"handleMenuPress"
-								},
-								{
-									"Type":"sap.m.App",
-									"id":"myApp",
-									"pages":[
-										{
-											"Type":"sap.ui.view",
-											"id":"homePage",
-											"viewName":"vit.Home",
-											"type":"JSON"
-										},
-										{
-											"Type":"sap.ui.view",
-											"id":"searchPage",
-											"viewName":"vit.Search",
-											"type":"JSON"
-										},
-										{
-											"Type":"sap.ui.view",
-											"id":"favPage",
-											"viewName":"vit.Favorites",
-											"type":"JSON"
-										},
-										{
-											"Type":"sap.ui.view",
-											"id":"notifyPage",
-											"viewName":"vit.Notify",
-											"type":"JSON"
-										}
-										
-									]
-									
-								}
-								
-							]
-							
+							"Type":"sap.ui.view",
+							"id":"homePage",
+							"viewName":"vit.Home",
+							"type":"JSON"
+						},
+						{
+							"Type":"sap.ui.view",
+							"id":"searchPage",
+							"viewName":"vit.Search",
+							"type":"JSON"
+						},
+						{
+							"Type":"sap.ui.view",
+							"id":"favPage",
+							"viewName":"vit.Favorites",
+							"type":"JSON"
+						},
+						{
+							"Type":"sap.ui.view",
+							"id":"notifyPage",
+							"viewName":"vit.Notify",
+							"type":"JSON"
 						}
 						
 					]
 					
 				}
 				
-			],
-			"secondaryContent":[
+			]
+			,
+			"paneContent":[
 				{
 					"Type":"sap.m.List",
 					"items":[

@@ -5,19 +5,14 @@ sap.ui.controller("vit.Shell", {
 
 	},
 
-	onSwipeLeft : function(oEvent) {
-		handleSearchPress(oEvent);
-	},
-	
-	
-	handlePressConfiguration : function(oEvent) {
-		var oItem = oEvent.getSource();
-		var oShell = this.getView().byId("myShell");
-		var bState = oShell.getShowPane();
-		oShell.setShowPane(!bState);
-		oItem.setShowMarker(!bState);
-		oItem.setSelected(!bState);
-	},
+	 handlePressConfiguration: function(oEvent) {
+		    var oItem = oEvent.getSource();
+		    var oShell = sap.ui.getCore().byId("shellArea"+ "--" + "shell");
+		    var bState = oShell.getShowCurtainPane();
+		    oShell.setShowCurtainPane(!bState);
+		    oItem.setShowMarker(!bState);
+		    oItem.setSelected(!bState);
+		  },
 
 	handleFavoritesPress : function(oEvent) {
 		var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
@@ -40,22 +35,11 @@ sap.ui.controller("vit.Shell", {
 		var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
 		app.to("shellArea" + "--" + "notifyPage");
 		sap.ui.getCore().byId("shellArea").getController().closeMenu();
+		handleMenuPress(oEvent);
 	},
 	
-	handleMenuPress: function(oEvent){
-		if(sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").getShowSecondaryContent()){
-			sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").setShowSecondaryContent(false);
-		}else{
-			sap.ui.getCore().byId("shellArea" + "--" + "splitContainer").setShowSecondaryContent(true);
-		}
-	},
-
-	closeMenu : function() {
-		var oShell = this.getView().byId("shellArea" + "--" + "myShell");
-		oShell.setShowPane(false);
-		var oItem = this.getView().byId("shellArea" + "--" + "menuItem");
-		oItem.setShowMarker(false);
-		oItem.setSelected(false);
-
+	closeMenu: function(oEvent){
+		
 	}
+
 });
