@@ -5,8 +5,29 @@
 		{
 			"Type":"sap.m.Page",
 			"id":"search",
-			"showHeader":false,
+			"showHeader":true,
 			"backgroundDesign":"Transparent",
+			"customHeader":[
+				{
+					"Type":"sap.m.Bar",
+					"contentLeft":[
+						{
+							"Type":"sap.m.Button",
+							"icon":"sap-icon://menu2",
+							"press":"showMenu"
+						}
+					],
+					"contentMiddle":[
+						{
+							"Type":"sap.m.Label",
+							"text":"Suche"
+						}
+						
+					]
+					
+				}
+				
+			],
 			"content":[
 				
 			]

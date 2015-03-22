@@ -1,19 +1,18 @@
-jQuery.sap.require("sap.m.MessageToast");
-
 sap.ui.controller("vit.Home", {
 	onInit : function() {
 
 	},
 	handleSearchPress : function(oEvent) {
-		var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
-		app.to("shellArea" + "--" + "searchPage");
+		var oHashChanger = new sap.ui.core.routing.HashChanger();
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Search"));
 	},
 	handleNotifyPress : function(oEvent) {
-		var app = sap.ui.getCore().byId("shellArea" + "--" + "myApp");
-		app.to("shellArea" + "--" + "notifyPage");
+		var oHashChanger = new sap.ui.core.routing.HashChanger();
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Notify"));
 	},
-	handleChange: function(oEvent){
-		
+	showMenu : function(oEvent) {
+		var oHashChanger = new sap.ui.core.routing.HashChanger();
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Navigation"));
 	}
 
 });

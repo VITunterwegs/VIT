@@ -3,89 +3,44 @@
 	"controllerName":"vit.Shell",
 	"content":[
 		{
-			"Type":"sap.ui.unified.ShellLayout",
-			"id":"shell",
-			"showCurtain":true,
-			"headerHiding":true,
-			"content":[
+			"Type":"sap.m.SplitApp",
+			"id":"splitApp",
+			"backgroundImage":"img/startscreen_header.png",
+			"initialMaster":"pNavigation",
+			"initialDetail":"pHome",
+			"detailPages":[
 				{
-					"Type":"sap.m.App",
-					"id":"myApp",
-					"backgroundImage":"img/startscreen_header.png",
-					"pages":[
-						{
-							"Type":"sap.ui.view",
-							"id":"homePage",
-							"viewName":"vit.Home",
-							"type":"JSON"
-						},
-						{
-							"Type":"sap.ui.view",
-							"id":"searchPage",
-							"viewName":"vit.Search",
-							"type":"JSON"
-						},
-						{
-							"Type":"sap.ui.view",
-							"id":"favPage",
-							"viewName":"vit.Favorites",
-							"type":"JSON"
-						},
-						{
-							"Type":"sap.ui.view",
-							"id":"notifyPage",
-							"viewName":"vit.Notify",
-							"type":"JSON"
-						}
-						
-					]
-					
+					"Type":"sap.ui.view",
+					"viewName":"vit.Home",
+					"id":"pHome",
+					"type":"JSON"
+				},
+				{
+					"Type":"sap.ui.view",
+					"viewName":"vit.Search",
+					"id":"pSearch",
+					"type":"JSON"
+				},
+				{
+					"Type":"sap.ui.view",
+					"id":"pFavorites",
+					"viewName":"vit.Favorites",
+					"type":"JSON"
+				},
+				{
+					"Type":"sap.ui.view",
+					"id":"pNotify",
+					"viewName":"vit.Notify",
+					"type":"JSON"
 				}
 				
-			]
-			,
-			"paneContent":[
+			],
+			"masterPages":[
 				{
-					"Type":"sap.m.List",
-					"items":[
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Home",
-							"press":"handleHomePress"
-						},
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Suche",
-							"press":"handleSearchPress"
-						},
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Melden",
-							"press":"handleNotifyPress"
-						},
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Favoriten",
-							"press":"handleFavoritesPress"
-						},
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Einstellungen",
-							"press":"handleSearchPress"
-						},
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Hilfe",
-							"press":"handleNotifyPress"
-						},
-						{
-							"Type":"sap.m.ActionListItem",
-							"text":"Impressum",
-							"press":"handleFavoritesPress"
-						}
-						
-					]
-					
+					"Type":"sap.ui.view",
+					"id":"pNavigation",
+					"viewName":"vit.Navigation",
+					"type":"JSON"
 				}
 				
 			]

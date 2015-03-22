@@ -15,13 +15,90 @@
 
 
 <script>
+	jQuery.sap.require("sap.ui.core.routing.Router");
+	jQuery.sap.require("sap.ui.core.routing.HashChanger");
+
 	sap.ui.localResources("vit");
 
 	var shell = sap.ui.view({
-		id : "shellArea",
+		id : "vMain",
 		viewName : "vit.Shell",
 		type : sap.ui.core.mvc.ViewType.JSON
 	});
+
+	var router = new sap.ui.core.routing.Router([
+			{
+				pattern : "",
+				name : "Home",
+				view : "vit.Home",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pHome");
+				}
+			},
+			{
+				pattern : [ "notify", "Notify" ],
+				name : "Notify",
+				view : "vit.Notify",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pNotify");
+				}
+			},
+			{
+				pattern : [ "search", "Search" ],
+				name : "Search",
+				view : "vit.Search",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pSearch");
+				}
+			},
+			{
+				pattern : [ "navigation", "Navigation" ],
+				name : "Navigation",
+				view : "vit.Navigation",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "masterPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.backToPage("vMain" + "--" + "pNavigation");
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.showMaster();
+				}
+			},
+			{
+				pattern : [ "favorites", "Favorites" ],
+				name : "Favorites",
+				view : "vit.Favorites",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "masterPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pFavorites");
+				}
+			}
+
+	]);
+
+	router.register("appRouter");
+	router.initialize();
 
 	shell.placeAt("content");
 </script>
@@ -29,19 +106,6 @@
 </head>
 <body class="sapUiBody" role="application">
 	<div id="content"></div>
-
-
-	<script>
-		$(function() {
-			// Bind the swipeHandler callback function to the swipe event on div.box
-			$("div.box").on("swipe", swipeHandler);
-
-			// Callback function references the event target and adds the 'swipe' class to it
-			function swipeHandler(event) {
-				new sap.m.MessageToast("Test");
-			}
-		});
-	</script>
 
 </body>
 </html>

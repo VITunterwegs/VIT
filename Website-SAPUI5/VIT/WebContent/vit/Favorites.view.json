@@ -5,9 +5,30 @@
 		{
 			"Type":"sap.m.Page",
 			"id":"favorites",
-			"showHeader":false,
 			"backgroundDesign":"Transparent",
 			"content":[
+				
+			],
+			"customHeader":[
+				{
+					"Type":"sap.m.Bar",
+					"contentLeft":[
+						{
+							"Type":"sap.m.Button",
+							"icon":"sap-icon://menu2",
+							"press":"showMenu"
+						}
+						
+					],
+					"contentMiddle":[
+						{
+							"Type":"sap.m.Label",
+							"text":"Favoriten"
+						}
+						
+					]
+					
+				}
 				
 			]
 			
