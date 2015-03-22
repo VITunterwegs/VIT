@@ -44,12 +44,8 @@
 									"label":"Standort",
 									"fields":[
 										{
-											"Type": "sap.m.Input",
-											"type":"Text",
-											"showValueHelp": true,
-											"showSuggestion": true,
-											"valueHelpRequest":"handleValueHelp",
-											"placeholder":"Standort eingeben"																							
+											"Type":"sap.m.Input",
+											"type":"Text"
 										}
 										
 									]

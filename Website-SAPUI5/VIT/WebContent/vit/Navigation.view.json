@@ -33,7 +33,7 @@
 					"items":[
 						{
 							"Type":"sap.m.StandardListItem",
-							"title":"Home",
+							"title":"Startseite",
 							"icon":"sap-icon://home",
 							"type":"Navigation",
 							"press":"handleHomePress"

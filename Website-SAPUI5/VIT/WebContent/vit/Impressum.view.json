@@ -1,0 +1,80 @@
+{
+	"Type":"sap.ui.core.mvc.JSONView",
+	"controllerName":"vit.Impressum",
+	"content":[
+		{
+			"Type":"sap.m.Page",
+			"id":"impressum",
+			"backgroundDesign":"Transparent",
+			"content":[
+				{
+					"Type":"sap.m.Panel",
+					"expandable":true,
+					"expanded":true,
+					"headerText":"Kontakt",
+					"content":[
+						{
+							"Type":"sap.ui.core.HTML",
+							"id":"kontakt"
+						}
+						
+					]
+					
+				},
+				{
+					"Type":"sap.m.Panel",
+					"expandable":true,
+					"expanded":false,
+					"headerText":"Registereintrag",
+					"content":[
+						{
+							"Type":"sap.ui.core.HTML",
+							"id":"register"
+						}
+						
+					]
+					
+				},
+				{
+					"Type":"sap.m.Panel",
+					"expandable":true,
+					"expanded":false,
+					"headerText":"Haftungsausschluss",
+					"content":[
+						{
+							"Type":"sap.ui.core.HTML",
+							"id":"disclaimer"
+						}
+						
+					]
+					
+				}
+				
+			],
+			"customHeader":[
+				{
+					"Type":"sap.m.Bar",
+					"contentLeft":[
+						{
+							"Type":"sap.m.Button",
+							"icon":"sap-icon://menu2",
+							"press":"showMenu"
+						}
+						
+					],
+					"contentMiddle":[
+						{
+							"Type":"sap.m.Label",
+							"text":"Impressum"
+						}
+						
+					]
+					
+				}
+				
+			]
+			
+		}
+		
+	]
+}

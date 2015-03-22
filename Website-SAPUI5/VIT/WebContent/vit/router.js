@@ -1,32 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
-
-<script
-	src="https://sapui5.netweaver.ondemand.com/sdk/resources/sap-ui-core.js"
-	id="sap-ui-bootstrap"
-	data-sap-ui-libs="sap.m, sap.ui.unified, sap.ui.layout"
-	data-sap-ui-theme="sap_bluecrystal">
-	
-</script>
-<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
-
-
-<script>
-	jQuery.sap.require("sap.ui.core.routing.Router");
-	jQuery.sap.require("sap.ui.core.routing.HashChanger");
-
-	sap.ui.localResources("vit");
-
-	var shell = sap.ui.view({
-		id : "vMain",
-		viewName : "vit.Shell",
-		type : sap.ui.core.mvc.ViewType.JSON
-	});
-
-	var router = new sap.ui.core.routing.Router([
+var router = new sap.ui.core.routing.Router([
 			{
 				pattern : "",
 				name : "Home",
@@ -93,32 +65,9 @@
 					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
 							.toDetail("vMain" + "--" + "pFavorites");
 				}
-			},
-			{
-				pattern : [ "impressum", "Impressum" ],
-				name : "Impressum",
-				view : "vit.Impressum",
-				viewType : sap.ui.core.mvc.ViewType.JSON,
-				targetControl : "vMain" + "--" + "splitApp",
-				targetAggregation : "detailPages", // content/Page
-				clearTarget : false,
-				callback : function() {
-					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
-							.toDetail("vMain" + "--" + "pImpressum");
-				}
 			}
 
 	]);
 
 	router.register("appRouter");
 	router.initialize();
-
-	shell.placeAt("content");
-</script>
-
-</head>
-<body class="sapUiBody" role="application">
-	<div id="content"></div>
-
-</body>
-</html>

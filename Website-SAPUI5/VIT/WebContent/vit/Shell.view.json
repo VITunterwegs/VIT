@@ -26,11 +26,16 @@
 					"id":"pFavorites",
 					"viewName":"vit.Favorites",
 					"type":"JSON"
-				},
-				{
+				},{
 					"Type":"sap.ui.view",
 					"id":"pNotify",
 					"viewName":"vit.Notify",
+					"type":"JSON"
+				},
+				{
+					"Type":"sap.ui.view",
+					"id":"pImpressum",
+					"viewName":"vit.Impressum",
 					"type":"JSON"
 				}
 				

@@ -29,27 +29,35 @@
 			],
 			"content":[
 				{
-					"Type":"sap.m.FlexBox",
-					"height": "50%",
-					"alignItems":"Center",
-					"justifyContent":"Center",
-					"direction":"Column",
-					"items":[
+					"Type":"sap.m.Panel",
+					"height":"50%",
+					"content":[
 						{
-							"Type":"sap.m.Button",
-							"text":"Suchen",
-							"icon":"sap-icon://search",
-							"iconFirst":true,
-							"width":"180px",
-							"press":"handleSearchPress"
-						},
-						{
-							"Type":"sap.m.Button",
-							"text":"Melden",
-							"icon":"sap-icon://action",
-							"iconFirst":true,
-							"width":"180px",
-							"press":"handleNotifyPress"
+							"Type":"sap.m.FlexBox",
+							"height":"100%",
+							"alignItems":"Center",
+							"justifyContent":"Center",
+							"direction":"Column",
+							"items":[
+								{
+									"Type":"sap.m.Button",
+									"text":"Suchen",
+									"icon":"sap-icon://search",
+									"iconFirst":true,
+									"width":"180px",
+									"press":"handleSearchPress"
+								},
+								{
+									"Type":"sap.m.Button",
+									"text":"Melden",
+									"icon":"sap-icon://action",
+									"iconFirst":true,
+									"width":"180px",
+									"press":"handleNotifyPress"
+								}
+								
+							]
+							
 						}
 						
 					]
@@ -90,6 +98,7 @@
 							}
 							
 						}
+						
 					]
 					
 				}
