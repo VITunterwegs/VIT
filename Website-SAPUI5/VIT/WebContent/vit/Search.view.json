@@ -46,7 +46,10 @@
 									"fields":[
 										{
 											"Type":"sap.m.Input",
-											"type":"Text"
+											"type":"Text",
+											"placeholder":"Standort eingeben",
+											"showValueHelp":true,
+											"valueHelpRequest":"valueHelpPressed"
 										}
 										
 									]

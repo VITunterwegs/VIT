@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <SelectDialog
+    title="Standort auswählen"
+    search="_handleValueHelpSearch"
+    confirm="_handleValueHelpConfirm"
+    cancel="_handleValueHelpClose">
+    <items>
+    	<StandardListItem title="Test Standort" description="Test Standort" icon="sap-icon://locate-me"/></items>
+  </SelectDialog>
+</core:FragmentDefinition>
