@@ -4,7 +4,7 @@
 	"content":[
 		{
 			"Type":"sap.m.Page",
-			"showHeader":true,
+			"showHeader":false,
 			"id":"pNotify",
 			"customHeader":[
 				{
@@ -29,6 +29,11 @@
 				
 			],
 			"content":[
+				{
+					"Type":"sap.m.Button",
+					"icon":"sap-icon://menu2",
+					"press":"showMenu"
+				},
 				{
 					"Type":"sap.ui.layout.form.Form",
 					"layout":{

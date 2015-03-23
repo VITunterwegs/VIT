@@ -32,6 +32,7 @@
 			"content":[
 				{
 					"Type":"sap.ui.layout.form.Form",
+					"backgroundColor":"transparent",
 					"layout":{
 						"Type":"sap.ui.layout.form.ResponsiveGridLayout",
 						"id":"L1"
