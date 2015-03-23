@@ -4,9 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
-<script
-	src="resources/sap-ui-core.js"
-	id="sap-ui-bootstrap"
+<script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
 	data-sap-ui-libs="sap.m, sap.ui.unified, sap.ui.layout"
 	data-sap-ui-theme="sap_bluecrystal">
 	
@@ -109,6 +107,17 @@
 			}
 
 	]);
+
+	$("#swipe").swipe(
+			{
+				swipeRight : function(event, direction, distance, duration,
+						fingerCount) {
+					//This only fires when the user swipes left
+					var oHashChanger = new sap.ui.core.routing.HashChanger();
+					oHashChanger.setHash(sap.ui.core.routing.Router.getRouter(
+							"appRouter").getURL("Navigation"));
+				}
+			});
 
 	router.register("appRouter");
 	router.initialize();
