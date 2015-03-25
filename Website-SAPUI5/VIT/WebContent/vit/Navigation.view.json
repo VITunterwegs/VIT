@@ -30,6 +30,7 @@
 			"content":[
 				{
 					"Type":"sap.m.List",
+					"type":"sap.m.ListType.Navigation",
 					"items":[
 						{
 							"Type":"sap.m.StandardListItem",

@@ -4,7 +4,7 @@
 	"content":[
 		{
 			"Type":"sap.m.Page",
-			"showHeader":false,
+			"showHeader":true,
 			"id":"pNotify",
 			"customHeader":[
 				{
@@ -20,7 +20,7 @@
 					"contentMiddle":[
 						{
 							"Type":"sap.m.Label",
-							"text":"Verspätung melden"
+							"text":"Melden"
 						}
 						
 					]
@@ -29,11 +29,6 @@
 				
 			],
 			"content":[
-				{
-					"Type":"sap.m.Button",
-					"icon":"sap-icon://menu2",
-					"press":"showMenu"
-				},
 				{
 					"Type":"sap.ui.layout.form.Form",
 					"layout":{
@@ -64,7 +59,7 @@
 									"label":"Verkehrsmittel",
 									"fields":[
 										{
-											"Type":"sap.m.Select",
+											"Type":"sap.m.ComboBox",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -87,7 +82,7 @@
 									"label":"Haltestelle",
 									"fields":[
 										{
-											"Type":"sap.m.Select",
+											"Type":"sap.m.ComboBox",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -110,7 +105,7 @@
 									"label":"Line > Richtung",
 									"fields":[
 										{
-											"Type":"sap.m.Select",
+											"Type":"sap.m.ComboBox",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",

@@ -8,7 +8,10 @@
 <script src="geo.js" type="text/javascript" ></script>
 <script src="resources/sap-ui-core.js" id="sap-ui-bootstrap"
 	data-sap-ui-libs="sap.m, sap.ui.unified, sap.ui.layout"
-	data-sap-ui-theme="sap_bluecrystal">
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-resourceroots='{
+            "ui5bp": "./"
+        }'>
 	
 </script>
 <!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
@@ -17,14 +20,38 @@
 <script>
 	jQuery.sap.require("sap.ui.core.routing.Router");
 	jQuery.sap.require("sap.ui.core.routing.HashChanger");
-
+	jQuery.sap.require("sap.ui.core.routing.History");
+	jQuery.sap.require("sap.ui.model.json.JSONModel");
+	
 	sap.ui.localResources("vit");
 
+	
+	
+	
+	// set device model
+    var deviceModel = new sap.ui.model.json.JSONModel({
+        isTouch : sap.ui.Device.support.touch,
+        isNoTouch : !sap.ui.Device.support.touch,
+        isPhone : sap.ui.Device.system.phone,
+        isNoPhone : !sap.ui.Device.system.phone,
+        listMode : sap.ui.Device.system.phone ? "None" : "SingleSelectMaster",
+        listItemType : sap.ui.Device.system.phone ? "Active" : "Inactive"
+    });
+    deviceModel.setDefaultBindingMode("OneWay");
+    sap.ui.getCore().setModel(deviceModel, "device");
+	
+	
+	
+	
+	
 	var shell = sap.ui.view({
 		id : "vMain",
 		viewName : "vit.Shell",
 		type : sap.ui.core.mvc.ViewType.JSON
 	});
+	
+	
+	
 
 	var router = new sap.ui.core.routing.Router([
 			{
@@ -109,10 +136,12 @@
 			}
 
 	]);
-
+	
+	sap.ui.core.routing.History.getInstance(sap.ui.core.routing.HashChanger.getInstance());
+	
 	router.register("appRouter");
 	router.initialize();
-
+	
 	shell.placeAt("content");
 </script>
 

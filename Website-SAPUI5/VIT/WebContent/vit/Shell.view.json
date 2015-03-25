@@ -5,7 +5,8 @@
 		{
 			"Type":"sap.m.SplitApp",
 			"id":"splitApp",
-			"backgroundColor": "#f1f1f1",
+			"mode":"HideMode",
+			"backgroundImage":"img/startscreen_header.png",
 			"initialMaster":"pNavigation",
 			"initialDetail":"pHome",
 			"detailPages":[

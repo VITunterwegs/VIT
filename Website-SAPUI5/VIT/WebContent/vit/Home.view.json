@@ -5,39 +5,26 @@
 		{
 			"Type":"sap.m.Page",
 			"showHeader":true,
-			"customHeader":[
-				{
-					"Type":"sap.m.Bar",
-					"contentLeft":[
-						{
-							"Type":"sap.m.Button",
-							"icon":"sap-icon://menu2",
-							"press":"showMenu"
-						}
-						
-					],
-					"contentMiddle":[
-						{
-							"Type":"sap.m.Label",
-							"text":"Home"
-						}
-						
-					]
-					
-				}
-				
-			],
+			"showNavButton":"{device>/isPhone}",
+			"navButtonPress":"showMenu",
+			"backgroundDesign":"Transparent",
 			"content":[
 				{
-					"Type":"sap.m.Panel",
-					"height":"50%",
-					"content":[
+					"Type":"sap.ui.layout.Splitter",
+					"orientation":"Vertical",
+					"height":"100%",
+					"contentAreas":[
 						{
 							"Type":"sap.m.FlexBox",
 							"height":"100%",
 							"alignItems":"Center",
 							"justifyContent":"Center",
 							"direction":"Column",
+							"layoutData":{
+								"Type":"sap.ui.layout.SplitterLayoutData",
+								"size":"50%",
+								"resizable":false
+							},
 							"items":[
 								{
 									"Type":"sap.m.Button",
@@ -58,44 +45,49 @@
 								
 							]
 							
-						}
-						
-					]
-					
-				},
-				{
-					"Type":"sap.m.Table",
-					"columns":[
-						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Linie"
-							}
-							
 						},
 						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Richtung"
-							}
-							
-						},
-						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Verspätung"
-							}
-							
-						},
-						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Ankunft"
-							}
+							"Type":"sap.m.Table",
+							"layoutData":{
+								"Type":"sap.ui.layout.SplitterLayoutData",
+								"size":"auto",
+								"resizable":false
+							},
+							"columns":[
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Linie"
+									}
+									
+								},
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Richtung"
+									}
+									
+								},
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Verspätung"
+									}
+									
+								},
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Ankunft"
+									}
+									
+								}
+								
+							]
 							
 						}
 						
@@ -108,4 +100,5 @@
 		}
 		
 	]
+	
 }

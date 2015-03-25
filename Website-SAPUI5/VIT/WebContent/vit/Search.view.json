@@ -7,28 +7,9 @@
 			"id":"search",
 			"showHeader":true,
 			"backgroundDesign":"Transparent",
-			"customHeader":[
-				{
-					"Type":"sap.m.Bar",
-					"contentLeft":[
-						{
-							"Type":"sap.m.Button",
-							"icon":"sap-icon://menu2",
-							"press":"showMenu"
-						}
-						
-					],
-					"contentMiddle":[
-						{
-							"Type":"sap.m.Label",
-							"text":"Suche"
-						}
-						
-					]
-					
-				}
-				
-			],
+			"title":"Suche",
+			"showNavButton": "{device>/isPhone}",
+			"navButtonPress":"showMenu",
 			"content":[
 				{
 					"Type":"sap.ui.layout.form.Form",
@@ -61,7 +42,7 @@
 									"label":"Verkehrsmittel",
 									"fields":[
 										{
-											"Type":"sap.m.Select",
+											"Type":"sap.m.ComboBox",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -84,7 +65,7 @@
 									"label":"Haltestelle",
 									"fields":[
 										{
-											"Type":"sap.m.Select",
+											"Type":"sap.m.ComboBox",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -107,7 +88,7 @@
 									"label":"Line > Richtung",
 									"fields":[
 										{
-											"Type":"sap.m.Select",
+											"Type":"sap.m.ComboBox",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
