@@ -12,17 +12,15 @@
 				{
 					"Type":"sap.ui.layout.Splitter",
 					"orientation":"Vertical",
-					"height":"100%",
 					"contentAreas":[
 						{
 							"Type":"sap.m.FlexBox",
-							"height":"100%",
 							"alignItems":"Center",
 							"justifyContent":"Center",
 							"direction":"Column",
 							"layoutData":{
 								"Type":"sap.ui.layout.SplitterLayoutData",
-								"size":"50%",
+								"size":"300px",
 								"resizable":false
 							},
 							"items":[
@@ -50,7 +48,7 @@
 							"Type":"sap.m.Table",
 							"layoutData":{
 								"Type":"sap.ui.layout.SplitterLayoutData",
-								"size":"auto",
+								"size":"300px",
 								"resizable":false
 							},
 							"columns":[

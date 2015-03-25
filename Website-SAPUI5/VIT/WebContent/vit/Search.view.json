@@ -8,7 +8,7 @@
 			"showHeader":true,
 			"backgroundDesign":"Transparent",
 			"title":"Suche",
-			"showNavButton": "{device>/isPhone}",
+			"showNavButton":"{device>/isPhone}",
 			"navButtonPress":"showMenu",
 			"content":[
 				{
@@ -24,12 +24,29 @@
 							"formElements":[
 								{
 									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Standort",
+									"label":"Startpunkt",
 									"fields":[
 										{
 											"Type":"sap.m.Input",
 											"type":"Text",
-											"placeholder":"Standort eingeben",
+											"id":"iStartPoint",
+											"placeholder":"Startpunkt eingeben",
+											"showValueHelp":true,
+											"valueHelpRequest":"valueHelpPressed"
+										}
+										
+									]
+									
+								},
+								{
+									"Type":"sap.ui.layout.form.FormElement",
+									"label":"Zielort",
+									"fields":[
+										{
+											"Type":"sap.m.Input",
+											"type":"Text",
+											"id":"iDestionation",
+											"placeholder":"Zielort eingeben",
 											"showValueHelp":true,
 											"valueHelpRequest":"valueHelpPressed"
 										}
@@ -42,7 +59,7 @@
 									"label":"Verkehrsmittel",
 									"fields":[
 										{
-											"Type":"sap.m.ComboBox",
+											"Type":"sap.m.Select",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -65,7 +82,7 @@
 									"label":"Haltestelle",
 									"fields":[
 										{
-											"Type":"sap.m.ComboBox",
+											"Type":"sap.m.Select",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -88,7 +105,7 @@
 									"label":"Line > Richtung",
 									"fields":[
 										{
-											"Type":"sap.m.ComboBox",
+											"Type":"sap.m.Select",
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
