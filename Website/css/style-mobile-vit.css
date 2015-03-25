@@ -1,0 +1,11 @@
+/*  */
+
+.body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background: #000000 !important;
+}
+
+.button.special {
+    background-color: #000000 !important;
+}
