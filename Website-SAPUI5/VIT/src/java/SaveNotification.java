@@ -112,6 +112,7 @@ public class SaveNotification extends HttpServlet {
         }
         try {
             this.saveData(
+                    request.getParameter("userId"),
                     request.getParameter("timestamp"),
                     request.getParameter("type"),
                     request.getParameter("stop"),
