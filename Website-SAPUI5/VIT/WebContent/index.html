@@ -91,6 +91,19 @@
 				}
 			},
 			{
+				pattern : [ "settings", "Settings" ],
+				name : "Settings",
+				view : "vit.Settings",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pSettings");
+				}
+			},
+			{
 				pattern : [ "navigation", "Navigation" ],
 				name : "Navigation",
 				view : "vit.Navigation",

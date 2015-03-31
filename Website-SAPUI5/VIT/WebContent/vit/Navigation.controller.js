@@ -22,8 +22,9 @@ sap.ui.controller("vit.Navigation", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Notify"));
 	},
-	handleConfigPress: function(oEvent){
-		
+	handleSettingsPress : function(oEvent) {
+		var oHashChanger = new sap.ui.core.routing.HashChanger();
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Settings"));
 	},
 	handleHelpPress: function(oEvent){
 		

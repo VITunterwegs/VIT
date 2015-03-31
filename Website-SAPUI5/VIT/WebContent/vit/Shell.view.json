@@ -38,6 +38,12 @@
 					"id":"pImpressum",
 					"viewName":"vit.Impressum",
 					"type":"JSON"
+				},
+				{
+					"Type":"sap.ui.view",
+					"viewName":"vit.Settings",
+					"id":"pSettings",
+					"type":"JSON"
 				}
 				
 			],

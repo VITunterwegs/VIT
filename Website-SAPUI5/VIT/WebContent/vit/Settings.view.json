@@ -1,0 +1,38 @@
+{
+	"Type":"sap.ui.core.mvc.JSONView",
+	"controllerName":"vit.Settings",
+	"content":[
+		{
+			"Type":"sap.m.Page",
+			"id":"settings",
+			"backgroundDesign":"Transparent",
+			"content":[
+				
+			],
+			"customHeader":[
+				{
+					"Type":"sap.m.Bar",
+					"contentLeft":[
+						{
+							"Type":"sap.m.Button",
+							"icon":"sap-icon://menu2",
+							"press":"showMenu"
+						}
+						
+					],
+					"contentMiddle":[
+						{
+							"Type":"sap.m.Label",
+							"text":"Settings"
+						}
+						
+					]
+					
+				}
+				
+			]
+			
+		}
+		
+	]
+}

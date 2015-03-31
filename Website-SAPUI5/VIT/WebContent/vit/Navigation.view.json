@@ -65,7 +65,7 @@
 							"title":"Einstellungen",
 							"icon":"sap-icon://action-settings",
 							"type":"Navigation",
-							"press":"handleConfigPress"
+							"press":"handleSettingsPress"
 						},
 						{
 							"Type":"sap.m.StandardListItem",
