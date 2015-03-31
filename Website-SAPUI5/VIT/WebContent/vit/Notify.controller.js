@@ -8,7 +8,18 @@ sap.ui.controller("vit.Notify", {
 
 	},
 	handleSendNotificationPress : function(oEvent) {
-
+		var xhr = new XMLHttpRequest();
+	    xhr.onreadystatechange = function() {
+	    	var url = "schoeneborn-online.de:7070/vit_server/SaveNotification?";
+	    	url = url + "userID=1&"
+	    				+ "" + sap.ui.getCore().byId("not_direction");
+	        if (xhr.readyState == 4) {
+	            var data = xhr.responseText;
+	            alert(data);
+	        }
+	    }
+	    xhr.open('post', 'schoeneborn-online.de:7070/vit_server/SaveNotification?UserI', true);
+	    xhr.send(null);
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();

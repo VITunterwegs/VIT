@@ -1,10 +1,10 @@
 {
 	"Type":"sap.ui.core.mvc.JSONView",
-	"controllerName":"vit.Settings",
+	"controllerName":"vit.Help",
 	"content":[
 		{
 			"Type":"sap.m.Page",
-			"id":"settings",
+			"id":"help",
 			"backgroundDesign":"Transparent",
 			"content":[
 				{
@@ -28,7 +28,7 @@
 					"contentMiddle":[
 						{
 							"Type":"sap.m.Label",
-							"text":"Settings"
+							"text":"Help"
 						}
 						
 					]

@@ -102,6 +102,19 @@
 				}
 			},
 			{
+				pattern : [ "help", "Help" ],
+				name : "Help",
+				view : "vit.Help",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pHelp");
+				}
+			},
+			{
 				pattern : [ "navigation", "Navigation" ],
 				name : "Navigation",
 				view : "vit.Navigation",

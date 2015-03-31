@@ -60,6 +60,7 @@
 									"fields":[
 										{
 											"Type":"sap.m.ComboBox",
+											"editable":false,
 											"items":[
 												{
 													"Type":"sap.ui.core.Item",
@@ -102,6 +103,7 @@
 								},
 								{
 									"Type":"sap.ui.layout.form.FormElement",
+									"id":"not_direction",
 									"label":"Line > Richtung",
 									"fields":[
 										{

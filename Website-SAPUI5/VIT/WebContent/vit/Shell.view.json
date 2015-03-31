@@ -41,6 +41,12 @@
 				},
 				{
 					"Type":"sap.ui.view",
+					"id":"pHelp",
+					"viewName":"vit.Help",
+					"type":"JSON"
+				},
+				{
+					"Type":"sap.ui.view",
 					"viewName":"vit.Settings",
 					"id":"pSettings",
 					"type":"JSON"
