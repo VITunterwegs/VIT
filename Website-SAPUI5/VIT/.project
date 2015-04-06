@@ -34,11 +34,4 @@
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>com.sap.ide.ui5.app.plugin.webappnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/web.xml</name>
-			<type>1</type>
-			<location>//192.168.178.36/Tomcat/ROOT/WEB-INF/web.xml</location>
-		</link>
-	</linkedResources>
 </projectDescription>
