@@ -1,38 +1,32 @@
 {
-	"Type":"sap.ui.core.mvc.JSONView",
-	"controllerName":"vit.Favorites",
-	"content":[
-		{
-			"Type":"sap.m.Page",
-			"id":"favorites",
-			"backgroundDesign":"Transparent",
-			"content":[
-				
-			],
-			"customHeader":[
-				{
-					"Type":"sap.m.Bar",
-					"contentLeft":[
-						{
-							"Type":"sap.m.Button",
-							"icon":"sap-icon://menu2",
-							"press":"showMenu"
-						}
-						
-					],
-					"contentMiddle":[
-						{
-							"Type":"sap.m.Label",
-							"text":"Favoriten"
-						}
-						
-					]
-					
-				}
-				
-			]
-			
-		}
-		
-	]
+    "Type":"sap.ui.core.mvc.JSONView",
+    "controllerName":"vit.Favorites",
+    "content":[
+        {
+            "Type":"sap.m.Page",
+            "id":"favorites",
+            "backgroundDesign":"List",
+            "content":[
+                
+            ],
+            "customHeader":[
+                {
+                    "Type":"sap.m.Bar",
+                    "contentLeft":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://menu2",
+                            "press":"showMenu"
+                        }
+                    ],
+                    "contentMiddle":[
+                        {
+                            "Type":"sap.m.Label",
+                            "text":"Favoriten"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

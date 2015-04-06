@@ -1,163 +1,158 @@
 {
-	"Type":"sap.ui.core.mvc.JSONView",
-	"controllerName":"vit.Search",
-	"content":[
-		{
-			"Type":"sap.m.Page",
-			"id":"search",
-			"showHeader":true,
-			"backgroundDesign":"Transparent",
-			"title":"Suche",
-			"showNavButton":"{device>/isPhone}",
-			"navButtonPress":"showMenu",
-			"content":[
-				{
-					"Type":"sap.ui.layout.form.Form",
-					"backgroundColor":"transparent",
-					"layout":{
-						"Type":"sap.ui.layout.form.ResponsiveGridLayout",
-						"id":"L1"
-					},
-					"formContainers":[
-						{
-							"Type":" sap.ui.layout.form.FormContainer",
-							"formElements":[
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Startpunkt",
-									"fields":[
-										{
-											"Type":"sap.m.Input",
-											"type":"Text",
-											"id":"iStartPoint",
-											"placeholder":"Startpunkt eingeben",
-											"showValueHelp":true,
-											"valueHelpRequest":"valueHelpPressed"
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Zielort",
-									"fields":[
-										{
-											"Type":"sap.m.Input",
-											"type":"Text",
-											"id":"iDestionation",
-											"placeholder":"Zielort eingeben",
-											"showValueHelp":true,
-											"valueHelpRequest":"valueHelpPressed"
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Verkehrsmittel",
-									"fields":[
-										{
-											"Type":"sap.m.Select",
-											"items":[
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Bahn"
-												},
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Bus"
-												}
-												
-											]
-											
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Haltestelle",
-									"fields":[
-										{
-											"Type":"sap.m.Select",
-											"items":[
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Duale Hochschule"
-												},
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Knielinger Allee"
-												}
-												
-											]
-											
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Line > Richtung",
-									"fields":[
-										{
-											"Type":"sap.m.Select",
-											"items":[
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Heide"
-												},
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Tivoli"
-												}
-												
-											]
-											
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"fields":[
-										{
-											"Type":"sap.m.Button",
-											"text":"Suchen",
-											"icon":"sap-icon://search",
-											"iconFirst":true,
-											"press":"handleSearchPress",
-											"type":"Accept"
-										},
-										{
-											"Type":"sap.m.Button",
-											"text":"Zu Favoriten hinzufügen",
-											"icon":"sap-icon://favorite",
-											"iconFirst":true,
-											"press":"handleAddFavPress",
-											"type":"Accept"
-										}
-										
-									]
-									
-								}
-								
-							]
-							
-						}
-						
-					]
-					
-				}
-				
-			]
-			
-		}
-		
-	]
+    "Type":"sap.ui.core.mvc.JSONView",
+    "controllerName":"vit.Search",
+    "content":[
+        {
+            "Type":"sap.m.Page",
+            "id":"search",
+            "showHeader":true,
+            "backgroundDesign":"Transparent",
+            "title":"Suche",
+            "showNavButton":false,
+            "customHeader":[
+                {
+                    "Type":"sap.m.Bar",
+                    "contentLeft":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://menu2",
+                            "press":"showMenu"
+                        }
+                    ],
+                    "contentMiddle":[
+                        {
+                            "Type":"sap.m.Label",
+                            "text":"Suchen"
+                        }
+                    ]
+                }
+            ],
+            "content":[
+                {
+                    "Type":"sap.ui.layout.form.Form",
+                    "backgroundColor":"transparent",
+                    "layout":{
+                        "Type":"sap.ui.layout.form.ResponsiveGridLayout",
+                        "id":"L1"
+                    },
+                    "formContainers":[
+                        {
+                            "Type":"sap.ui.layout.form.FormContainer",
+                            "formElements":[
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Startpunkt",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Input",
+                                            "type":"Text",
+                                            "id":"iStartPoint",
+                                            "placeholder":"Startpunkteingeben",
+                                            "showValueHelp":true,
+                                            "valueHelpRequest":"valueHelpPressed"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Zielort",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Input",
+                                            "type":"Text",
+                                            "id":"iDestionation",
+                                            "placeholder":"Zielorteingeben",
+                                            "showValueHelp":true,
+                                            "valueHelpRequest":"valueHelpPressed"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Verkehrsmittel",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Select",
+                                            "type":"Default",
+                                            "items":[
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Bahn"
+                                                },
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Bus"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Haltestelle",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Select",
+                                            "type":"Default",
+                                            "items":[
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Duale Hochschule"
+                                                },
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"KnielingerAllee"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Line>Richtung",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Select",
+                                            "type":"Default",
+                                            "items":[
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Heide"
+                                                },
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Tivoli"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Button",
+                                            "text":"Suchen",
+                                            "icon":"sap-icon://search",
+                                            "iconFirst":true,
+                                            "press":"handleSearchPress",
+                                            "type":"Accept"
+                                        },
+                                        {
+                                            "Type":"sap.m.Button",
+                                            "text":"ZuFavoritenhinzufügen",
+                                            "icon":"sap-icon://favorite",
+                                            "iconFirst":true,
+                                            "press":"handleAddFavPress",
+                                            "type":"Accept"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

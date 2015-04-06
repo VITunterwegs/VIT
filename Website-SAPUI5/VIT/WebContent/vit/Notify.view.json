@@ -1,170 +1,173 @@
 {
-	"Type":"sap.ui.core.mvc.JSONView",
-	"controllerName":"vit.Notify",
-	"content":[
-		{
-			"Type":"sap.m.Page",
-			"showHeader":true,
-			"id":"pNotify",
-			"customHeader":[
-				{
-					"Type":"sap.m.Bar",
-					"contentLeft":[
-						{
-							"Type":"sap.m.Button",
-							"icon":"sap-icon://menu2",
-							"press":"showMenu"
-						}
-						
-					],
-					"contentMiddle":[
-						{
-							"Type":"sap.m.Label",
-							"text":"Melden"
-						}
-						
-					]
-					
-				}
-				
-			],
-			"content":[
-				{
-					"Type":"sap.ui.layout.form.Form",
-					"layout":{
-						"Type":"sap.ui.layout.form.ResponsiveGridLayout",
-						"id":"L1"
-					},
-					"formContainers":[
-						{
-							"Type":" sap.ui.layout.form.FormContainer",
-							"formElements":[
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Standort",
-									"fields":[
-										{
-											"Type":"sap.m.Input",
-											"type":"Text",
-											"placeholder":"Standort eingeben",
-											"showValueHelp":true,
-											"valueHelpRequest":"valueHelpPressed"
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Verkehrsmittel",
-									"fields":[
-										{
-											"Type":"sap.m.ComboBox",
-											"editable":false,
-											"items":[
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Bahn"
-												},
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Bus"
-												}
-												
-											]
-											
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Haltestelle",
-									"fields":[
-										{
-											"Type":"sap.m.ComboBox",
-											"items":[
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Duale Hochschule"
-												},
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Knielinger Allee"
-												}
-												
-											]
-											
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"id":"not_direction",
-									"label":"Line > Richtung",
-									"fields":[
-										{
-											"Type":"sap.m.ComboBox",
-											"items":[
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Heide"
-												},
-												{
-													"Type":"sap.ui.core.Item",
-													"text":"Tivoli"
-												}
-												
-											]
-											
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":"Verspätung",
-									"fields":[
-										{
-											"Type":"sap.m.DateTimeInput",
-											"displayFormat":"HH:mm",
-											"type":"Time",
-											"value":"00:01"
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"fields":[
-										{
-											"Type":"sap.m.Button",
-											"text":"Melden",
-											"press":"handleSendNotificationPress",
-											"type":"Accept"
-										}
-										
-									]
-									
-								}
-								
-							]
-							
-						}
-						
-					]
-					
-				}
-				
-			]
-			
-		}
-		
-	]
-	
+    "Type":"sap.ui.core.mvc.JSONView",
+    "controllerName":"vit.Notify",
+    "content":[
+        {
+            "Type":"sap.m.Page",
+            "showHeader":true,
+            "id":"pNotify",
+            "customHeader":[
+                {
+                    "Type":"sap.m.Bar",
+                    "contentLeft":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://menu2",
+                            "press":"showMenu"
+                        }
+                        
+                    ],
+                    "contentMiddle":[
+                        {
+                            "Type":"sap.m.Label",
+                            "text":"Melden"
+                        }
+                        
+                    ]
+                    
+                }
+                
+            ],
+            "content":[
+                {
+                    "Type":"sap.ui.layout.form.Form",
+                    "layout":{
+                        "Type":"sap.ui.layout.form.ResponsiveGridLayout",
+                        "id":"L1"
+                    },
+                    "formContainers":[
+                        {
+                            "Type":" sap.ui.layout.form.FormContainer",
+                            "formElements":[
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Standort",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Input",
+                                            "type":"Text",
+                                            "placeholder":"Standort eingeben",
+                                            "showValueHelp":true,
+                                            "valueHelpRequest":"valueHelpPressed"
+                                        }
+                                        
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Verkehrsmittel",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Select",
+                                            "type":"Default",
+                                            "editable":false,
+                                            "items":[
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Bahn"
+                                                },
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Bus"
+                                                }
+                                                
+                                            ]
+                                            
+                                        }
+                                        
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Haltestelle",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Select",
+                                            "type":"Default",
+                                            "items":[
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Duale Hochschule"
+                                                },
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Knielinger Allee"
+                                                }
+                                                
+                                            ]
+                                            
+                                        }
+                                        
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "id":"not_direction",
+                                    "label":"Line > Richtung",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Select",
+                                            "type":"Default",
+                                            "items":[
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Heide"
+                                                },
+                                                {
+                                                    "Type":"sap.ui.core.Item",
+                                                    "text":"Tivoli"
+                                                }
+                                                
+                                            ]
+                                            
+                                        }
+                                        
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Verspätung",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.DateTimeInput",
+                                            "displayFormat":"HH:mm",
+                                            "type":"Time",
+                                            "value":"00:01"
+                                        }
+                                        
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Button",
+                                            "text":"Melden",
+                                            "press":"handleSendNotificationPress",
+                                            "type":"Accept"
+                                        }
+                                        
+                                    ]
+                                    
+                                }
+                                
+                            ]
+                            
+                        }
+                        
+                    ]
+                    
+                }
+                
+            ]
+            
+        }
+        
+    ]
+    
 }
