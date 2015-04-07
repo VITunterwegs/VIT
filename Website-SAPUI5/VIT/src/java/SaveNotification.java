@@ -41,7 +41,7 @@ public class SaveNotification extends HttpServlet {
     }
     
     private void saveData(String userId,
-                          Date timestamp, 
+                          String timestamp, 
                           String type,
                           String stop,
                           String lastStop,
@@ -71,7 +71,7 @@ public class SaveNotification extends HttpServlet {
                       dbname + ".Verspaetung values (?, ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?)");
            
             preparedStatement.setString(1, userId);
-            preparedStatement.setString(2, timestamp.toString());
+            preparedStatement.setString(2, timestamp);
             preparedStatement.setString(3, type);
             preparedStatement.setString(4, stop);
             preparedStatement.setString(5, lastStop);
@@ -116,9 +116,12 @@ public class SaveNotification extends HttpServlet {
             canc = true;
         }
         try {
-            this.saveData(
+        	String timestamp = "";
+        	Date now = new java.util.Date();
+        	timestamp += now.toString();
+        			this.saveData(
                     request.getParameter("userId"),
-                    new java.util.Date(),
+                    timestamp,
                     request.getParameter("type"),
                     request.getParameter("stop"),
                     request.getParameter("lastStop"),
@@ -143,7 +146,6 @@ public class SaveNotification extends HttpServlet {
                     + "</html>");
         }
     }
-
     
     @Override
     public String getServletInfo() {

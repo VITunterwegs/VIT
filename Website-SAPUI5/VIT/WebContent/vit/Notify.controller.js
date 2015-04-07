@@ -8,8 +8,6 @@ sap.ui.controller("vit.Notify", {
 
 	},
 	handleSendNotificationPress : function(oEvent) {
-		var xhr = new XMLHttpRequest();
-	    xhr.onreadystatechange = function() {
 	    	var url = "schoeneborn-online.de:7070/vit_server/SaveNotification?";
 	    	url = url + "userID=1&"
 	    				+ "" + sap.ui.getCore().byId("not_direction");
@@ -20,9 +18,9 @@ sap.ui.controller("vit.Notify", {
 	    			line:"TestLinie",
 	    			track:"TestTrack",
 	    			direction:"TestDirection",
-	    			originArr:"TestOriginArr",
+	    			originArr:"20140302020202",
 	    			delay:"5",
-	    			currArr:"TestcurrArr"}; //Array 
+	    			currArr:"20140302020202"}; //Array 
 	    	 
 	    	$.ajax({
 	    	    url : "schoeneborn-online.de:7070/vit_server/SaveNotification",
@@ -34,16 +32,9 @@ sap.ui.controller("vit.Notify", {
 	    	    },
 	    	    error: function (jqXHR, textStatus, errorThrown)
 	    	    {
-	    	 
+	    	    	
 	    	    }
 	    	});
-	        if (xhr.readyState == 4) {
-	            var data = xhr.responseText;
-	            alert(data);
-	        }
-	    }
-	    xhr.open('post', 'schoeneborn-online.de:7070/vit_server/SaveNotification?UserI', true);
-	    xhr.send(null);
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
