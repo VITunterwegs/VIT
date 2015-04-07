@@ -3,6 +3,7 @@
         {
             {
                 "name":"Tivoli",
+                "id":"1",
                 "linien":[
                     {
                         "linie":"3"
@@ -12,7 +13,8 @@
                 
             },
             {
-                "name":"Poststraﬂe"
+                "name":"Poststraﬂe",
+                "id":"2",
                 "linien":[
                     {
                         "linie":"3"
@@ -22,7 +24,9 @@
                 
             },
             {
-                "name":"Hbf Vorplatz"
+                "name":"Hbf Vorplatz",
+                
+                "id":"3",
                 "linien":[
                     {
                         "linie":"3"
@@ -32,7 +36,8 @@
                 
             },
             {
-                "name":"Ebertstraﬂe"
+                "name":"Ebertstraﬂe",
+                "id":"4",
                 "linien":[
                     {
                         "linie":"3"
@@ -42,7 +47,8 @@
                 
             },
             {
-                "name":"Kolpingplatz"
+                "name":"Kolpingplatz",
+                "id":"6",
                 "linien":[
                     {
                         "linie":"3"
@@ -52,7 +58,8 @@
                 
             },
             {
-                "name":"Mathystraﬂe"
+                "name":"Mathystraﬂe",
+                "id":"7",
                 "linien":[
                     {
                         "linie":"3"
@@ -62,7 +69,8 @@
                 
             },
             {
-                "name":"Karlstor"
+                "name":"Karlstor",
+                "id":"8",
                 "linien":[
                     {
                         "linie":"3"
@@ -72,7 +80,8 @@
                 
             },
             {
-                "name":"Europaplatz (Karl)"
+                "name":"Europaplatz (Karl)",
+                "id":"9",
                 "linien":[
                     {
                         "linie":"3"
@@ -82,7 +91,8 @@
                 
             },
             {
-                "name":"Europaplatz (Kaiser)"
+                "name":"Europaplatz (Kaiser)",
+                "id":"10",
                 "linien":[
                     {
                         "linie":"3"
@@ -92,7 +102,8 @@
                 
             },
             {
-                "name":"M¸hlburger Tor (Grashofstr)"
+                "name":"M¸hlburger Tor (Grashofstr)",
+                "id":"11",
                 "linien":[
                     {
                         "linie":"3"
@@ -103,6 +114,8 @@
             },
             {
                 "name":"Kunstakademie/Hochschule"
+                ,
+                "id":"12",
                 "linien":[
                     {
                         "linie":"3"
@@ -112,7 +125,8 @@
                 
             },
             {
-                "name":"Synagoge"
+                "name":"Synagoge",
+                "id":"13",
                 "linien":[
                     {
                         "linie":"3"
@@ -122,7 +136,8 @@
                 
             },
             {
-                "name":"Lilienthalstraﬂe"
+                "name":"Lilienthalstraﬂe",
+                "id":"14",
                 "linien":[
                     {
                         "linie":"3"
@@ -132,7 +147,8 @@
                 
             },
             {
-                "name":"Duale Hochschule"
+                "name":"Duale Hochschule",
+                "id":"15",
                 "linien":[
                     {
                         "linie":"3"
@@ -142,7 +158,8 @@
                 
             },
             {
-                "name":"Heidehof"
+                "name":"Heidehof",
+                "id":"16",
                 "linien":[
                     {
                         "linie":"3"
