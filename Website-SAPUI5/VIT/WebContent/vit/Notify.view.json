@@ -15,18 +15,14 @@
                             "icon":"sap-icon://menu2",
                             "press":"showMenu"
                         }
-                        
                     ],
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
                             "text":"Melden"
                         }
-                        
                     ]
-                    
                 }
-                
             ],
             "content":[
                 {
@@ -45,14 +41,15 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Input",
+                                            "liveChange":"locationChanged",
+                                            "id":"inputLocation",
                                             "type":"Text",
                                             "placeholder":"Standort eingeben",
                                             "showValueHelp":true,
-                                            "valueHelpRequest":"valueHelpPressed"
+                                            "valueHelpRequest":"valueHelpPressed",
+                                            "editable":true
                                         }
-                                        
                                     ]
-                                    
                                 },
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
@@ -60,8 +57,9 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
+                                            "id":"SelectTransportation",
                                             "type":"Default",
-                                            "editable":false,
+                                            "enabled":false,
                                             "items":[
                                                 {
                                                     "Type":"sap.ui.core.Item",
@@ -71,13 +69,9 @@
                                                     "Type":"sap.ui.core.Item",
                                                     "text":"Bus"
                                                 }
-                                                
                                             ]
-                                            
                                         }
-                                        
                                     ]
-                                    
                                 },
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
@@ -85,6 +79,8 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
+                                            "id":"SelectStop",
+                                            "enabled":false,
                                             "type":"Default",
                                             "items":[
                                                 {
@@ -95,22 +91,19 @@
                                                     "Type":"sap.ui.core.Item",
                                                     "text":"Knielinger Allee"
                                                 }
-                                                
                                             ]
-                                            
                                         }
-                                        
                                     ]
-                                    
                                 },
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
-                                    "id":"not_direction",
                                     "label":"Line > Richtung",
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
                                             "type":"Default",
+                                            "id":"SelectDirection",
+                                            "enabled":false,
                                             "items":[
                                                 {
                                                     "Type":"sap.ui.core.Item",
@@ -120,13 +113,9 @@
                                                     "Type":"sap.ui.core.Item",
                                                     "text":"Tivoli"
                                                 }
-                                                
                                             ]
-                                            
                                         }
-                                        
                                     ]
-                                    
                                 },
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
@@ -134,40 +123,33 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.DateTimeInput",
+                                            "id":"SelectDelay",
                                             "displayFormat":"HH:mm",
+                                            "enabled":false,
                                             "type":"Time",
-                                            "value":"00:01"
+                                            "value":"00:00",
+                                            "change":"delayChanged"
                                         }
-                                        
                                     ]
-                                    
                                 },
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
                                     "fields":[
                                         {
                                             "Type":"sap.m.Button",
+                                            "id":"ButtonReport",
                                             "text":"Melden",
                                             "press":"handleSendNotificationPress",
-                                            "type":"Accept"
+                                            "type":"Accept",
+                                            "enabled":false
                                         }
-                                        
                                     ]
-                                    
                                 }
-                                
                             ]
-                            
                         }
-                        
                     ]
-                    
                 }
-                
             ]
-            
         }
-        
     ]
-    
 }

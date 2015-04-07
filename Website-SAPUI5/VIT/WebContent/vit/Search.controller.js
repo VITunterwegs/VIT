@@ -45,10 +45,9 @@ sap.ui.controller("vit.Search", {
 	_handleValueHelpConfirm : function(evt) {
 		var oSelectedItem = evt.getParameter("selectedItem");
 		if (oSelectedItem) {
-			var productInput = sap.ui.getCore().byId(this.inputId);
+			var productInput = this.inputId;
 			productInput.setValue(oSelectedItem.getTitle());
 		}
-		evt.getSource().getBinding("items").filter([]);
 	},
 	__handleValueHelpCancel : function(evt) {
 	}

@@ -4,43 +4,52 @@
     "content":[
         {
             "Type":"sap.m.Page",
-            "showHeader":false,
+            "showHeader":true,
             "showNavButton":false,
             "backgroundDesign":"List",
-            "content":[
+            "enableScrolling":false,
+            "customHeader":[
                 {
-                    "Type":"sap.m.Panel",
-                    "id":"buttons",
-                    "height":"325px",
-                    "content":[
+                    "Type":"sap.m.Bar",
+                    "contentLeft":[
                         {
                             "Type":"sap.m.Button",
                             "icon":"sap-icon://menu2",
                             "press":"showMenu"
+                        }
+                    ],
+                    "contentMiddle":[
+                        {
+                            "Type":"sap.m.Label",
+                            "text":"Home"
+                        }
+                    ]
+                }
+            ],
+            "content":[
+                {
+                    "Type":"sap.m.FlexBox",
+                    "id":"flexbox",
+                    "height":"43%",
+                    "alignItems":"Center",
+                    "justifyContent":"Center",
+                    "direction":"Column",
+                    "items":[
+                        {
+                            "Type":"sap.m.Button",
+                            "text":"Suchen",
+                            "icon":"sap-icon://search",
+                            "iconFirst":true,
+                            "width":"180px",
+                            "press":"handleSearchPress"
                         },
                         {
-                            "Type":"sap.m.FlexBox",
-                            "alignItems":"Center",
-                            "justifyContent":"Center",
-                            "direction":"Column",
-                            "items":[
-                                {
-                                    "Type":"sap.m.Button",
-                                    "text":"Suchen",
-                                    "icon":"sap-icon://search",
-                                    "iconFirst":true,
-                                    "width":"180px",
-                                    "press":"handleSearchPress"
-                                },
-                                {
-                                    "Type":"sap.m.Button",
-                                    "text":"Melden",
-                                    "icon":"sap-icon://action",
-                                    "iconFirst":true,
-                                    "width":"180px",
-                                    "press":"handleNotifyPress"
-                                }
-                            ]
+                            "Type":"sap.m.Button",
+                            "text":"Melden",
+                            "icon":"sap-icon://action",
+                            "iconFirst":true,
+                            "width":"180px",
+                            "press":"handleNotifyPress"
                         }
                     ]
                 },

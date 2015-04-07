@@ -140,7 +140,7 @@
                                         },
                                         {
                                             "Type":"sap.m.Button",
-                                            "text":"ZuFavoritenhinzufügen",
+                                            "text":"Zu Favoriten hinzufÃ¼gen",
                                             "icon":"sap-icon://favorite",
                                             "iconFirst":true,
                                             "press":"handleAddFavPress",
