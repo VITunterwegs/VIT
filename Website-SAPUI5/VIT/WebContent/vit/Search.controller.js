@@ -1,9 +1,9 @@
 jQuery.sap.require("sap.m.MessageToast");
 
 sap.ui.controller("vit.Search", {
-	
+
 	inputId : "",
-	
+
 	onInit : function() {
 		sap.ui.localResources("fragment");
 	},
@@ -46,35 +46,48 @@ sap.ui.controller("vit.Search", {
 		var oSelectedItem = evt.getParameter("selectedItem");
 		if (oSelectedItem) {
 			this.inputId.setValue(oSelectedItem.getTitle());
+			if (this.inputId == this.byId("inputStart")) {
+				this.byId("inputDestination").setEnabled(true);
+			}else{
+				this.enableFields(this.inputId);
+			}
 		}
 	},
 	__handleValueHelpCancel : function(evt) {
 	},
-	
-	enableDestination: function(oControl){
-		if(oControl.getValue() != ""){
+
+	locationChanged : function(oEvent) {
+		if (oEvent.getSource().getValue() != "") {
 			this.byId("inputDestination").setEnabled(true);
-			
-		}else{
+
+		} else {
 			this.byId("inputDestination").setEnabled(false);
-		}	
-	},
-	
-	enableFields: function(oControl){
-		if(oControl.getValue() != ""){
-			this.byId("SelectTransportation").setEnabled(true);
-			this.byId("SelectStop").setEnabled(true);
-			this.byId("SelectDirection").setEnabled(true);
-			this.byId("ButtonSearch").setEnabled(true);
-			this.byId("ButtonAddFavorite").setEnabled(true);
-		}else{
 			this.byId("SelectTransportation").setEnabled(false);
 			this.byId("SelectStop").setEnabled(false);
 			this.byId("SelectDirection").setEnabled(false);
 			this.byId("ButtonSearch").setEnabled(false);
 			this.byId("ButtonAddFavorite").setEnabled(false);
-			
-		}	
+		}
+	},
+	
+	destinationChanged : function(oEvent){
+		this.enableFields(oEvent.getSource());
+	},
+
+	enableFields : function(oControl) {
+		if (oControl.getValue() != "") {
+			this.byId("SelectTransportation").setEnabled(true);
+			this.byId("SelectStop").setEnabled(true);
+			this.byId("SelectDirection").setEnabled(true);
+			this.byId("ButtonSearch").setEnabled(true);
+			this.byId("ButtonAddFavorite").setEnabled(true);
+		} else {
+			this.byId("SelectTransportation").setEnabled(false);
+			this.byId("SelectStop").setEnabled(false);
+			this.byId("SelectDirection").setEnabled(false);
+			this.byId("ButtonSearch").setEnabled(false);
+			this.byId("ButtonAddFavorite").setEnabled(false);
+		}
 	},
 
 });
