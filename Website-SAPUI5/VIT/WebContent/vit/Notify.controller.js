@@ -14,7 +14,15 @@ sap.ui.controller("vit.Notify", {
 	    	url = url + "userID=1&"
 	    				+ "" + sap.ui.getCore().byId("not_direction");
 	    	var formData = {userid:"1",
-	    			type:sap.ui.getCore().byId("not_type")}; //Array 
+	    			type:this.byId("SelectTransportation").getSelectedItem().getText(),
+	    			stop:"TestHaltestelle",
+	    			lastStop:"TestEndhaltestelle",
+	    			line:"TestLinie",
+	    			track:"TestTrack",
+	    			direction:"TestDirection",
+	    			originArr:"TestOriginArr",
+	    			delay:"5",
+	    			currArr:"TestcurrArr"}; //Array 
 	    	 
 	    	$.ajax({
 	    	    url : "schoeneborn-online.de:7070/vit_server/SaveNotification",
