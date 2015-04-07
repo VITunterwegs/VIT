@@ -6,6 +6,24 @@ sap.ui.controller("vit.Search", {
 
 	onInit : function() {
 		sap.ui.localResources("fragment");
+		
+		jQuery.ajax({
+              type : "GET",
+              contentType : "application/json",
+              url : "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
+              dataType : "json",
+              data: { location: "-33.8670522,151.1957362", radius: "500", types: "transit_station", key: "AIzaSyCjbccUJz5zW9FXnbo0oErrbgfw4M6Wyfg" },
+              success : function(data) {
+                  console.log(data);
+              }
+
+          });
+		
+		
+		
+		
+		
+		
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();

@@ -50,7 +50,8 @@
                                             "placeholder":"Startpunkteingeben",
                                             "showValueHelp":true,
                                             "valueHelpRequest":"valueHelpPressed",
-                                            "enabled":true
+                                            "enabled":true,
+                                            "liveChange":"locationChanged"
                                         }
                                     ]
                                 },
@@ -61,11 +62,12 @@
                                         {
                                             "Type":"sap.m.Input",
                                             "type":"Text",
-                                            "id":"inputDestionation",
+                                            "id":"inputDestination",
                                             "placeholder":"Zielorteingeben",
                                             "showValueHelp":true,
                                             "valueHelpRequest":"valueHelpPressed",
-                                            "enabled":false
+                                            "enabled":false,
+                                            "liveChange":"destinationChanged"
                                         }
                                     ]
                                 },
