@@ -6,41 +6,34 @@ sap.ui.controller("vit.Search", {
 
 	onInit : function() {
 		sap.ui.localResources("fragment");
-		
-		
-//Haltestellen
-		
+
+		// Haltestellen
+
 		var oModelStops = new sap.ui.model.json.JSONModel();
-		oModelStops.loadData("data/stops.json");
-		
+		oModelStops.loadData("json/stops.json");
+
 		var SelectStop = this.byId("SelectStop");
-		
+
 		SelectStop.setModel(oModelStops);
-		
-		var oItemTemplate = new sap.ui.core.Item({text:"{name}"});
+
+		var oItemTemplate = new sap.ui.core.Item({
+			text : "{name}"
+		});
 		SelectStop.bindItems("/haltestellen", oItemTemplate);
-		
-		
-		
-		//Transportmittel
-		
+
+		// Transportmittel
+
 		var oModelTransport = new sap.ui.model.json.JSONModel();
-		oModelTransport.loadData("data/transportation.json");
-		
-		
+		oModelTransport.loadData("json/transportation.json");
+
 		var SelectTransportation = this.byId("SelectTransportation");
 		SelectTransportation.setModel(oModelTransport);
-		
-		var oItemTemplate2 = new sap.ui.core.Item({text:"{name}"});
+
+		var oItemTemplate2 = new sap.ui.core.Item({
+			text : "{name}"
+		});
 		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
-		
-		
-		
-		
-		
-		
-		
-		
+
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
@@ -83,7 +76,7 @@ sap.ui.controller("vit.Search", {
 			this.inputId.setValue(oSelectedItem.getTitle());
 			if (this.inputId == this.byId("inputStart")) {
 				this.byId("inputDestination").setEnabled(true);
-			}else{
+			} else {
 				this.enableFields(this.inputId);
 			}
 		}
@@ -104,8 +97,8 @@ sap.ui.controller("vit.Search", {
 			this.byId("ButtonAddFavorite").setEnabled(false);
 		}
 	},
-	
-	destinationChanged : function(oEvent){
+
+	destinationChanged : function(oEvent) {
 		this.enableFields(oEvent.getSource());
 	},
 

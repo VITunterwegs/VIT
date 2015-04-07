@@ -7,7 +7,7 @@ sap.ui.controller("vit.Notify", {
 		//Haltestellen
 		
 		var oModelStops = new sap.ui.model.json.JSONModel();
-		oModelStops.loadData("data/stops.json");
+		oModelStops.loadData("json/stops.json");
 		
 		var SelectStop = this.byId("SelectStop");
 		
@@ -21,7 +21,7 @@ sap.ui.controller("vit.Notify", {
 		//Transportmittel
 		
 		var oModelTransport = new sap.ui.model.json.JSONModel();
-		oModelTransport.loadData("data/transportation.json");
+		oModelTransport.loadData("json/transportation.json");
 		
 		
 		var SelectTransportation = this.byId("SelectTransportation");
