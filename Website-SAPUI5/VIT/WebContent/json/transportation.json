@@ -1,0 +1,22 @@
+{
+    "transportmittel":[
+        {
+            "name":"Bahn"
+        },
+        {
+            "name":"Bus"
+        },
+        {
+            "name":"Fernbus"
+        },
+        {
+            "name":"IC"
+        },
+        {
+            "name":"ICE"
+        },
+        {
+            "name":"TRAM"
+        }
+    ]
+}

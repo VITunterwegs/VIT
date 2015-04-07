@@ -79,17 +79,7 @@
                                             "Type":"sap.m.Select",
                                             "id":"SelectTransportation",
                                             "type":"Default",
-                                            "enabled":false,
-                                            "items":[
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Bahn"
-                                                },
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Bus"
-                                                }
-                                            ]
+                                            "enabled":false
                                         }
                                     ]
                                 },
@@ -101,17 +91,7 @@
                                             "Type":"sap.m.Select",
                                             "id":"SelectStop",
                                             "type":"Default",
-                                            "enabled":false,
-                                            "items":[
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Duale Hochschule"
-                                                },
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"KnielingerAllee"
-                                                }
-                                            ]
+                                            "enabled":false
                                         }
                                     ]
                                 },
@@ -123,17 +103,7 @@
                                             "Type":"sap.m.Select",
                                             "id":"SelectDirection",
                                             "type":"Default",
-                                            "enabled":false,
-                                            "items":[
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Heide"
-                                                },
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Tivoli"
-                                                }
-                                            ]
+                                            "enabled":false
                                         }
                                     ]
                                 },

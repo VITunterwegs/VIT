@@ -2,39 +2,43 @@ jQuery.sap.require("sap.m.MessageToast");
 
 sap.ui.controller("vit.Notify", {
 	onInit : function() {
+		
+		
+		//Haltestellen
+		
+		var oModelStops = new sap.ui.model.json.JSONModel();
+		oModelStops.loadData("data/stops.json");
+		
+		var SelectStop = this.byId("SelectStop");
+		
+		SelectStop.setModel(oModelStops);
+		
+		var oItemTemplate = new sap.ui.core.Item({text:"{name}"});
+		SelectStop.bindItems("/haltestellen", oItemTemplate);
+		
+		
+		
+		//Transportmittel
+		
+		var oModelTransport = new sap.ui.model.json.JSONModel();
+		oModelTransport.loadData("data/transportation.json");
+		
+		
+		var SelectTransportation = this.byId("SelectTransportation");
+		SelectTransportation.setModel(oModelTransport);
+		
+		var oItemTemplate2 = new sap.ui.core.Item({text:"{name}"});
+		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
+		
+		
+		
 
 	},
 	handleLocatePress : function(oEvent) {
 
 	},
 	handleSendNotificationPress : function(oEvent) {
-	    	var url = "schoeneborn-online.de:7070/vit_server/SaveNotification?";
-	    	url = url + "userID=1&"
-	    				+ "" + sap.ui.getCore().byId("not_direction");
-	    	var formData = {userid:"1",
-	    			type:this.byId("SelectTransportation").getSelectedItem().getText(),
-	    			stop:"TestHaltestelle",
-	    			lastStop:"TestEndhaltestelle",
-	    			line:"TestLinie",
-	    			track:"TestTrack",
-	    			direction:"TestDirection",
-	    			originArr:"20140302020202",
-	    			delay:"5",
-	    			currArr:"20140302020202"}; //Array 
-	    	 
-	    	$.ajax({
-	    	    url : "./vit_server/SaveNotification",
-	    	    type: "POST",
-	    	    data : formData,
-	    	    success: function(data, textStatus, jqXHR)
-	    	    {
-	    	        //data - response from server
-	    	    },
-	    	    error: function (jqXHR, textStatus, errorThrown)
-	    	    {
-	    	    	
-	    	    }
-	    	});
+		
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
@@ -72,11 +76,7 @@ sap.ui.controller("vit.Notify", {
 	},
 	
 	locationChanged: function(oEvent){
-		if(oEvent.getSource().getValue() != ""){
-			this.byId("inputDestination").setEnabled(true);
-		}else{
-			this.byId("inputDestination").setEnabled(false);
-		}
+		this.enableFields(oEvent.getSource());
 
 	},
 	

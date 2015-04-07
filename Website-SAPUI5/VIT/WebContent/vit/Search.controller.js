@@ -7,17 +7,34 @@ sap.ui.controller("vit.Search", {
 	onInit : function() {
 		sap.ui.localResources("fragment");
 		
-		jQuery.ajax({
-              type : "GET",
-              contentType : "application/json",
-              url : "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
-              dataType : "json",
-              data: { location: "-33.8670522,151.1957362", radius: "500", types: "transit_station", key: "AIzaSyCjbccUJz5zW9FXnbo0oErrbgfw4M6Wyfg" },
-              success : function(data) {
-                  console.log(data);
-              }
-
-          });
+		
+//Haltestellen
+		
+		var oModelStops = new sap.ui.model.json.JSONModel();
+		oModelStops.loadData("data/stops.json");
+		
+		var SelectStop = this.byId("SelectStop");
+		
+		SelectStop.setModel(oModelStops);
+		
+		var oItemTemplate = new sap.ui.core.Item({text:"{name}"});
+		SelectStop.bindItems("/haltestellen", oItemTemplate);
+		
+		
+		
+		//Transportmittel
+		
+		var oModelTransport = new sap.ui.model.json.JSONModel();
+		oModelTransport.loadData("data/transportation.json");
+		
+		
+		var SelectTransportation = this.byId("SelectTransportation");
+		SelectTransportation.setModel(oModelTransport);
+		
+		var oItemTemplate2 = new sap.ui.core.Item({text:"{name}"});
+		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
+		
+		
 		
 		
 		
