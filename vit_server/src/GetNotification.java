@@ -1,6 +1,9 @@
 
 
 import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
@@ -67,17 +70,18 @@ static final long serialVersionUID = 1L;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String linie, direction, originArr;
+            String linie, direction, originArr, stop;
             linie = request.getParameter("linie");
             direction = request.getParameter("dir");
             originArr = request.getParameter("originArr");
-            getNotification(request, response, linie, direction, originArr);
+            stop = request.getParameter("stop");
+            getNotification(request, response, linie, direction, originArr, stop);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(GetNotification.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void getNotification(HttpServletRequest request, HttpServletResponse response, String linie, String direction, String originArr) throws ClassNotFoundException, SQLException, IOException{
+    public void getNotification(HttpServletRequest request, HttpServletResponse response, String linie, String direction, String originArr, String stop) throws ClassNotFoundException, SQLException, IOException{
         Exception exception;            //Exception-Variable für das FehlerHandling
         
         try {  
@@ -89,17 +93,31 @@ static final long serialVersionUID = 1L;
                 + "user=" + dbuser + "&password=" + dbpw);
            
             statement = connect.createStatement();
-            java.util.Date now;
-            now = new java.util.Date();
+            
+            /*
+             * String urlParameters =
+                    "fName=" + URLEncoder.encode("???", "UTF-8") +
+                    "&lName=" + URLEncoder.encode("???", "UTF-8");
+                    
+               String url;
+            */
+            
+            java.util.Date now = new java.util.Date();
+            java.sql.Timestamp timestamp = new java.sql.Timestamp(now.getTime());
+            java.sql.Timestamp pastTimestamp = new java.sql.Timestamp(now.getTime()-3600000);
+            
             preparedStatement = connect
-              .prepareStatement("select * from Verspaetung where linie=? "
+              .prepareStatement("select * from Verspaetung "
+              		+ "where linie=? "
                       + "and direction=? "
-                      + "and regulaere_Ankunftszeit=?"
-                      + "and timestamp between " /* + (now -<1 Stunde>) */+ "and "+ now );
+                      + "and regulaere_Ankunftszeit=? "
+                      + "and haltestelle=?"
+                      + "AND timestamp between "+pastTimestamp+" AND "+timestamp );
            
             preparedStatement.setString(1, linie);
             preparedStatement.setString(2, direction);
             preparedStatement.setString(3, originArr);
+            preparedStatement.setString(4, stop);
             resultSet = preparedStatement.executeQuery();
             
             Integer del = 0;
@@ -115,8 +133,13 @@ static final long serialVersionUID = 1L;
             }
             
             PrintWriter out = response.getWriter();
-            
-            
+            out.println("{\n"
+            		+ "\"line\":\""+linie+"\",\n"
+            		+ "\"stop\":\""+linie+"\",\n"
+            		+ "\"direction\":\""+direction+"\",\n"
+            		+ "\"delay\":\""+del+"\"\n"
+            		+ "}");
+
       
         } catch (ClassNotFoundException | SQLException e) {
             throw e;
@@ -147,6 +170,57 @@ static final long serialVersionUID = 1L;
             this.connect.close();
         } catch (SQLException ex) {
             throw ex;
+        }
+    }
+    
+    public static String excuteGet(String targetURL, String urlParameters) {
+        URL url;
+        HttpURLConnection connection = null;  
+        try {
+          //Create connection
+          url = new URL(targetURL);
+          connection = (HttpURLConnection)url.openConnection();
+          connection.setRequestMethod("POST");
+          connection.setRequestProperty("Content-Type", 
+               "application/x-www-form-urlencoded");
+
+          connection.setRequestProperty("Content-Length", "" + 
+                   Integer.toString(urlParameters.getBytes().length));
+          connection.setRequestProperty("Content-Language", "en-US");  
+
+          connection.setUseCaches (false);
+          connection.setDoInput(true);
+          connection.setDoOutput(true);
+
+          //Send request
+          DataOutputStream wr = new DataOutputStream (
+                      connection.getOutputStream ());
+          wr.writeBytes (urlParameters);
+          wr.flush ();
+          wr.close ();
+
+          //Get Response    
+          InputStream is = connection.getInputStream();
+          BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+          String line;
+          StringBuffer response = new StringBuffer(); 
+          while((line = rd.readLine()) != null) {
+            response.append(line);
+            response.append('\r');
+          }
+          rd.close();
+          return response.toString();
+
+        } catch (Exception e) {
+
+          e.printStackTrace();
+          return null;
+
+        } finally {
+
+          if(connection != null) {
+            connection.disconnect(); 
+          }
         }
     }
     

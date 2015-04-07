@@ -23,7 +23,7 @@ sap.ui.controller("vit.Notify", {
 	    			currArr:"20140302020202"}; //Array 
 	    	 
 	    	$.ajax({
-	    	    url : "schoeneborn-online.de:7070/vit_server/SaveNotification",
+	    	    url : "./vit_server/SaveNotification",
 	    	    type: "POST",
 	    	    data : formData,
 	    	    success: function(data, textStatus, jqXHR)

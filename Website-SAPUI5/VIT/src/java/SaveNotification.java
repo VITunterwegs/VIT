@@ -95,15 +95,7 @@ public class SaveNotification extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-            out.print("<html>"
-                    + "<head>"
-                    + "</head>"
-                    + "<body>"
-                    + "<h1>Es ist ein Feher aufgetreten</h1><br>"
-                    + "Hallo"
-                    + "</body>"
-                    + "</html>");
+        doPost(request, response);
     }
 
     @Override
