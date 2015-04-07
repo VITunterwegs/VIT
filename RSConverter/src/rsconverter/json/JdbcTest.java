@@ -20,19 +20,19 @@ public class JdbcTest{
          * 3306 is the default port for MySQL in XAMPP. Note both the 
          * MySQL server and Apache must be running. 
          */
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://schoeneborn-online.de:110/vit";
         
         /**
          * The MySQL user.
          */
-        String user = "root";
+        String user = "vit";
         
         /**
          * Password for the above MySQL user. If no password has been 
          * set (as is the default for the root user in XAMPP's MySQL),
          * an empty string can be used.
          */
-        String password = "";
+        String password = "vitistcool";
         
         try
         {
@@ -44,30 +44,9 @@ public class JdbcTest{
             /**
              * Create and select a database for use. 
              */
-            stt.execute("CREATE DATABASE IF NOT EXISTS test");
-            stt.execute("USE test");
+            stt.execute("USE vit");
             
-            /**
-             * Create an example table
-             */
-            stt.execute("DROP TABLE IF EXISTS people");
-            stt.execute("CREATE TABLE people (" +
-                    "id BIGINT NOT NULL AUTO_INCREMENT,"
-                    + "fname VARCHAR(25),"
-                    + "lname VARCHAR(25),"
-                    + "PRIMARY KEY(id)"
-                    + ")");
-            
-            /**
-             * Add entries to the example table
-             */
-            stt.execute("INSERT INTO people (fname, lname) VALUES" + 
-                    "('Joe', 'Bloggs'), ('Mary', 'Bloggs'), ('Jill', 'Hill')");
-            
-            /**
-             * Query people entries with the lname 'Bloggs'
-             */
-            res = stt.executeQuery("SELECT * FROM people WHERE lname = 'Bloggs'");
+            res = stt.executeQuery("SELECT * FROM user");
             
             /**
              * Iterate over the result set from the above query
@@ -78,25 +57,14 @@ public class JdbcTest{
             }
             System.out.println("");
             
-            /**
-             * Same as the last query, but using a prepared statement. 
-             * Prepared statements should be used when building query strings
-             * from user input as they protect against SQL injections
-             */
-            PreparedStatement prep = con.prepareStatement("SELECT * FROM people WHERE lname = ?");
-            prep.setString(1, "Hill");
-            
-            res = prep.executeQuery();
-            while (res.next())
-            {
-                System.out.println(res.getString("fname") + " " + res.getString("lname"));
-            }
             
             /**
              * Free all opened resources
              */
             
-            ResultSetConverter.convert(res);
+            JSONArray json = ResultSetConverter.convert(res);
+            
+            System.out.println(json);
             
             res.close();
             stt.close();
