@@ -1,22 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package java;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.*;
+import java.util.Date;
 
 /**
  *
@@ -44,7 +41,7 @@ public class SaveNotification extends HttpServlet {
     }
     
     private void saveData(String userId,
-                          String timestamp, 
+                          Date timestamp, 
                           String type,
                           String stop,
                           String lastStop,
@@ -74,7 +71,7 @@ public class SaveNotification extends HttpServlet {
                       dbname + ".Verspaetung values (?, ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?)");
            
             preparedStatement.setString(1, userId);
-            preparedStatement.setString(2, timestamp);
+            preparedStatement.setString(2, timestamp.toString());
             preparedStatement.setString(3, type);
             preparedStatement.setString(4, stop);
             preparedStatement.setString(5, lastStop);
@@ -121,7 +118,7 @@ public class SaveNotification extends HttpServlet {
         try {
             this.saveData(
                     request.getParameter("userId"),
-                    request.getParameter("timestamp"),
+                    new java.util.Date(),
                     request.getParameter("type"),
                     request.getParameter("stop"),
                     request.getParameter("lastStop"),

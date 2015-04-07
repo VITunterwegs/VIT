@@ -13,6 +13,22 @@ sap.ui.controller("vit.Notify", {
 	    	var url = "schoeneborn-online.de:7070/vit_server/SaveNotification?";
 	    	url = url + "userID=1&"
 	    				+ "" + sap.ui.getCore().byId("not_direction");
+	    	var formData = {userid:"1",
+	    			type:sap.ui.getCore().byId("not_type")}; //Array 
+	    	 
+	    	$.ajax({
+	    	    url : "schoeneborn-online.de:7070/vit_server/SaveNotification",
+	    	    type: "POST",
+	    	    data : formData,
+	    	    success: function(data, textStatus, jqXHR)
+	    	    {
+	    	        //data - response from server
+	    	    },
+	    	    error: function (jqXHR, textStatus, errorThrown)
+	    	    {
+	    	 
+	    	    }
+	    	});
 	        if (xhr.readyState == 4) {
 	            var data = xhr.responseText;
 	            alert(data);
