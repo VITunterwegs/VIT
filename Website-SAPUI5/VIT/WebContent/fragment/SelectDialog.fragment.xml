@@ -7,6 +7,11 @@
     confirm="_handleValueHelpConfirm"
     cancel="_handleValueHelpClose">
     <items>
-    	<StandardListItem title="Test Standort" description="Test Standort" icon="sap-icon://locate-me"/></items>
+    	<StandardListItem title="Aktueller Standort" icon="sap-icon://locate-me" /><StandardListItem title="Heidelberg" icon="img/heidelberg_wappen.png"></StandardListItem><StandardListItem
+    		title="Karlsruhe" icon="img/karlsruhe_wappen.jpg">
+</StandardListItem>
+    	<StandardListItem title="Mannheim" icon="img/mannheim_wappen.png"></StandardListItem><StandardListItem title="Stuttgart" icon="img/stuttgart_wappen.png"></StandardListItem>
+    	
+    	</items>
   </SelectDialog>
 </core:FragmentDefinition>
