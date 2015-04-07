@@ -46,10 +46,11 @@
                                         {
                                             "Type":"sap.m.Input",
                                             "type":"Text",
-                                            "id":"iStartPoint",
+                                            "id":"inputStart",
                                             "placeholder":"Startpunkteingeben",
                                             "showValueHelp":true,
-                                            "valueHelpRequest":"valueHelpPressed"
+                                            "valueHelpRequest":"valueHelpPressed",
+                                            "enabled":true
                                         }
                                     ]
                                 },
@@ -60,10 +61,11 @@
                                         {
                                             "Type":"sap.m.Input",
                                             "type":"Text",
-                                            "id":"iDestionation",
+                                            "id":"inputDestionation",
                                             "placeholder":"Zielorteingeben",
                                             "showValueHelp":true,
-                                            "valueHelpRequest":"valueHelpPressed"
+                                            "valueHelpRequest":"valueHelpPressed",
+                                            "enabled":false
                                         }
                                     ]
                                 },
@@ -73,7 +75,9 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
+                                            "id":"SelectTransportation",
                                             "type":"Default",
+                                            "enabled":false,
                                             "items":[
                                                 {
                                                     "Type":"sap.ui.core.Item",
@@ -93,7 +97,9 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
+                                            "id":"SelectStop",
                                             "type":"Default",
+                                            "enabled":false,
                                             "items":[
                                                 {
                                                     "Type":"sap.ui.core.Item",
@@ -113,7 +119,9 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
+                                            "id":"SelectDirection",
                                             "type":"Default",
+                                            "enabled":false,
                                             "items":[
                                                 {
                                                     "Type":"sap.ui.core.Item",
@@ -132,19 +140,23 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Button",
+                                            "id":"ButtonSearch",
                                             "text":"Suchen",
                                             "icon":"sap-icon://search",
                                             "iconFirst":true,
                                             "press":"handleSearchPress",
-                                            "type":"Accept"
+                                            "type":"Accept",
+                                            "enabled":false
                                         },
                                         {
                                             "Type":"sap.m.Button",
-                                            "text":"Zu Favoriten hinzufügen",
+                                            "id":"ButtonAddFavorite",
+                                            "text":"ZuFavoritenhinzufügen",
                                             "icon":"sap-icon://favorite",
                                             "iconFirst":true,
                                             "press":"handleAddFavPress",
-                                            "type":"Accept"
+                                            "type":"Accept",
+                                            "enabled":false
                                         }
                                     ]
                                 }

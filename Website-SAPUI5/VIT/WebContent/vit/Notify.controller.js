@@ -57,7 +57,11 @@ sap.ui.controller("vit.Notify", {
 	},
 	
 	locationChanged: function(oEvent){
-		this.enableFields(oEvent.getSource());
+		if(oEvent.getSource().getValue() != ""){
+			this.byId("inputDestination").setEnabled(true);
+		}else{
+			this.byId("inputDestination").setEnabled(false);
+		}
 
 	},
 	
