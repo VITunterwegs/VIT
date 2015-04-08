@@ -34,37 +34,7 @@ sap.ui.controller("vit.Search", {
 		});
 		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
 		
-		// Linie
 		
-		var oModelLines = new sap.ui.model.json.JSONModel();
-		oModelLines.loadData("json/linien.json");
-		
-		var SelectStop = this.byId("SelectStop");
-		SelectStop.setModel(oModelLines);
-		
-		var stops = JSON.parse("json/stops.json");
-		var arrstops = [];
-		for (var x=0; x < stops.haltestellen.length ; x++){
-			if (stops.haltestellen[x].name == this.byId("SelectStop").getSelectedItem().getText()){
-				for (var y=0 ; y < stops.haltestellen[x].linien.length ; y++){
-					arrstops.push(stops.haltestellen[x].linien[y].linie);
-				}
-			}
-			
-		}
-		var j;
-		var i;
-		var lines = JSON.parse("json/linien.json");
-		for (i=0; i < lines.linien.length; i++){
-			for (j=0; j < arrstops.length; j++){
-				if (lines.linien[i] == arrstops[j]){
-					var oItem = new sap.ui.core.Item({
-						text : "{Linien/"+i+"/name}{Linien/"+i+"/Richtung}"
-					});
-					SeletStop.addItem(oItem);
-				}
-			}
-		}
 
 	},
 	showMenu : function(oEvent) {
@@ -132,5 +102,57 @@ sap.ui.controller("vit.Search", {
 			this.byId("ButtonAddFavorite").setEnabled(false);
 		}
 	},
+	handleStopChoose : function(){
+		
+		// Linie
+		var oModelLines = new sap.ui.model.json.JSONModel();
+		oModelLines.loadData("json/linien.json");
+		
+		var SelectDirection = this.byId("SelectDirection");
+		SelectDirection.setModel(oModelLines);
+		
+		$.getJSON( "json/stops.json", function( data ) {
+			var stops = [];
+			var length_stop;
+			this.stops = data.haltestellen;
+			length_stop = data.haltestellen.length;
+			console.log("success");
+			
+			var arrstops = [];
+			var select = "Duale Hochschule";
+			console.log(select.toString());
+			for (var x=0; x < data.haltestellen.length ; x++){
+				if (data.haltestellen[x].name == select){
+					for (var y=0 ; y < data.haltestellen[x].linien.length ; y++){
+						arrstops.push(data.haltestellen[x].linien[y].linie);
+						console.log("gefundene Linie: " + data.haltestellen[x].linien[y].linie);
+					}
+				}
+				
+			}
+			console.log("successfull23");
+			
+			$.getJSON( "json/linien.json", function( data ) {
+				
+				var j_stop;
+				var i_stop;
+				console.log(data.Linien.toString());
+				for (i_stop=0; i_stop < data.Linien.length; i_stop++){
+					for (j_stop=0; j_stop < arrstops.length; j_stop++){
+						if (data.Linien[i_stop].name == arrstops[j_stop]){
+							var oItem = new sap.ui.core.Item({
+								text : "{Linien/"+i_stop+"/name}"
+							});
+							SelectDirection.addItem(oItem);
+							console.log(SelectDirection.getItemAt(0).getText());
+						}
+					}
+				}
+			} );
+		} );
+		
+		
+		
+	}
 
 });
