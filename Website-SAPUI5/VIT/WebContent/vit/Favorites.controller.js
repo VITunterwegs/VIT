@@ -1,10 +1,20 @@
+
 sap.ui.controller("vit.Favorites", {
 	onInit : function() {
 
 		// Load Favorites
 
+		oModel = new sap.ui.model.json.JSONModel();
+		oModel.loadData("json/favoriten.json");
+
 		var oListen = sap.ui.getCore().byId("vMain--pFavorites--favList");
+		console.log("Hallo1 " + oListen.toString());
+
+		oListen.setModel(oModel);
+
+		console.log("Hallo2 " + oListen.toString());
 		
+<<<<<<< HEAD
 		var oList = this.byId("favList");
 		$.getJSON("json/favoriten.json", function(data) {
 			for (var i = 0; i < data.favoriten.length; i++) {
@@ -30,7 +40,15 @@ sap.ui.controller("vit.Favorites", {
 
 				oList.addItem(oListItem);
 			}
+=======
+		var oItemTemplate = new sap.ui.core.ListItem({
+			text : "Linie",
+			icon: "img/bus.jpg"
+>>>>>>> origin/master
 		});
+		console.log("Hallo Templae: "+oItemTemplate);
+		console.log("Hallo3 " + oListen.toString());
+		oListen.addItem(oItemTemplate);
 
 	},
 
@@ -38,11 +56,6 @@ sap.ui.controller("vit.Favorites", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Navigation"));
-	},
-	
-	
-	handleFavPress: function(oEvent){
-		
-	},
+	}
 
 });

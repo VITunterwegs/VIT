@@ -6,6 +6,12 @@
             "Type":"sap.m.Page",
             "id":"result",
             "backgroundDesign":"Transparent",
+            "content":[
+            	{
+            		"Type":"sap.m.Slider",
+            		"width":"180px"
+            	}
+            ],
             "customHeader":[
                 {
                     "Type":"sap.m.Bar",
