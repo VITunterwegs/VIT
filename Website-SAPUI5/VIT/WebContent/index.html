@@ -121,6 +121,19 @@
 				}
 			},
 			{
+				pattern : [ "result", "Result" ],
+				name : "Result",
+				view : "vit.Result",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pResult");
+				}
+			},
+			{
 				pattern : [ "navigation", "Navigation" ],
 				name : "Navigation",
 				view : "vit.Navigation",

@@ -36,6 +36,12 @@
                 },
                 {
                     "Type":"sap.ui.view",
+                    "id":"pResult",
+                    "viewName":"vit.Result",
+                    "type":"JSON"
+                },
+                {
+                    "Type":"sap.ui.view",
                     "id":"pImpressum",
                     "viewName":"vit.Impressum",
                     "type":"JSON"

@@ -1,6 +1,6 @@
 jQuery.sap.require("sap.m.MessageToast");
 
-sap.ui.controller("vit.Settings", {
+sap.ui.controller("vit.Result", {
 	onInit : function() {
 
 	},

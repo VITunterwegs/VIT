@@ -7,16 +7,16 @@ sap.ui.controller("vit.Favorites", {
 		oModel = new sap.ui.model.json.JSONModel();
 		oModel.loadData("json/favoriten.json");
 
-		var oList = sap.ui.getCore().byId("vMain--pFavorites--favList");
+		var oListen = sap.ui.getCore().byId("vMain--pFavorites--favList");
 
-		oList.setModel(oModel);
+		oListen.setModel(oModel);
 
 		var oItemTemplate = new sap.ui.core.ListItem({
 			text : "Linie",
 			icon: "img/bus.jpg"
 		});
 
-		//oList.addItem(oItemTemplate);
+		//oListen.addItem(oItemTemplate);
 
 	},
 
