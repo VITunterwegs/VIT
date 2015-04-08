@@ -38,22 +38,6 @@
                                         
                                     ]
                                     
-                                },
-                                {
-                                    "Type":"sap.ui.layout.form.FormElement",
-                                    "fields":[
-                                        {
-                                            "Type":"sap.m.Button",
-                                            "text":"Kartenansicht",
-                                            "type":"Accept",
-                                            "icon":"sap-icon://map-2",
-                                            "width":"180px",
-                                            "press":"handleMapPress",
-                                            "iconFirst":false
-                                        }
-                                        
-                                    ]
-                                    
                                 }
                                 
                             ]
@@ -72,6 +56,7 @@
                         {
                             "Type":"sap.m.Table",
                             "id":"resultTable",
+                            "fixedLayout":true,
                             "columns":[
                                 {
                                     "Type":"sap.m.Column",

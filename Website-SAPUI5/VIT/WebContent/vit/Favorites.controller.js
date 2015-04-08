@@ -27,7 +27,7 @@ sap.ui.controller("vit.Favorites", {
 					break;
 				}
 				oListItem.attachPress(function(oEvent){
-					var resultList = sap.ui.getCore().byId("vMain--pHome--resultTable");
+					var resultList = sap.ui.getCore().byId("vMain--pResult--resultTable");
 					resultList.removeAllItems();
 					
 					var items = sap.ui.getCore().byId("vMain--pHome--dashboard").getItems();
@@ -46,9 +46,13 @@ sap.ui.controller("vit.Favorites", {
 							resultList.addItem(items[i]);
 						}
 					}
+					var oHashChanger = new sap.ui.core.routing.HashChanger();
+					oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+							.getURL("Result"));
 					
 				});
 				oList.addItem(oListItem);
+				
 			}
 		});
 
