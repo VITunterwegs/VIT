@@ -33,39 +33,30 @@ sap.ui.controller("vit.Search", {
 			text : "{name}"
 		});
 		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
-		
-		// Linie
-		
-		var oModelLines = new sap.ui.model.json.JSONModel();
-		oModelLines.loadData("json/linien.json");
-		
-		var SelectStop = this.byId("SelectStop");
-		SelectStop.setModel(oModelLines);
-		
-		var stops = JSON.parse("json/stops.json");
-		var arrstops = [];
-		for (var x=0; x < stops.haltestellen.length ; x++){
-			if (stops.haltestellen[x].name == this.byId("SelectStop").getSelectedItem().getText()){
-				for (var y=0 ; y < stops.haltestellen[x].linien.length ; y++){
-					arrstops.push(stops.haltestellen[x].linien[y].linie);
-				}
-			}
-			
-		}
-		var j;
-		var i;
-		var lines = JSON.parse("json/linien.json");
-		for (i=0; i < lines.linien.length; i++){
-			for (j=0; j < arrstops.length; j++){
-				if (lines.linien[i] == arrstops[j]){
-					var oItem = new sap.ui.core.Item({
-						text : "{Linien/"+i+"/name}{Linien/"+i+"/Richtung}"
-					});
-					SeletStop.addItem(oItem);
-				}
-			}
-		}
 
+		// Linie
+
+		/*
+		 * 
+		 * var oModelLines = new sap.ui.model.json.JSONModel();
+		 * oModelLines.loadData("json/linien.json");
+		 * 
+		 * var SelectStop = this.byId("SelectStop");
+		 * SelectStop.setModel(oModelLines);
+		 * 
+		 * var stops = JSON.parse("json/stops.json"); var arrstops = []; for
+		 * (var x=0; x < stops.haltestellen.length ; x++){ if
+		 * (stops.haltestellen[x].name ==
+		 * this.byId("SelectStop").getSelectedItem().getText()){ for (var y=0 ;
+		 * y < stops.haltestellen[x].linien.length ; y++){
+		 * arrstops.push(stops.haltestellen[x].linien[y].linie); } }
+		 *  } var j; var i; var lines = JSON.parse("json/linien.json"); for
+		 * (i=0; i < lines.linien.length; i++){ for (j=0; j < arrstops.length;
+		 * j++){ if (lines.linien[i] == arrstops[j]){ var oItem = new
+		 * sap.ui.core.Item({ text :
+		 * "{Linien/"+i+"/name}{Linien/"+i+"/Richtung}" });
+		 * SeletStop.addItem(oItem); } } }
+		 */
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
@@ -106,8 +97,8 @@ sap.ui.controller("vit.Search", {
 		var oSelectedItem = evt.getParameter("selectedItem");
 		if (oSelectedItem) {
 			this.inputId.setValue(oSelectedItem.getTitle());
-				this.byId("inputStart").setEnabled(true);
-				this.enableFields(this.inputId);
+			this.byId("inputStart").setEnabled(true);
+			this.enableFields(this.inputId);
 		}
 	},
 	__handleValueHelpCancel : function(evt) {

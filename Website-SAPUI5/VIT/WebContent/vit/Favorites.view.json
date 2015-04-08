@@ -6,13 +6,6 @@
             "Type":"sap.m.Page",
             "id":"favorites",
             "backgroundDesign":"List",
-            "content":[
-                {
-                    "Type":"sap.m.List",
-                    "id":"oList"
-                }
-                
-            ],
             "customHeader":[
                 {
                     "Type":"sap.m.Bar",
@@ -22,21 +15,21 @@
                             "icon":"sap-icon://menu2",
                             "press":"showMenu"
                         }
-                        
                     ],
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
                             "text":"Favoriten"
                         }
-                        
                     ]
-                    
                 }
-                
+            ],
+            "content":[
+                {
+                    "Type":"sap.m.List",
+                    "id":"favList"
+                }
             ]
-            
         }
-        
     ]
 }

@@ -1,4 +1,3 @@
-jQuery.sap.require("sap.m.MessageToast");
 
 sap.ui.controller("vit.Favorites", {
 	onInit : function() {
@@ -8,16 +7,16 @@ sap.ui.controller("vit.Favorites", {
 		oModel = new sap.ui.model.json.JSONModel();
 		oModel.loadData("json/favoriten.json");
 
-		var oList = this.byId("oList");
+		var oList = sap.ui.getCore().byId("vMain--pFavorites--favList");
 
 		oList.setModel(oModel);
 
 		var oItemTemplate = new sap.ui.core.ListItem({
-			text : "Linie {line} - {direction}",
+			text : "Linie",
 			icon: "img/bus.jpg"
 		});
 
-		oList.bindItems("/favoriten", oItemTemplate);
+		//oList.addItem(oItemTemplate);
 
 	},
 
