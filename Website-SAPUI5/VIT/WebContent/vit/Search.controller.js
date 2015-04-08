@@ -57,9 +57,10 @@ sap.ui.controller("vit.Search", {
 		for (var i=0; i < lines.linien.length; i++){
 			for (var j=0; j < arrstops.length; j++){
 				if (lines.linien[i] == arrstops[j]){
-					var oItemTemplate2 = new sap.ui.core.Item({
+					var oItem = new sap.ui.core.Item({
 						text : "{Linien/"+i+"/name}{Linien/"+i+"/Richtung}"
 					});
+					SeletStop.addItem(oItem);
 				}
 			}
 		}
