@@ -76,6 +76,7 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
+                                            "change":"handleStopChoose",
                                             "id":"SelectStop",
                                             "enabled":false,
                                             "type":"Default"
@@ -90,17 +91,8 @@
                                             "Type":"sap.m.Select",
                                             "type":"Default",
                                             "id":"SelectDirection",
-                                            "enabled":false,
-                                            "items":[
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Heide"
-                                                },
-                                                {
-                                                    "Type":"sap.ui.core.Item",
-                                                    "text":"Tivoli"
-                                                }
-                                            ]
+                                            "enabled":false
+                                         
                                         }
                                     ]
                                 },

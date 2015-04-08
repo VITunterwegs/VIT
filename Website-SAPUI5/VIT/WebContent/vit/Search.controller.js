@@ -121,6 +121,7 @@ sap.ui.controller("vit.Search", {
 		SelectDirection.setModel(oModelLines);
 		
 		var selectedItem = this.byId("SelectStop").getSelectedItem().getText();
+		this.byId("SelectDirection").removeAllItems();
 		
 		$.getJSON( "json/stops.json", function( data ) {
 			var stops = [];

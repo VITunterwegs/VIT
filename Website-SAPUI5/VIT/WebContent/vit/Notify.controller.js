@@ -99,6 +99,34 @@ sap.ui.controller("vit.Notify", {
 										arr.uAbfahrt = data.Linien[jj].Haltestellen[kk].times[mm].time;
 										console.log(arr.line);
 										sap.ui.getCore().myGlobalArray.push(arr);
+										var row = new sap.m.ColumnListItem();
+										row.addCell(new sap.m.Text({
+											text : arr.line
+										}));
+										row.addCell(new sap.m.Text({
+											text : arr.direction
+										}));
+										row.addCell(new sap.m.Text({
+											text : arr.delay
+										}));
+										var time = new Date();
+										var timeArray = arr.uAbfahrt.split(":");
+										var delayArray = arr.delay.split(":");
+										var hours = parseInt(timeArray[0])
+												+ parseInt(delayArray[0] - 2);
+										var minutes = parseInt(timeArray[1]) + parseInt(delayArray[1]);
+
+										time.setUTCHours(hours);
+										time.setUTCMinutes(minutes);
+
+										var tArr = time.toLocaleTimeString().split(":");
+
+										row.addCell(new sap.m.ObjectIdentifier({
+											title : tArr[0] + ":" + tArr[1],
+											text : arr.stop
+
+										}));
+										sap.ui.getCore().byId("vMain--pHome--dashboard").addItem(row);
 										}
 
 								}
@@ -185,6 +213,64 @@ sap.ui.controller("vit.Notify", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Home"));
+	},
+	
+handleStopChoose : function(){
+		
+		// Linie
+		var oModelLines = new sap.ui.model.json.JSONModel();
+		oModelLines.loadData("json/linien.json");
+		
+		var SelectDirection = this.byId("SelectDirection");
+		SelectDirection.setModel(oModelLines);
+		
+		var selectedItem = this.byId("SelectStop").getSelectedItem().getText();
+		
+		this.byId("SelectDirection").removeAllItems();
+		
+		$.getJSON( "json/stops.json", function( data ) {
+			var stops = [];
+			var length_stop;
+			this.stops = data.haltestellen;
+			length_stop = data.haltestellen.length;
+			console.log("success");
+			
+			var arrstops = [];
+			var select = "Duale Hochschule";
+			//
+			console.log(select.toString());
+			for (var x=0; x < data.haltestellen.length ; x++){
+				if (data.haltestellen[x].name == selectedItem){
+					for (var y=0 ; y < data.haltestellen[x].linien.length ; y++){
+						arrstops.push(data.haltestellen[x].linien[y].linie);
+						console.log("gefundene Linie: " + data.haltestellen[x].linien[y].linie);
+					}
+				}
+				
+			}
+			console.log("successfull23");
+			
+			$.getJSON( "json/linien.json", function( data ) {
+				
+				var j_stop;
+				var i_stop;
+				console.log(data.Linien.toString());
+				for (i_stop=0; i_stop < data.Linien.length; i_stop++){
+					for (j_stop=0; j_stop < arrstops.length; j_stop++){
+						if (data.Linien[i_stop].name == arrstops[j_stop]){
+							var oItem = new sap.ui.core.Item({
+								text : "Linie "+data.Linien[i_stop].name+" - "+data.Linien[i_stop].Richtung
+							});
+							SelectDirection.addItem(oItem);
+							console.log(SelectDirection.getItemAt(0).getText());
+						}
+					}
+				}
+			} );
+		} );
+		
+		
+		
 	}
 
 });
