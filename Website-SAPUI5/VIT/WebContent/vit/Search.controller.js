@@ -52,10 +52,11 @@ sap.ui.controller("vit.Search", {
 			}
 			
 		}
-		
+		var j;
+		var i;
 		var lines = JSON.parse("json/linien.json");
-		for (var i=0; i < lines.linien.length; i++){
-			for (var j=0; j < arrstops.length; j++){
+		for (i=0; i < lines.linien.length; i++){
+			for (j=0; j < arrstops.length; j++){
 				if (lines.linien[i] == arrstops[j]){
 					var oItem = new sap.ui.core.Item({
 						text : "{Linien/"+i+"/name}{Linien/"+i+"/Richtung}"
