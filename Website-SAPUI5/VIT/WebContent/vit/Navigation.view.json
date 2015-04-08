@@ -52,7 +52,7 @@
                         },
                         {
                             "Type":"sap.m.StandardListItem",
-                            "title":"Favouriten",
+                            "title":"Favoriten",
                             "icon":"sap-icon://favorite",
                             "type":"Navigation",
                             "press":"handleFavoritesPress"
