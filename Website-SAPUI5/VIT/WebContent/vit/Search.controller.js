@@ -61,12 +61,11 @@ sap.ui.controller("vit.Search", {
 		linArr[0] = linArr[0].slice(6, linArr[0].length-1);
 		linArr[1] = linArr[1].slice(1, linArr[1].length);
 		
-		console.log("Hallo");
 		for (var i =0 ; i < items.length; i++){
 			var cells = items[i].getCells();
 			var line = cells[0].getText();
 			var dir = cells[1].getText();
-			var stopDash = cells[3].getText()();
+			var stopDash = cells[3].getText();
 			
 			
 			if ((line == linArr[0]) &&
@@ -74,7 +73,7 @@ sap.ui.controller("vit.Search", {
 				resultList.addItem(items[i]);
 			}
 		}
-		
+
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Result"));		
@@ -101,8 +100,28 @@ sap.ui.controller("vit.Search", {
 			break;
 		}
 		oListItem.attachPress(function(oEvent){
-			sap.ui.getCore().byId("vMain--pSearch--SelectStop")
-			console.log("test");
+			var resultList = sap.ui.getCore().byId("vMain--pResult--resultTable");
+			resultList.removeAllItems();
+			
+			var items = sap.ui.getCore().byId("vMain--pHome--dashboard").getItems();
+			var listItem = oEvent.getSource();
+			var dirLin = listItem.getDescription();
+			var linArr = dirLin.split("-");
+			linArr[0] = linArr[0].slice(6, linArr[0].length-1);
+			linArr[1] = linArr[1].slice(1, linArr[1].length);
+			
+			for (var i =0 ; i < items.length; i++){
+				var cells = items[i].getCells();
+				var line = cells[0].getText();
+				var dir = cells[1].getText();
+				if ((line == linArr[0]) &&
+						(dir == linArr[1])){
+					resultList.addItem(items[i]);
+				}
+			}
+			var oHashChanger = new sap.ui.core.routing.HashChanger();
+			oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+					.getURL("Result"));
 		});
 		sap.ui.getCore().byId("vMain--pFavorites--favList").addItem(oListItem);
 		sap.m.MessageToast.show("Favorit wurde gespeichert");
@@ -185,18 +204,15 @@ sap.ui.controller("vit.Search", {
 				if (data.haltestellen[x].name == selectedItem){
 					for (var y=0 ; y < data.haltestellen[x].linien.length ; y++){
 						arrstops.push(data.haltestellen[x].linien[y].linie);
-						console.log("gefundene Linie: " + data.haltestellen[x].linien[y].linie);
 					}
 				}
 				
 			}
-			console.log("successfull23");
 			
 			$.getJSON( "json/linien.json", function( data ) {
 				
 				var j_stop;
 				var i_stop;
-				console.log(data.Linien.toString());
 				for (i_stop=0; i_stop < data.Linien.length; i_stop++){
 					for (j_stop=0; j_stop < arrstops.length; j_stop++){
 						if (data.Linien[i_stop].name == arrstops[j_stop]){
@@ -204,7 +220,6 @@ sap.ui.controller("vit.Search", {
 								text : "Linie "+data.Linien[i_stop].name+" - "+data.Linien[i_stop].Richtung
 							});
 							SelectDirection.addItem(oItem);
-							console.log(SelectDirection.getItemAt(0).getText());
 						}
 					}
 				}
