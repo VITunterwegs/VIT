@@ -35,7 +35,23 @@
                                             "value":50,
                                             "liveChange":"handleLiveChange"
                                         }
-                                        
+                                         
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Button",
+                                            "text":"back",
+                                            "type":"Accept",
+                                            "icon":"sap-icon://arrow-left",
+                                            "id":"backButton",
+                                            "width":"180px",
+                                            "liveChange":"handleBackPress"
+                                        }
+                                         
                                     ]
                                     
                                 }

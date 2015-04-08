@@ -42,8 +42,6 @@ sap.ui.controller("vit.Notify", {
 		var lineDirArr = lineDir.split("-");
 		lineDirArr[0] = lineDirArr[0].slice(6, lineDirArr[0].length - 1);
 		lineDirArr[1] = lineDirArr[1].slice(1, lineDirArr[1].length);
-		console.log(lineDirArr[0]);
-		console.log(lineDirArr[1]);
 
 		var delay = this.byId("SelectDelay").getDateValue();
 		var date = new Date(delay);
@@ -66,18 +64,12 @@ sap.ui.controller("vit.Notify", {
 			}
 
 			$.getJSON("json/linien.json", function(data) {
-				console.log("Anzahl der Linien: "+ data.Linien.length);
 				for (var jj = 0; jj < data.Linien.length; jj++){
-					
-					console.log("Name der Linie: "+ data.Linien[jj].name + "____________"+arr.line);
-					console.log("Richtung der Linie: "+ data.Linien[jj].Richtung + "____________"+arr.direction);
 					
 					if ((data.Linien[jj].name == arr.line)&&
 							(data.Linien[jj].Richtung == arr.direction)){
-						console.log("Anzahl der Haltestellen der "+data.Linien[jj].name+": "+ data.Linien[jj].Haltestellen.length);
 						for (var kk = 0; kk < data.Linien[jj].Haltestellen.length; kk++){
 							if (data.Linien[jj].Haltestellen[kk].id == id){
-								console.log("Anzahl der Zeiten: "+ data.Linien[jj].Haltestellen[kk].times.length);
 								for (var mm = 0; mm < data.Linien[jj].Haltestellen[kk].times.length ; mm++){
 									var stopTime = data.Linien[jj].Haltestellen[kk].times[mm].time;
 									var nowDate = new Date();
@@ -87,16 +79,12 @@ sap.ui.controller("vit.Notify", {
 									nowTime = nowTime + ":" + timesArr[1];
 									var compArrStop = stopTime.split(":");
 									var compArrNow	= nowTime.split(":");
-									console.log(nowTime);
-									console.log(stopTime);
 									
 									if ( (parseInt(compArrStop[0]) == parseInt(compArrNow[0])) &&
 										 (parseInt(compArrStop[1]) < parseInt(compArrNow[1] + 9))	&&
 										 (parseInt(compArrStop[1]) > parseInt(compArrNow[1] - 9)) &&
 										 (arr.uAbfahrt == null)){
-										console.log("Juchhuuuuu     "+ data.Linien[jj].Haltestellen[kk].times[mm].time);
 										arr.uAbfahrt = data.Linien[jj].Haltestellen[kk].times[mm].time;
-										console.log(arr.line);
 										sap.ui.getCore().myGlobalArray.push(arr);
 										var row = new sap.m.ColumnListItem();
 										row.addCell(new sap.m.Text({
@@ -232,28 +220,22 @@ handleStopChoose : function(){
 			var length_stop;
 			this.stops = data.haltestellen;
 			length_stop = data.haltestellen.length;
-			console.log("success");
 			
 			var arrstops = [];
-			var select = "Duale Hochschule";
-			//
-			console.log(select.toString());
+			
 			for (var x=0; x < data.haltestellen.length ; x++){
 				if (data.haltestellen[x].name == selectedItem){
 					for (var y=0 ; y < data.haltestellen[x].linien.length ; y++){
 						arrstops.push(data.haltestellen[x].linien[y].linie);
-						console.log("gefundene Linie: " + data.haltestellen[x].linien[y].linie);
 					}
 				}
 				
 			}
-			console.log("successfull23");
 			
 			$.getJSON( "json/linien.json", function( data ) {
 				
 				var j_stop;
 				var i_stop;
-				console.log(data.Linien.toString());
 				for (i_stop=0; i_stop < data.Linien.length; i_stop++){
 					for (j_stop=0; j_stop < arrstops.length; j_stop++){
 						if (data.Linien[i_stop].name == arrstops[j_stop]){
@@ -261,7 +243,6 @@ handleStopChoose : function(){
 								text : "Linie "+data.Linien[i_stop].name+" - "+data.Linien[i_stop].Richtung
 							});
 							SelectDirection.addItem(oItem);
-							console.log(SelectDirection.getItemAt(0).getText());
 						}
 					}
 				}

@@ -4,15 +4,11 @@ sap.ui.controller("vit.Home", {
 		var oTable = this.byId("dashboard");
 		$.getJSON("json/meldung.json", function(data) {
 			
-			console.log("vorher: "+sap.ui.getCore().myGlobalArray.length);
-			
 			if (sap.ui.getCore().myGlobalArray.length == 0) {
 				for (var i = 0; i < data.meldungen.length; i++) {
 					sap.ui.getCore().myGlobalArray.push(data.meldungen[i]);
 				}
 			}
-			
-			console.log("nachher: "+sap.ui.getCore().myGlobalArray.length);
 			
 			
 			for (var j = 0; j < sap.ui.getCore().myGlobalArray.length; j++) {
@@ -51,7 +47,7 @@ sap.ui.controller("vit.Home", {
 	},
 	
 	onAfterRendering: function(){
-		console.log("test");
+
 	},
 
 	handleSearchPress : function(oEvent) {
