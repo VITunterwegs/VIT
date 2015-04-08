@@ -3,6 +3,7 @@
 		{
 			"name":"3",
 			"Richtung":"Heide",
+            "type":"TRAM",
 			"Haltestellen":[
 				{
 					"id":"1",
@@ -5054,6 +5055,7 @@
 		{
 			"name":"3",
 			"Richtung":"Tivoli",
+            "type":"TRAM",
 			"Haltestellen":[
 				{
 					"id":"16",

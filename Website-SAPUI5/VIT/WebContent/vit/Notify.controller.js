@@ -2,43 +2,118 @@ jQuery.sap.require("sap.m.MessageToast");
 
 sap.ui.controller("vit.Notify", {
 	onInit : function() {
-		
-		
-		//Haltestellen
-		
+
+		// Haltestellen
+
 		var oModelStops = new sap.ui.model.json.JSONModel();
 		oModelStops.loadData("json/stops.json");
-		
+
 		var SelectStop = this.byId("SelectStop");
-		
+
 		SelectStop.setModel(oModelStops);
-		
-		var oItemTemplate = new sap.ui.core.Item({text:"{name}"});
+
+		var oItemTemplate = new sap.ui.core.Item({
+			text : "{name}"
+		});
 		SelectStop.bindItems("/haltestellen", oItemTemplate);
-		
-		
-		
-		//Transportmittel
-		
+
+		// Transportmittel
+
 		var oModelTransport = new sap.ui.model.json.JSONModel();
 		oModelTransport.loadData("json/transportation.json");
-		
-		
+
 		var SelectTransportation = this.byId("SelectTransportation");
 		SelectTransportation.setModel(oModelTransport);
-		
-		var oItemTemplate2 = new sap.ui.core.Item({text:"{name}"});
+
+		var oItemTemplate2 = new sap.ui.core.Item({
+			text : "{name}"
+		});
 		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
-		
-		
-		
 
 	},
 	handleLocatePress : function(oEvent) {
 
 	},
 	handleSendNotificationPress : function(oEvent) {
-		var list = this.list
+		var transport = this.byId("SelectTransportation").getSelectedItem()
+				.getText();
+		var stop = this.byId("SelectStop").getSelectedItem().getText();
+		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
+		lineDir = "Linie 3 - Heide";
+		var lineDirArr = lineDir.split("-");
+		lineDirArr[0] = lineDirArr[0].slice(6, lineDirArr[0].length - 1);
+		lineDirArr[1] = lineDirArr[1].slice(1, lineDirArr[1].length);
+		console.log(lineDirArr[0]);
+		console.log(lineDirArr[1]);
+
+		var delay = this.byId("SelectDelay").getDateValue();
+		var date = new Date(delay);
+		var delayArr = date.toString().split(":");
+		var sliceString = delayArr[0].slice((delayArr[0].length - 2),
+				delayArr[0].length);
+
+		var arr = [];
+		arr.line = lineDirArr[0];
+		arr.direction = lineDirArr[1];
+		arr.delay = sliceString + ":" + delayArr[1];
+		arr.stop = stop;
+
+		$.getJSON("json/stops.json", function(data) {
+			var id
+			for (var ii = 0; ii < data.haltestellen.length; ii++) {
+				if (data.haltestellen[ii].name = arr.stop) {
+					id = data.haltestellen[ii].id;
+				}
+			}
+
+			$.getJSON("json/linien.json", function(data) {
+				console.log("Anzahl der Linien: "+ data.Linien.length);
+				for (var jj = 0; jj < data.Linien.length; jj++){
+					
+					console.log("Name der Linie: "+ data.Linien[jj].name + "____________"+arr.line);
+					console.log("Richtung der Linie: "+ data.Linien[jj].Richtung + "____________"+arr.direction);
+					
+					if ((data.Linien[jj].name == arr.line)&&
+							(data.Linien[jj].Richtung == arr.direction)){
+						console.log("Anzahl der Haltestellen der "+data.Linien[jj].name+": "+ data.Linien[jj].Haltestellen.length);
+						for (var kk = 0; kk < data.Linien[jj].Haltestellen.length; kk++){
+							if (data.Linien[jj].Haltestellen[kk].id == id){
+								console.log("Anzahl der Zeiten: "+ data.Linien[jj].Haltestellen[kk].times.length);
+								for (var mm = 0; mm < data.Linien[jj].Haltestellen[kk].times.length ; mm++){
+									var stopTime = data.Linien[jj].Haltestellen[kk].times[mm].time;
+									var nowDate = new Date();
+									var timesArr = nowDate.toString().split(":");
+									var nowTime = timesArr[0].slice((timesArr[0].length - 2),
+											timesArr[0].length);
+									nowTime = nowTime + ":" + timesArr[1];
+									var compArrStop = stopTime.split(":");
+									var compArrNow	= nowTime.split(":");
+									console.log(nowTime);
+									console.log(stopTime);
+									
+									if ( (parseInt(compArrStop[0]) == parseInt(compArrNow[0])) &&
+										 (parseInt(compArrStop[1]) < parseInt(compArrNow[1] + 9))	&&
+										 (parseInt(compArrStop[1]) > parseInt(compArrNow[1] - 9)) &&
+										 (arr.uAbfahrt == null)){
+										console.log("Juchhuuuuu     "+ data.Linien[jj].Haltestellen[kk].times[mm].time);
+										arr.uAbfahrt = data.Linien[jj].Haltestellen[kk].times[mm].time;
+										console.log(arr.line);
+										sap.ui.getCore().myGlobalArray.push(arr);
+										}
+
+								}
+							}
+						}
+					}
+				}
+			});
+		});
+
+		/*
+		 * { "line":"3", "direction":"Heide", "delay":"00:05",
+		 * "stop":"Kolpingplatz", "uAbfahrt":"12:35" }
+		 */
+
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
@@ -74,34 +149,34 @@ sap.ui.controller("vit.Notify", {
 	},
 	__handleValueHelpCancel : function(evt) {
 	},
-	
-	locationChanged: function(oEvent){
+
+	locationChanged : function(oEvent) {
 		this.enableFields(oEvent.getSource());
 
 	},
-	
-	enableFields: function(oControl){
-		if(oControl.getValue() != ""){
+
+	enableFields : function(oControl) {
+		if (oControl.getValue() != "") {
 			this.byId("SelectTransportation").setEnabled(true);
 			this.byId("SelectStop").setEnabled(true);
 			this.byId("SelectDirection").setEnabled(true);
 			this.byId("SelectDelay").setEnabled(true);
-			
-		}else{
+
+		} else {
 			this.byId("SelectTransportation").setEnabled(false);
 			this.byId("SelectStop").setEnabled(false);
 			this.byId("SelectDirection").setEnabled(false);
 			this.byId("SelectDelay").setEnabled(false);
 			this.byId("SelectDelay").setValue("00:00");
 			this.byId("ButtonReport").setEnabled(false);
-			
-		}	
+
+		}
 	},
-	
-	delayChanged: function(oEvent){
-		if(oEvent.getSource().getValue() != "00:00"){
+
+	delayChanged : function(oEvent) {
+		if (oEvent.getSource().getValue() != "00:00") {
 			this.byId("ButtonReport").setEnabled(true);
-		}else{
+		} else {
 			this.byId("ButtonReport").setEnabled(false);
 		}
 	},
@@ -111,6 +186,5 @@ sap.ui.controller("vit.Notify", {
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Home"));
 	}
-	
-	
+
 });
