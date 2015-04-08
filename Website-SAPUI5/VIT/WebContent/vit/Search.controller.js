@@ -113,6 +113,8 @@ sap.ui.controller("vit.Search", {
 		var SelectDirection = this.byId("SelectDirection");
 		SelectDirection.setModel(oModelLines);
 		
+		var selectedItem = this.byId("SelectStop").getSelectedItem().getText();
+		
 		$.getJSON( "json/stops.json", function( data ) {
 			var stops = [];
 			var length_stop;
@@ -122,10 +124,10 @@ sap.ui.controller("vit.Search", {
 			
 			var arrstops = [];
 			var select = "Duale Hochschule";
-			//var selectedItem = this.byId("SelectStop").getSelectedItem().getText();
+			//
 			console.log(select.toString());
 			for (var x=0; x < data.haltestellen.length ; x++){
-				if (data.haltestellen[x].name == select){
+				if (data.haltestellen[x].name == selectedItem){
 					for (var y=0 ; y < data.haltestellen[x].linien.length ; y++){
 						arrstops.push(data.haltestellen[x].linien[y].linie);
 						console.log("gefundene Linie: " + data.haltestellen[x].linien[y].linie);
