@@ -82,6 +82,7 @@
                                         {
                                             "Type":"sap.m.Select",
                                             "id":"SelectStop",
+                                            "change":"handleStopChoose",
                                             "type":"Default",
                                             "enabled":false
                                         }
