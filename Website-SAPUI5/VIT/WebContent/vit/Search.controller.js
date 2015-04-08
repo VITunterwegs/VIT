@@ -33,6 +33,36 @@ sap.ui.controller("vit.Search", {
 			text : "{name}"
 		});
 		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
+		
+		// Linie
+		
+		var oModelLines = new sap.ui.model.json.JSONModel();
+		oModelLines.loadData("json/linien.json");
+		
+		var SelectStop = this.byId("SelectStop");
+		SelectStop.setModel(oModelLines);
+		
+		var stops = JSON.parse(json/stops.json);
+		var arrstops = [];
+		for (var x=0; x < stops.haltestellen.length ; x++){
+			if (stops.haltestellen[x].name == this.byId("SelectStop").getSelectedItem().getText()){
+				for (var y=0 ; y < stops.haltestellen[x].linien.length ; y++){
+					arrstops.push(stops.haltestellen[x].linien[y].linie);
+				}
+			}
+			
+		}
+		
+		var lines = JSON.parse(json/linien.json);
+		for (var i=0; i < lines.linien.length; i++){
+			for (var j=0; j < arrstops.length; j++){
+				if (lines.linien[i] == arrstops[j]){
+					var oItemTemplate2 = new sap.ui.core.Item({
+						text : "{Linien/"+i+"/name}{Linien/"+i+"/Richtung}"
+					});
+				}
+			}
+		}
 
 	},
 	showMenu : function(oEvent) {
