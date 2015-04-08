@@ -120,6 +120,7 @@ sap.ui.controller("vit.Search", {
 			
 			var arrstops = [];
 			var select = "Duale Hochschule";
+			//var selectedItem = this.byId("SelectStop").getSelectedItem().getText();
 			console.log(select.toString());
 			for (var x=0; x < data.haltestellen.length ; x++){
 				if (data.haltestellen[x].name == select){
@@ -141,7 +142,7 @@ sap.ui.controller("vit.Search", {
 					for (j_stop=0; j_stop < arrstops.length; j_stop++){
 						if (data.Linien[i_stop].name == arrstops[j_stop]){
 							var oItem = new sap.ui.core.Item({
-								text : "{Linien/"+i_stop+"/name}"
+								text : "Linie "+data.Linien[i_stop].name+" - "+data.Linien[i_stop].Richtung
 							});
 							SelectDirection.addItem(oItem);
 							console.log(SelectDirection.getItemAt(0).getText());
