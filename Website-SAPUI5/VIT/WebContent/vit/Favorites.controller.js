@@ -13,10 +13,11 @@ sap.ui.controller("vit.Favorites", {
 		oList.setModel(oModel);
 
 		var oItemTemplate = new sap.ui.core.ListItem({
-			text : "Linie {line} - {direction}"
+			text : "Linie {line} - {direction}",
+			icon: "img/bus.jpg"
 		});
 
-		//oList.bindItems("/favoriten", oItemTemplate);
+		oList.bindItems("/favoriten", oItemTemplate);
 
 	},
 
