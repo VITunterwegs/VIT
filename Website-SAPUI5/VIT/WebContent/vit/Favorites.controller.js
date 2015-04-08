@@ -3,8 +3,8 @@ sap.ui.controller("vit.Favorites", {
 
 		// Load Favorites
 
-		var oListen = sap.ui.getCore().byId("vMain--pFavorites--favList");
-		
+		var oListen = this.byId("favList");
+
 		var oList = this.byId("favList");
 		$.getJSON("json/favoriten.json", function(data) {
 			for (var i = 0; i < data.favoriten.length; i++) {
@@ -12,8 +12,8 @@ sap.ui.controller("vit.Favorites", {
 					description : "Linie " + data.favoriten[i].line + " - "
 							+ data.favoriten[i].direction,
 					title : data.favoriten[i].favName,
-					press: "handleFavPress",
-					type: "Active"
+					type : "Active",
+					press: "handleFavPress"
 				});
 
 				switch (data.favoriten[i].transportation) {
@@ -27,7 +27,9 @@ sap.ui.controller("vit.Favorites", {
 					oListItem.setIcon("img/tram.png");
 					break;
 				}
-
+				oListItem.attachPress(function(oEvent){
+					console.log("test");
+				});
 				oList.addItem(oListItem);
 			}
 		});
@@ -38,11 +40,6 @@ sap.ui.controller("vit.Favorites", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Navigation"));
-	},
-	
-	
-	handleFavPress: function(oEvent){
-		
 	},
 
 });
