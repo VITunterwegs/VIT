@@ -1,16 +1,14 @@
 {
     "favoriten":[
         {
-            "start":"Duale Hochschule",
-            "end":"Hbf Vorplatz",
             "transportation":"TRAM",
+            "favName":"Nach Hause",
             "line":"3",
             "direction":"Tivoli"
         },
         {
-            "start":"Duale Hochschule",
-            "end":"Heide",
             "line":"3",
+            "favName":"Zur Uni",
             "direction":"Heide",
             "transportation":"Bus"
         }

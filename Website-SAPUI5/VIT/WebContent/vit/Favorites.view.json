@@ -5,7 +5,7 @@
         {
             "Type":"sap.m.Page",
             "id":"favorites",
-            "backgroundDesign":"List",
+            "backgroundDesign":"Transparent",
             "customHeader":[
                 {
                     "Type":"sap.m.Bar",
