@@ -33,6 +33,9 @@ sap.ui.controller("vit.Search", {
 			text : "{name}"
 		});
 		SelectTransportation.bindItems("/transportmittel", oItemTemplate2);
+		
+		
+
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
@@ -73,8 +76,8 @@ sap.ui.controller("vit.Search", {
 		var oSelectedItem = evt.getParameter("selectedItem");
 		if (oSelectedItem) {
 			this.inputId.setValue(oSelectedItem.getTitle());
-			this.byId("inputStart").setEnabled(true);
-			this.enableFields(this.inputId);
+				this.byId("inputStart").setEnabled(true);
+				this.enableFields(this.inputId);
 		}
 	},
 	__handleValueHelpCancel : function(evt) {
