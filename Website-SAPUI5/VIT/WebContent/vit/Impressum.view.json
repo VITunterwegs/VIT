@@ -17,9 +17,7 @@
                             "Type":"sap.ui.core.HTML",
                             "id":"kontakt"
                         }
-                        
                     ]
-                    
                 },
                 {
                     "Type":"sap.m.Panel",
@@ -31,9 +29,7 @@
                             "Type":"sap.ui.core.HTML",
                             "id":"register"
                         }
-                        
                     ]
-                    
                 },
                 {
                     "Type":"sap.m.Panel",
@@ -45,11 +41,8 @@
                             "Type":"sap.ui.core.HTML",
                             "id":"disclaimer"
                         }
-                        
                     ]
-                    
                 }
-                
             ],
             "customHeader":[
                 {
@@ -60,21 +53,22 @@
                             "icon":"sap-icon://menu2",
                             "press":"showMenu"
                         }
-                        
                     ],
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
                             "text":"Impressum"
                         }
-                        
+                    ],
+                    "contentRight":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://home",
+                            "press":"goToHome"
+                        }
                     ]
-                    
                 }
-                
             ]
-            
         }
-        
     ]
 }

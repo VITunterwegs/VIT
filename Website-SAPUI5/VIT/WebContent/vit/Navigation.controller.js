@@ -4,38 +4,45 @@ sap.ui.controller("vit.Navigation", {
 	onInit : function() {
 
 	},
-	
+
 	handleFavoritesPress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Favorites"));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Favorites"));
 	},
 	handleHomePress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL(""));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Home"));
 	},
 
 	handleSearchPress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Search"));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Search"));
 	},
 	handleNotifyPress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Notify"));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Notify"));
 	},
 	handleSettingsPress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Settings"));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Settings"));
 	},
-	handleHelpPress: function(oEvent){
+	handleHelpPress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Help"));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Help"));
 	},
-	handleImpressumPress: function(oEvent){
+	handleImpressumPress : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
-		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter").getURL("Impressum"));
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Impressum"));
 	},
-	navBack: function(oEvent){
-		
+	goBack : function(oEvent) {
+		window.history.go(-1);
 	}
 
 });

@@ -12,8 +12,7 @@ sap.ui.controller("vit.Favorites", {
 					description : "Linie " + data.favoriten[i].line + " - "
 							+ data.favoriten[i].direction,
 					title : data.favoriten[i].favName,
-					type : "Active",
-					press: "handleFavPress"
+					type : "Active"
 				});
 
 				switch (data.favoriten[i].transportation) {
@@ -41,5 +40,11 @@ sap.ui.controller("vit.Favorites", {
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Navigation"));
 	},
+	
+	goToHome: function(oEvent){
+		var oHashChanger = new sap.ui.core.routing.HashChanger();
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Home"));
+	}
 
 });

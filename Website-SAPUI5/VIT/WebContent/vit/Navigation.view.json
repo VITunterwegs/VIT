@@ -21,6 +21,13 @@
                             "Type":"sap.m.Label",
                             "text":"Navigation"
                         }
+                    ],
+                    "contentRight":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://arrow-right",
+                            "press":"goBack"
+                        }
                     ]
                 }
             ],

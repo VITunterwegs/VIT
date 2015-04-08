@@ -1,43 +1,44 @@
 {
-	"Type":"sap.ui.core.mvc.JSONView",
-	"controllerName":"vit.Help",
-	"content":[
-		{
-			"Type":"sap.m.Page",
-			"id":"help",
-			"backgroundDesign":"Transparent",
-			"content":[
-				{
-					"Type":"sap.m.Image",
-					"src":"img/dummy.png",
-					"width":"inherit",
-					"height":"inherit"
-				}
-			],
-			"customHeader":[
-				{
-					"Type":"sap.m.Bar",
-					"contentLeft":[
-						{
-							"Type":"sap.m.Button",
-							"icon":"sap-icon://menu2",
-							"press":"showMenu"
-						}
-						
-					],
-					"contentMiddle":[
-						{
-							"Type":"sap.m.Label",
-							"text":"Help"
-						}
-						
-					]
-					
-				}
-				
-			]
-			
-		}
-		
-	]
+    "Type":"sap.ui.core.mvc.JSONView",
+    "controllerName":"vit.Help",
+    "content":[
+        {
+            "Type":"sap.m.Page",
+            "id":"help",
+            "backgroundDesign":"Transparent",
+            "content":[
+                {
+                    "Type":"sap.m.Image",
+                    "src":"img/dummy.png",
+                    "width":"inherit",
+                    "height":"inherit"
+                }
+            ],
+            "customHeader":[
+                {
+                    "Type":"sap.m.Bar",
+                    "contentLeft":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://menu2",
+                            "press":"showMenu"
+                        }
+                    ],
+                    "contentMiddle":[
+                        {
+                            "Type":"sap.m.Label",
+                            "text":"Help"
+                        }
+                    ],
+                    "contentRight":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://home",
+                            "press":"goToHome"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
