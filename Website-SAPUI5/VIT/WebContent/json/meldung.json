@@ -1,0 +1,40 @@
+{
+    "meldungen":[
+        {
+            "line":"3",
+            "direction":"Heide",
+            "delay":"00:05",
+            "stop":"Kolpingplatz",
+            "uAbfahrt":"12:35"
+        },
+        {
+            "line":"5",
+            "direction":"Marktplatz",
+            "delay":"00:02",
+            "stop":"Karlstor",
+            "uAbfahrt":"10:43"
+        },
+        {
+            "line":"4",
+            "direction":"Waldstadt",
+            "delay":"00:03",
+            "stop":"Marktplatz",
+            "uAbfahrt":"12:08"
+        },
+        {
+            "line":"S11",
+            "direction":"Ittersbach",
+            "delay":"00:07",
+            "stop":"Mühlburger Tor (Kaiserallee)",
+            "uAbfahrt":"11:18"
+        },
+        {
+            "line":"S2",
+            "direction":"Reitschulschlag",
+            "delay":"00:06",
+            "stop":"Yorckstraße",
+            "uAbfahrt":"11:13"
+        }
+        
+    ]
+}

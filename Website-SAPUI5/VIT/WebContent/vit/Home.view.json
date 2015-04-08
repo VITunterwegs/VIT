@@ -55,6 +55,8 @@
                 },
                 {
                     "Type":"sap.m.Table",
+                    "fixedLayout":false,
+                    "id":"dashboard",
                     "columns":[
                         {
                             "Type":"sap.m.Column",
