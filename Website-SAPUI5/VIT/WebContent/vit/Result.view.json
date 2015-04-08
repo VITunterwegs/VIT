@@ -71,6 +71,7 @@
                     "items":[
                         {
                             "Type":"sap.m.Table",
+                            "id":"resultTable",
                             "columns":[
                                 {
                                     "Type":"sap.m.Column",

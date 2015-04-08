@@ -27,7 +27,26 @@ sap.ui.controller("vit.Favorites", {
 					break;
 				}
 				oListItem.attachPress(function(oEvent){
-					console.log("test");
+					var resultList = sap.ui.getCore().byId("vMain--pHome--resultTable");
+					resultList.removeAllItems();
+					
+					var items = sap.ui.getCore().byId("vMain--pHome--dashboard").getItems();
+					var listItem = oEvent.getSource();
+					var dirLin = listItem.getDescription();
+					var linArr = dirLin.split("-");
+					linArr[0] = linArr[0].slice(6, linArr[0].length-1);
+					linArr[1] = linArr[1].slice(1, linArr[1].length);
+					
+					for (var i =0 ; i < items.length; i++){
+						var cells = items[i].getCells();
+						var line = cells[0].getText();
+						var dir = cells[1].getText();
+						if ((line == linArr[0]) &&
+								(dir == linArr[1])){
+							resultList.addItem(items[i]);
+						}
+					}
+					
 				});
 				oList.addItem(oListItem);
 			}

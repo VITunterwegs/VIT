@@ -56,7 +56,31 @@ sap.ui.controller("vit.Search", {
 				.getURL("Result"));
 	},
 	handleAddFavPress : function(oEvent) {
+		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
+		
+		var oListItem = new sap.m.StandardListItem({
+			description : lineDir,
+			title : "Test", //MessageBox
+			type : "Active"
+		});
 
+		switch (this.byId("SelectTransportation").getSelectedItem().getText()) {
+		case "Bus":
+			oListItem.setIcon("img/bus.jpg");
+			break;
+		case "Bahn":
+			oListItem.setIcon("img/bahn.png");
+			break;
+		case "TRAM":
+			oListItem.setIcon("img/tram.png");
+			break;
+		}
+		oListItem.attachPress(function(oEvent){
+			sap.ui.getCore().byId("vMain--pSearch--SelectStop")
+			console.log("test");
+		});
+		sap.ui.getCore().byId("vMain--pFavorites--favList").addItem(oListItem);
+		sap.m.MessageToast.show("Favorit wurde gespeichert");
 	},
 
 	valueHelpPressed : function(oEvent) {

@@ -39,7 +39,6 @@ sap.ui.controller("vit.Notify", {
 				.getText();
 		var stop = this.byId("SelectStop").getSelectedItem().getText();
 		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
-		lineDir = "Linie 3 - Heide";
 		var lineDirArr = lineDir.split("-");
 		lineDirArr[0] = lineDirArr[0].slice(6, lineDirArr[0].length - 1);
 		lineDirArr[1] = lineDirArr[1].slice(1, lineDirArr[1].length);
