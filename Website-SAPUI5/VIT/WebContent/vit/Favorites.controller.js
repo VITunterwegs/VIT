@@ -12,7 +12,8 @@ sap.ui.controller("vit.Favorites", {
 					description : "Linie " + data.favoriten[i].line + " - "
 							+ data.favoriten[i].direction,
 					title : data.favoriten[i].favName,
-					press: "handleFavPress"
+					press: "handleFavPress",
+					type: "Active"
 				});
 
 				switch (data.favoriten[i].transportation) {
