@@ -42,7 +42,7 @@ sap.ui.controller("vit.Search", {
 		var SelectStop = this.byId("SelectStop");
 		SelectStop.setModel(oModelLines);
 		
-		var stops = JSON.parse(json/stops.json);
+		var stops = JSON.parse("json/stops.json");
 		var arrstops = [];
 		for (var x=0; x < stops.haltestellen.length ; x++){
 			if (stops.haltestellen[x].name == this.byId("SelectStop").getSelectedItem().getText()){
@@ -53,7 +53,7 @@ sap.ui.controller("vit.Search", {
 			
 		}
 		
-		var lines = JSON.parse(json/linien.json);
+		var lines = JSON.parse("json/linien.json");
 		for (var i=0; i < lines.linien.length; i++){
 			for (var j=0; j < arrstops.length; j++){
 				if (lines.linien[i] == arrstops[j]){
