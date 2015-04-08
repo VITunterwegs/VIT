@@ -8,15 +8,19 @@ sap.ui.controller("vit.Favorites", {
 		oModel.loadData("json/favoriten.json");
 
 		var oListen = sap.ui.getCore().byId("vMain--pFavorites--favList");
+		console.log("Hallo1 " + oListen.toString());
 
 		oListen.setModel(oModel);
 
+		console.log("Hallo2 " + oListen.toString());
+		
 		var oItemTemplate = new sap.ui.core.ListItem({
 			text : "Linie",
 			icon: "img/bus.jpg"
 		});
-
-		//oListen.addItem(oItemTemplate);
+		console.log("Hallo Templae: "+oItemTemplate);
+		console.log("Hallo3 " + oListen.toString());
+		oListen.addItem(oItemTemplate);
 
 	},
 
