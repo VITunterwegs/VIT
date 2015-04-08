@@ -38,7 +38,7 @@ sap.ui.controller("vit.Notify", {
 
 	},
 	handleSendNotificationPress : function(oEvent) {
-		
+		var list = this.list
 	},
 	showMenu : function(oEvent) {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();

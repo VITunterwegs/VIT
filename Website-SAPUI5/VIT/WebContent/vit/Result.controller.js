@@ -23,6 +23,8 @@ sap.ui.controller("vit.Result", {
 				height : "100%"
 			});
 		}
+		
+		console.log(sap.ui.getCore().myList);
 
 		if (source.getText() == "Kartenansicht") {
 			this.liste = this.byId("contentBox").getItems();
