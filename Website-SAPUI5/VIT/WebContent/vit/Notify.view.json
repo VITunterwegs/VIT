@@ -21,6 +21,13 @@
                             "Type":"sap.m.Label",
                             "text":"Melden"
                         }
+                    ],
+                    "contentRight":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://home",
+                            "press":"goToHome"
+                        }
                     ]
                 }
             ],

@@ -1,143 +1,151 @@
 {
-	"Type":"sap.ui.core.mvc.JSONView",
-	"controllerName":"vit.Result",
-	"content":[
-		{
-			"Type":"sap.m.Page",
-			"id":"result",
-			"backgroundDesign":"Transparent",
-			"content":[
-				{
-					"Type":"sap.ui.layout.form.Form",
-					"backgroundColor":"transparent",
-					"layout":{
-						"Type":"sap.ui.layout.form.ResponsiveGridLayout",
-						"id":"L1"
-					},
-					"formContainers":[
-						{
-							"Type":"sap.ui.layout.form.FormContainer",
-							"formElements":[
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"label":{
-										"Type":"sap.m.Label",
-										"id":"rangeLabel",
-										"text":"1 km Umkreis"
-									},
-									"fields":[
-										{
-											"Type":"sap.m.Slider",
-											"id":"slider",
-											"width":"180px",
-											"min":10,
-											"step":10,
-											"value":50,
-											"liveChange":"handleLiveChange"
-										}
-										
-									]
-									
-								},
-								{
-									"Type":"sap.ui.layout.form.FormElement",
-									"fields":[
-										{
-											"Type":"sap.m.Button",
-											"text":"Kartenansicht",
-											"type":"Accept",
-											"icon":"sap-icon://map-2",
-											"width":"180px",
-											"press":"handleMapPress",
-											"iconFirst":false
-										}
-										
-									]
-									
-								}
-								
-							]
-							
-						}
-						
-					]
-					
-				},
-				{
-					"Type":"sap.m.FlexBox",
-					"id":"contentBox",
-					"width":"100%",
-					"height":"100%",
-					"items":[
-						{
-							"Type":"sap.m.Table",
-							"columns":[
-								{
-									"Type":"sap.m.Column",
-									"header":{
-										"Type":"sap.m.Label",
-										"text":"Linie"
-									}
-									
-								},
-								{
-									"Type":"sap.m.Column",
-									"header":{
-										"Type":"sap.m.Label",
-										"text":"Richtung"
-									}
-									
-								},
-								{
-									"Type":"sap.m.Column",
-									"header":{
-										"Type":"sap.m.Label",
-										"text":"Verspätung"
-									}
-									
-								},
-								{
-									"Type":"sap.m.Column",
-									"header":{
-										"Type":"sap.m.Label",
-										"text":"Ankunft"
-									}
-									
-								}
-								
-							]
-							
-						}
-						
-					]
-					
-				}
-				
-			],
-			"customHeader":[
-				{
-					"Type":"sap.m.Bar",
-					"contentLeft":[
-						{
-							"Type":"sap.m.Button",
-							"icon":"sap-icon://menu2",
-							"press":"showMenu"
-						}
-						
-					],
-					"contentMiddle":[
-						{
-							"Type":"sap.m.Label",
-							"text":"Suchergebnisse"
-						}
-						
-					]
-					
-				}
-				
-			]
-			
-		}
-		
-	]
+    "Type":"sap.ui.core.mvc.JSONView",
+    "controllerName":"vit.Result",
+    "content":[
+        {
+            "Type":"sap.m.Page",
+            "id":"result",
+            "backgroundDesign":"Transparent",
+            "content":[
+                {
+                    "Type":"sap.ui.layout.form.Form",
+                    "backgroundColor":"transparent",
+                    "layout":{
+                        "Type":"sap.ui.layout.form.ResponsiveGridLayout",
+                        "id":"L1"
+                    },
+                    "formContainers":[
+                        {
+                            "Type":"sap.ui.layout.form.FormContainer",
+                            "formElements":[
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "label":{
+                                        "Type":"sap.m.Label",
+                                        "id":"rangeLabel",
+                                        "text":"1 km Umkreis"
+                                    },
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Slider",
+                                            "id":"slider",
+                                            "width":"180px",
+                                            "min":10,
+                                            "step":10,
+                                            "value":50,
+                                            "liveChange":"handleLiveChange"
+                                        }
+                                        
+                                    ]
+                                    
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Button",
+                                            "text":"Kartenansicht",
+                                            "type":"Accept",
+                                            "icon":"sap-icon://map-2",
+                                            "width":"180px",
+                                            "press":"handleMapPress",
+                                            "iconFirst":false
+                                        }
+                                        
+                                    ]
+                                    
+                                }
+                                
+                            ]
+                            
+                        }
+                        
+                    ]
+                    
+                },
+                {
+                    "Type":"sap.m.FlexBox",
+                    "id":"contentBox",
+                    "width":"100%",
+                    "height":"100%",
+                    "items":[
+                        {
+                            "Type":"sap.m.Table",
+                            "columns":[
+                                {
+                                    "Type":"sap.m.Column",
+                                    "header":{
+                                        "Type":"sap.m.Label",
+                                        "text":"Linie"
+                                    }
+                                    
+                                },
+                                {
+                                    "Type":"sap.m.Column",
+                                    "header":{
+                                        "Type":"sap.m.Label",
+                                        "text":"Richtung"
+                                    }
+                                    
+                                },
+                                {
+                                    "Type":"sap.m.Column",
+                                    "header":{
+                                        "Type":"sap.m.Label",
+                                        "text":"Verspätung"
+                                    }
+                                    
+                                },
+                                {
+                                    "Type":"sap.m.Column",
+                                    "header":{
+                                        "Type":"sap.m.Label",
+                                        "text":"Ankunft"
+                                    }
+                                    
+                                }
+                                
+                            ]
+                            
+                        }
+                        
+                    ]
+                    
+                }
+                
+            ],
+            "customHeader":[
+                {
+                    "Type":"sap.m.Bar",
+                    "contentLeft":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://menu2",
+                            "press":"showMenu"
+                        }
+                        
+                    ],
+                    "contentMiddle":[
+                        {
+                            "Type":"sap.m.Label",
+                            "text":"Suchergebnisse"
+                        }
+                        
+                    ],
+                    "contentRight":[
+                        {
+                            "Type":"sap.m.Button",
+                            "icon":"sap-icon://home",
+                            "press":"goToHome"
+                        }
+                        
+                    ]
+                    
+                }
+                
+            ]
+            
+        }
+        
+    ]
 }
