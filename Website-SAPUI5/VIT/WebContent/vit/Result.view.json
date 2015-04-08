@@ -51,7 +51,9 @@
 											"press":"handleMapPress",
 											"iconFirst":false
 										}
+										
 									]
+									
 								}
 								
 							]
@@ -62,38 +64,48 @@
 					
 				},
 				{
-					"Type":"sap.m.Table",
-					"columns":[
+					"Type":"sap.m.FlexBox",
+					"id":"contentBox",
+					"width":"100%",
+					"height":"100%",
+					"items":[
 						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Linie"
-							}
-							
-						},
-						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Richtung"
-							}
-							
-						},
-						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Verspätung"
-							}
-							
-						},
-						{
-							"Type":"sap.m.Column",
-							"header":{
-								"Type":"sap.m.Label",
-								"text":"Ankunft"
-							}
+							"Type":"sap.m.Table",
+							"columns":[
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Linie"
+									}
+									
+								},
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Richtung"
+									}
+									
+								},
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Verspätung"
+									}
+									
+								},
+								{
+									"Type":"sap.m.Column",
+									"header":{
+										"Type":"sap.m.Label",
+										"text":"Ankunft"
+									}
+									
+								}
+								
+							]
 							
 						}
 						
