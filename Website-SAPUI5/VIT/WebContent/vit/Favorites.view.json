@@ -34,7 +34,9 @@
             "content":[
                 {
                     "Type":"sap.m.List",
-                    "id":"favList"
+                    "id":"favList",
+                    "mode":"Delete",
+                    "delete":"handleDeletePress"
                 }
             ]
         }

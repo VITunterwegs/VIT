@@ -68,6 +68,12 @@ sap.ui.controller("vit.Favorites", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Home"));
+	},
+	
+	handleDeletePress : function(oEvent){
+		 var oList = oEvent.getSource();
+	      oItem = oEvent.getParameter("listItem");
+	      oList.removeItem(oItem);
 	}
 
 });

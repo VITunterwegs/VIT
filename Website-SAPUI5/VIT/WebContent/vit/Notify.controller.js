@@ -204,6 +204,10 @@ sap.ui.controller("vit.Notify", {
 	
 handleStopChoose : function(){
 		
+		if (this.byId("SelectDirection").getItems() == null){
+			sap.m.MessageToast.show("Bitte eine Haltestelle auswählen");
+		}
+	
 		// Linie
 		var oModelLines = new sap.ui.model.json.JSONModel();
 		oModelLines.loadData("json/linien.json");
