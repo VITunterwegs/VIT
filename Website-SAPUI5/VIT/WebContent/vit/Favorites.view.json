@@ -9,7 +9,7 @@
             "content":[
                 {
                     "Type":"sap.m.List",
-                    "id":"List"
+                    "id":"oList"
                 }
             ],
             "customHeader":[

@@ -13,11 +13,14 @@
 
 
 <style type="text/css">
-#vMain--pHome--flexbox{
+#vMain--pHome--flexbox {
 	background-image: url(./img/startscreen_header.png) !important;
 	background-size: auto 100%;
-	background-repeat : no-repeat;
-	
+	background-repeat: no-repeat;
+}
+
+.sapMPanelHdr {
+	color: white;
 }
 </style>
 
@@ -50,8 +53,7 @@
 		viewName : "vit.Shell",
 		type : sap.ui.core.mvc.ViewType.JSON
 	});
-	
-	
+
 	var router = new sap.ui.core.routing.Router([
 			{
 				pattern : "",

@@ -74,34 +74,17 @@ sap.ui.controller("vit.Search", {
 		var oSelectedItem = evt.getParameter("selectedItem");
 		if (oSelectedItem) {
 			this.inputId.setValue(oSelectedItem.getTitle());
-			if (this.inputId == this.byId("inputStart")) {
-				this.byId("inputDestination").setEnabled(true);
-			} else {
+				this.byId("inputStart").setEnabled(true);
 				this.enableFields(this.inputId);
-			}
 		}
 	},
 	__handleValueHelpCancel : function(evt) {
 	},
 
 	locationChanged : function(oEvent) {
-		if (oEvent.getSource().getValue() != "") {
-			this.byId("inputDestination").setEnabled(true);
-
-		} else {
-			this.byId("inputDestination").setEnabled(false);
-			this.byId("SelectTransportation").setEnabled(false);
-			this.byId("SelectStop").setEnabled(false);
-			this.byId("SelectDirection").setEnabled(false);
-			this.byId("ButtonSearch").setEnabled(false);
-			this.byId("ButtonAddFavorite").setEnabled(false);
-		}
-	},
-
-	destinationChanged : function(oEvent) {
 		this.enableFields(oEvent.getSource());
-	},
 
+	},
 	enableFields : function(oControl) {
 		if (oControl.getValue() != "") {
 			this.byId("SelectTransportation").setEnabled(true);

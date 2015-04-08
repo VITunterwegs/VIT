@@ -8,7 +8,7 @@ sap.ui.controller("vit.Favorites", {
 		oModel = new sap.ui.model.json.JSONModel();
 		oModel.loadData("json/favoriten.json");
 
-		var oList = this.byId("List");
+		var oList = this.byId("oList");
 
 		oList.setModel(oModel);
 
@@ -16,7 +16,7 @@ sap.ui.controller("vit.Favorites", {
 			text : "Linie {line} - {direction}"
 		});
 
-		oList.bindItems("/favoriten", oItemTemplate);
+		//oList.bindItems("/favoriten", oItemTemplate);
 
 	},
 
