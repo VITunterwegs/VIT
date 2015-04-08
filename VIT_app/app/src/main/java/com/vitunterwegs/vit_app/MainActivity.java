@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
         WebViewClientImpl webViewClient = new WebViewClientImpl(this);
         webView.setWebViewClient(webViewClient);
 
-        webView.loadUrl("http://mathias-foehrenbacher.de/VIT/WebContent/index.html");
+        webView.loadUrl("http://schoeneborn-online.de/VIT/#/home");
     }
 
     public boolean isOnline() {

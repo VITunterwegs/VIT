@@ -51,9 +51,53 @@ sap.ui.controller("vit.Search", {
 
 
 	handleSearchPress : function(oEvent) {
+		
+		var meldungen =  sap.ui.getCore().myGlobalArray;
+		var lineDir = this.byId("SelectDirection");
+		var lineDirArr = lineDir.split("-");
+		lineDirArr[0] = lineDirArr[0].slice(6, lineDirArr[0].length - 1);
+		lineDirArr[1] = lineDirArr[1].slice(1, lineDirArr[1].length);
+		
+		var stop = this.byId("SelectStop");
+		var line = lineDirArr[0];
+		var direction =  lineDirArr[1];
+		var oTable = sap.ui.getCore().byId("vMain--pResult--resultTable")
+		
+		oTable.removeAllItems();
+		
+		for(var i = 0; i< meldungen.length; i++){
+			if((meldungen[i].direction == direction) && (meldungen[i].line == line) && (meldungen[i].stop == stop)){
+				var row = new sap.m.ColumnListItem();
+				row.addCell(new sap.m.Text({
+					text : meldungen[i].line
+				}));
+				row.addCell(new sap.m.Text({
+					text : meldungen[i].direction
+				}));
+				row.addCell(new sap.m.Text({
+					text : "+" + meldungen[i].delay
+				}));
+				row.addCell(new sap.m.ObjectIdentifier({
+					title : "test",
+					text : meldungen[i].stop
+				}));
+				
+				oTable.addItem(row);
+			}
+		}
+		
+		
+		
+		
+		
+		
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Result"));
+		
+		
+		
+		
 	},
 	handleAddFavPress : function(oEvent) {
 		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();

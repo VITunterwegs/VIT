@@ -21,12 +21,10 @@ sap.ui.controller("vit.Home", {
 					text : data.meldungen[j].line
 				}));
 				row.addCell(new sap.m.Text({
-					text : data.meldungen[j].direction,
-					textAlgin : "center"
+					text : data.meldungen[j].direction
 				}));
 				row.addCell(new sap.m.Text({
-					text : "+" + data.meldungen[j].delay,
-					styleClass : "delay"
+					text : "+" + data.meldungen[j].delay
 				}));
 
 				var time = new Date();
@@ -44,13 +42,16 @@ sap.ui.controller("vit.Home", {
 				row.addCell(new sap.m.ObjectIdentifier({
 					title : tArr[0] + ":" + tArr[1],
 					text : data.meldungen[j].stop
-
 				}));
 				oTable.addItem(row);
 			}
 
 		});
 
+	},
+	
+	onAfterRendering: function(){
+		console.log("test");
 	},
 
 	handleSearchPress : function(oEvent) {
