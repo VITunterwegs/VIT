@@ -1,22 +1,33 @@
-
 sap.ui.controller("vit.Favorites", {
 	onInit : function() {
 
 		// Load Favorites
 
-		oModel = new sap.ui.model.json.JSONModel();
-		oModel.loadData("json/favoriten.json");
+		var oList = this.byId("favList");
+		$.getJSON("json/favoriten.json", function(data) {
+			for (var i = 0; i < data.favoriten.length; i++) {
+				var oListItem = new sap.m.StandardListItem({
+					description : "Linie " + data.favoriten[i].line + " - "
+							+ data.favoriten[i].direction,
+					title : data.favoriten[i].favName,
+					press: "handleFavPress"
+				});
 
-		var oList = sap.ui.getCore().byId("vMain--pFavorites--favList");
+				switch (data.favoriten[i].transportation) {
+				case "Bus":
+					oListItem.setIcon("img/bus.jpg");
+					break;
+				case "Bahn":
+					oListItem.setIcon("img/bahn.png");
+					break;
+				case "TRAM":
+					oListItem.setIcon("img/tram.png");
+					break;
+				}
 
-		oList.setModel(oModel);
-
-		var oItemTemplate = new sap.ui.core.ListItem({
-			text : "Linie",
-			icon: "img/bus.jpg"
+				oList.addItem(oListItem);
+			}
 		});
-
-		//oList.addItem(oItemTemplate);
 
 	},
 
@@ -24,6 +35,11 @@ sap.ui.controller("vit.Favorites", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Navigation"));
-	}
+	},
+	
+	
+	handleFavPress: function(oEvent){
+		
+	},
 
 });
