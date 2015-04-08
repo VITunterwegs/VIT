@@ -1,7 +1,7 @@
 {
 	"Linien":[
 		{
-			"name":"S3",
+			"name":"3",
 			"Richtung":"Heide",
 			"Haltestellen":[
 				{
@@ -5052,7 +5052,7 @@
 			]
 		},
 		{
-			"name":"S3",
+			"name":"3",
 			"Richtung":"Tivoli",
 			"Haltestellen":[
 				{
