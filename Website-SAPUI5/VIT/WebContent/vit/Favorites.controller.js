@@ -3,6 +3,7 @@ sap.ui.controller("vit.Favorites", {
 
 		// Load Favorites
 
+<<<<<<< HEAD
 		var oList = this.byId("favList");
 		$.getJSON("json/favoriten.json", function(data) {
 			for (var i = 0; i < data.favoriten.length; i++) {
@@ -29,6 +30,22 @@ sap.ui.controller("vit.Favorites", {
 			}
 		});
 
+=======
+		oModel = new sap.ui.model.json.JSONModel();
+		oModel.loadData("json/favoriten.json");
+
+		var oListen = sap.ui.getCore().byId("vMain--pFavorites--favList");
+
+		oListen.setModel(oModel);
+
+		var oItemTemplate = new sap.ui.core.ListItem({
+			text : "Linie",
+			icon: "img/bus.jpg"
+		});
+
+		//oListen.addItem(oItemTemplate);
+
+>>>>>>> origin/master
 	},
 
 	showMenu : function(oEvent) {
