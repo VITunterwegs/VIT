@@ -92,10 +92,12 @@ sap.ui.controller("vit.Search", {
 			actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
 			onClose: function(oAction){
 				
+				if(oAction === sap.m.MessageBox.Action.OK){
+				
 				var lineDir = sap.ui.getCore().byId("vMain--pSearch--SelectDirection").getSelectedItem().getText();
 				var oListItem = new sap.m.StandardListItem({
 					description : lineDir,
-					title : sap.ui.getCore().byId("vMain--pSearch--favNam").getValue(), //MessageBox
+					title : input.getValue(), //MessageBox
 					type : "Active"
 				});
 
@@ -137,7 +139,7 @@ sap.ui.controller("vit.Search", {
 				sap.ui.getCore().byId("vMain--pFavorites--favList").addItem(oListItem);
 				sap.m.MessageToast.show("Favorit wurde gespeichert");
 				
-				
+				}
 				
 			}
 		});
