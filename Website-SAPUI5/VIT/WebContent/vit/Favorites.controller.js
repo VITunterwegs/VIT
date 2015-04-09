@@ -64,6 +64,12 @@ sap.ui.controller("vit.Favorites", {
 				.getURL("Navigation"));
 	},
 	
+	addFavorite : function(oEven){
+		var oHashChanger = new sap.ui.core.routing.HashChanger();
+		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+				.getURL("Add"));
+	},
+	
 	goToHome: function(oEvent){
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")

@@ -19,10 +19,15 @@
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
-                            "text":"Favoriten"
+                            "text":"Favoriten verwalten"
                         }
                     ],
                     "contentRight":[
+                    	{
+                    		"Type":"sap.m.Button",
+                            "icon":"sap-icon://add",
+                            "press":"addFavorite"
+                    	},
                         {
                             "Type":"sap.m.Button",
                             "icon":"sap-icon://home",

@@ -59,7 +59,7 @@
                         },
                         {
                             "Type":"sap.m.StandardListItem",
-                            "title":"Favoriten",
+                            "title":"Favoriten verwalten",
                             "icon":"sap-icon://favorite",
                             "type":"Navigation",
                             "press":"handleFavoritesPress"
