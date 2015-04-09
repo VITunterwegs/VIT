@@ -80,7 +80,7 @@ sap.ui.controller("vit.Search", {
 
 	},
 	handleAddFavPress : function(oEvent) {
-		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
+		
 		var input = new sap.m.Input({
 			id: "favNam",
 			placeholder: "Bitte benennen sie ihren Favoriten"
@@ -92,6 +92,7 @@ sap.ui.controller("vit.Search", {
 			actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
 		});
 		
+		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
 		var oListItem = new sap.m.StandardListItem({
 			description : lineDir,
 			title : input.getText(), //MessageBox
