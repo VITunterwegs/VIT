@@ -64,15 +64,12 @@ sap.ui.controller("vit.Notify", {
 			}
 
 			$.getJSON("json/linien.json", function(data) {
-				console.log("Linien");
 				for (var jj = 0; jj < data.Linien.length; jj++){
 					
 					if ((data.Linien[jj].name == arr.line)&&
 							(data.Linien[jj].Richtung == arr.direction)){
-						console.log("Haltestellen");
 						for (var kk = 0; kk < data.Linien[jj].Haltestellen.length; kk++){
 							if (data.Linien[jj].Haltestellen[kk].id == id){
-								console.log("Zeiten");
 								for (var mm = 0; mm < data.Linien[jj].Haltestellen[kk].times.length ; mm++){
 									var stopTime = data.Linien[jj].Haltestellen[kk].times[mm].time;
 									var nowDate = new Date();
@@ -89,7 +86,6 @@ sap.ui.controller("vit.Notify", {
 										 (arr.uAbfahrt == null)){
 										arr.uAbfahrt = data.Linien[jj].Haltestellen[kk].times[mm].time;
 										sap.ui.getCore().myGlobalArray.push(arr);
-										console.log("Gefunden!!");
 										var row = new sap.m.ColumnListItem();
 										row.addCell(new sap.m.Text({
 											text : arr.line
@@ -186,6 +182,7 @@ sap.ui.controller("vit.Notify", {
 			this.byId("SelectDelay").setEnabled(true);
 			this.byId("canceled").setEnabled(true);
 
+			
 		} else {
 			this.byId("SelectTransportation").setEnabled(false);
 			this.byId("SelectStop").setEnabled(false);
