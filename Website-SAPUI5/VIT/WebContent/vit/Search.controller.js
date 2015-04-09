@@ -81,17 +81,20 @@ sap.ui.controller("vit.Search", {
 	},
 	handleAddFavPress : function(oEvent) {
 		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
-		
-		var dialog = new sap.m.Dialog();
-		dialog.addContent(new sap.m.Input({
+		var input = new sap.m.Input({
 			id: "favNam",
 			placeholder: "Bitte benennen sie ihren Favoriten"
-		}));
-		dialog.open();
+		});
+		jQuery.sap.require("sap.m.MessageBox");
+		sap.m.MessageBox.confirm(input, {
+			icon: sap.m.MessageBox.Icon.INFORMATION,
+			title: "Name des Favoriten",
+			actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+		});
 		
 		var oListItem = new sap.m.StandardListItem({
 			description : lineDir,
-			title : "Test", //MessageBox
+			title : input.getText(), //MessageBox
 			type : "Active"
 		});
 
