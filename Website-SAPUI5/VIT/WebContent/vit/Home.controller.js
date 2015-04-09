@@ -12,7 +12,7 @@ sap.ui.controller("vit.Home", {
 			
 			
 			for (var j = 0; j < sap.ui.getCore().myGlobalArray.length; j++) {
-				var row = new sap.m.ColumnListItem();
+				var row = new sap.m.ColumnListItem({type: "Active"});
 				row.addCell(new sap.m.Text({
 					text : data.meldungen[j].line
 				}));
@@ -39,6 +39,9 @@ sap.ui.controller("vit.Home", {
 					title : tArr[0] + ":" + tArr[1],
 					text : data.meldungen[j].stop
 				}));
+				row.attachPress(function(oEvent){
+					sap.m.MessageToast.show("Diese Methode ist leider im jetzigen Zustand noch nicht implementiert");
+				});
 				oTable.addItem(row);
 			}
 

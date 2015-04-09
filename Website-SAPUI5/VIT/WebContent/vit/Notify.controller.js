@@ -113,6 +113,9 @@ sap.ui.controller("vit.Notify", {
 											text : arr.stop
 
 										}));
+										row.attachPress(function(oEvent){
+											sap.m.MessageToast("Diese Methode ist leider im jetzigen Zustand noch nicht implementiert");
+										});
 										sap.ui.getCore().byId("vMain--pHome--dashboard").addItem(row);
 										}
 

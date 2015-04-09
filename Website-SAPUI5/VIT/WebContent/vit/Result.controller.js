@@ -19,6 +19,10 @@ sap.ui.controller("vit.Result", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Home"));
+	},
+	
+	handleBackPress : function(oEvent){
+		window.history.go(-1);
 	}
 
 });

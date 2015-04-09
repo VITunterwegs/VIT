@@ -44,12 +44,12 @@
                                     "fields":[
                                         {
                                             "Type":"sap.m.Button",
-                                            "text":"back",
+                                            "text":"zurück zur Suche",
                                             "type":"Accept",
                                             "icon":"sap-icon://arrow-left",
                                             "id":"backButton",
                                             "width":"180px",
-                                            "liveChange":"handleBackPress"
+                                            "press":"handleBackPress"
                                         }
                                          
                                     ]

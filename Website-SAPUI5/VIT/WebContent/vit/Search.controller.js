@@ -82,6 +82,13 @@ sap.ui.controller("vit.Search", {
 	handleAddFavPress : function(oEvent) {
 		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
 		
+		var dialog = new sap.m.Dialog();
+		dialog.addContent(new sap.m.Input({
+			id: "favNam",
+			placeholder: "Bitte benennen sie ihren Favoriten"
+		}));
+		dialog.open();
+		
 		var oListItem = new sap.m.StandardListItem({
 			description : lineDir,
 			title : "Test", //MessageBox
@@ -146,7 +153,6 @@ sap.ui.controller("vit.Search", {
 		var sValue = evt.getParameter("value");
 		var oFilter = new sap.ui.model.Filter("Name",
 				sap.ui.model.FilterOperator.Contains, sValue);
-		evt.getSource().getBinding("items").filter([ oFilter ]);
 	},
 
 	_handleValueHelpConfirm : function(evt) {
