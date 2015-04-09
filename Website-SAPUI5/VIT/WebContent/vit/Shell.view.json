@@ -57,8 +57,13 @@
                     "viewName":"vit.Settings",
                     "id":"pSettings",
                     "type":"JSON"
+                },
+                {
+                    "Type":"sap.ui.view",
+                    "viewName":"vit.Add",
+                    "id":"pAdd",
+                    "type":"JSON"
                 }
-                
             ],
             "masterPages":[
                 {
@@ -67,11 +72,7 @@
                     "viewName":"vit.Navigation",
                     "type":"JSON"
                 }
-                
             ]
-            
         }
-        
     ]
-    
 }

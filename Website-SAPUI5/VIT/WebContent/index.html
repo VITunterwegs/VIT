@@ -180,6 +180,19 @@
 					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
 							.toDetail("vMain" + "--" + "pImpressum");
 				}
+			},
+			{
+				pattern : [ "add", "Add" ],
+				name : "add",
+				view : "vit.Add",
+				viewType : sap.ui.core.mvc.ViewType.JSON,
+				targetControl : "vMain" + "--" + "splitApp",
+				targetAggregation : "detailPages", // content/Page
+				clearTarget : false,
+				callback : function() {
+					sap.ui.getCore().byId("vMain" + "--" + "splitApp")
+							.toDetail("vMain" + "--" + "pAdd");
+				}
 			}
 
 	]);
