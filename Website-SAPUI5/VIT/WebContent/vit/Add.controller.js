@@ -50,22 +50,11 @@ sap.ui.controller("vit.Add", {
 	},
 	
 	handleAddFavPress : function(oEvent) {
-		
-		var input = new sap.m.Input({
-			id: "favNam",
-			placeholder: "Bitte benennen sie ihren Favoriten"
-		});
-		jQuery.sap.require("sap.m.MessageBox");
-		sap.m.MessageBox.confirm(input, {
-			icon: sap.m.MessageBox.Icon.INFORMATION,
-			title: "Name des Favoriten",
-			actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
-		});
-		
+		var name = this.byId("InputName").getValue();
 		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
 		var oListItem = new sap.m.StandardListItem({
 			description : lineDir,
-			title : input.getText(), //MessageBox
+			title : name,
 			type : "Active"
 		});
 
@@ -123,12 +112,8 @@ sap.ui.controller("vit.Add", {
 		this._valueHelpDialog.open();
 	},
 
-	locationChanged : function(oEvent) {
-		this.enableFields(oEvent.getSource());
-
-	},
 	enableFields : function(oControl) {
-		if (oControl.getValue() != "") {
+		if (oControl.getSelectedItem().getText() != "") {
 			this.byId("SelectTransportation").setEnabled(true);
 			this.byId("SelectStop").setEnabled(true);
 			this.byId("SelectDirection").setEnabled(true);
@@ -140,8 +125,8 @@ sap.ui.controller("vit.Add", {
 			this.byId("ButtonAddFavorite").setEnabled(false);
 		}
 	},
-	handleStopChoose : function(){
-		
+	handleStopChoose : function(oEvent){
+		this.enableFields(oEvent.getSource());
 		// Linie
 		var oModelLines = new sap.ui.model.json.JSONModel();
 		oModelLines.loadData("json/linien.json");
