@@ -1,14 +1,6 @@
 {
     "meldungen":[
         {
-            "line":"3",
-            "direction":"Heide",
-            "delay":"00:05",
-            "stop":"Kolpingplatz",
-            "type":"TRAM",
-            "uAbfahrt":"12:35"
-        },
-        {
             "line":"5",
             "direction":"Marktplatz",
             "type":"TRAM",
@@ -17,12 +9,12 @@
             "uAbfahrt":"10:43"
         },
         {
-            "line":"4",
-            "direction":"Waldstadt",
-            "type":"TRAM",
-            "delay":"00:03",
-            "stop":"Marktplatz",
-            "uAbfahrt":"12:08"
+            "line":"S2",
+            "direction":"Reitschulschlag",
+            "type":"Bahn",
+            "delay":"00:06",
+            "stop":"Yorckstraße",
+            "uAbfahrt":"11:13"
         },
         {
             "line":"S11",
@@ -33,13 +25,20 @@
             "uAbfahrt":"11:18"
         },
         {
-            "line":"S2",
-            "direction":"Reitschulschlag",
-            "type":"Bahn",
-            "delay":"00:06",
-            "stop":"Yorckstraße",
-            "uAbfahrt":"11:13"
+            "line":"4",
+            "direction":"Waldstadt",
+            "type":"TRAM",
+            "delay":"00:03",
+            "stop":"Marktplatz",
+            "uAbfahrt":"12:08"
+        },
+        {
+            "line":"3",
+            "direction":"Heide",
+            "delay":"00:05",
+            "stop":"Kolpingplatz",
+            "type":"TRAM",
+            "uAbfahrt":"12:35"
         }
-        
     ]
 }

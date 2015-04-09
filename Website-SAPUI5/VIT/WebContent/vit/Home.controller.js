@@ -20,7 +20,7 @@ sap.ui.controller("vit.Home", {
 					text : data.meldungen[j].direction
 				}));
 				row.addCell(new sap.m.Text({
-					text : "+" + data.meldungen[j].delay
+					text : data.meldungen[j].delay
 				}));
 
 				var time = new Date();

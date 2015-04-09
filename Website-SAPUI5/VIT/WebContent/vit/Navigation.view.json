@@ -19,7 +19,7 @@
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
-                            "text":"Navigation"
+                            "text":"Menü"
                         }
                     ],
                     "contentRight":[

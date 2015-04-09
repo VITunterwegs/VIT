@@ -27,7 +27,7 @@
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
-                            "text":"Help"
+                            "text":"Hilfe"
                         }
                     ],
                     "contentRight":[
