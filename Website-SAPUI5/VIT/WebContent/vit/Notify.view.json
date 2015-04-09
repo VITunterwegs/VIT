@@ -104,6 +104,7 @@
                                             "id":"canceled",
                                             "text":"Ausfall",
                                             "selected":false,
+                                            "enabled":false,
                                             "select":"cancelChanged"
                                         }
                                     ]
