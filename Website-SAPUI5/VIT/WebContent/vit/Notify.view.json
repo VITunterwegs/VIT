@@ -98,6 +98,19 @@
                                 },
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.CheckBox",
+                                            "id":"canceled",
+                                            "text":"Ausfall",
+                                            "selected":false,
+                                            "select":"cancelChanged"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
+                                    "id":"formDelay",
                                     "label":"Verspätung",
                                     "fields":[
                                         {
@@ -111,6 +124,7 @@
                                         }
                                     ]
                                 },
+                                
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
                                     "fields":[

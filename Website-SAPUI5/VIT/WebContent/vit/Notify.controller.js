@@ -64,12 +64,15 @@ sap.ui.controller("vit.Notify", {
 			}
 
 			$.getJSON("json/linien.json", function(data) {
+				console.log("Linien");
 				for (var jj = 0; jj < data.Linien.length; jj++){
 					
 					if ((data.Linien[jj].name == arr.line)&&
 							(data.Linien[jj].Richtung == arr.direction)){
+						console.log("Haltestellen");
 						for (var kk = 0; kk < data.Linien[jj].Haltestellen.length; kk++){
 							if (data.Linien[jj].Haltestellen[kk].id == id){
+								console.log("Zeiten");
 								for (var mm = 0; mm < data.Linien[jj].Haltestellen[kk].times.length ; mm++){
 									var stopTime = data.Linien[jj].Haltestellen[kk].times[mm].time;
 									var nowDate = new Date();
@@ -86,6 +89,7 @@ sap.ui.controller("vit.Notify", {
 										 (arr.uAbfahrt == null)){
 										arr.uAbfahrt = data.Linien[jj].Haltestellen[kk].times[mm].time;
 										sap.ui.getCore().myGlobalArray.push(arr);
+										console.log("Gefunden!!");
 										var row = new sap.m.ColumnListItem();
 										row.addCell(new sap.m.Text({
 											text : arr.line
@@ -114,12 +118,13 @@ sap.ui.controller("vit.Notify", {
 
 										}));
 										row.attachPress(function(oEvent){
-											sap.m.MessageToast("Diese Methode ist leider im jetzigen Zustand noch nicht implementiert");
+											sap.m.MessageToast.show("Diese Methode ist leider im jetzigen Zustand noch nicht implementiert");
 										});
 										sap.ui.getCore().byId("vMain--pHome--dashboard").addItem(row);
 										}
 
 								}
+								sap.m.MessageToast.show("Vielen Dank! Ihre Meldung wurde gespeichert!");
 							}
 						}
 					}
@@ -179,6 +184,7 @@ sap.ui.controller("vit.Notify", {
 			this.byId("SelectStop").setEnabled(true);
 			this.byId("SelectDirection").setEnabled(true);
 			this.byId("SelectDelay").setEnabled(true);
+			this.byId("canceled").setEnabled(true);
 
 		} else {
 			this.byId("SelectTransportation").setEnabled(false);
@@ -187,6 +193,7 @@ sap.ui.controller("vit.Notify", {
 			this.byId("SelectDelay").setEnabled(false);
 			this.byId("SelectDelay").setValue("00:00");
 			this.byId("ButtonReport").setEnabled(false);
+			this.byId("canceled").setEnabled(false);
 
 		}
 	},
@@ -203,6 +210,17 @@ sap.ui.controller("vit.Notify", {
 		var oHashChanger = new sap.ui.core.routing.HashChanger();
 		oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
 				.getURL("Home"));
+	},
+	
+	cancelChanged : function(oEvent){
+		var source = oEvent.getSource();
+		if (source.getSelected() == true){
+			this.byId("formDelay").setVisible(false);
+			this.byId("ButtonReport").setEnabled(true);
+		} else {
+			this.byId("formDelay").setVisible(true);
+			this.byId("ButtonReport").setEnabled(false);
+		}
 	},
 	
 handleStopChoose : function(){
