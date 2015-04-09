@@ -90,52 +90,59 @@ sap.ui.controller("vit.Search", {
 			icon: sap.m.MessageBox.Icon.INFORMATION,
 			title: "Name des Favoriten",
 			actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+			onClose: function(oAction){
+				
+				var lineDir = sap.ui.getCore().byId("vMain--pSearch--SelectDirection").getSelectedItem().getText();
+				var oListItem = new sap.m.StandardListItem({
+					description : lineDir,
+					title : sap.ui.getCore().byId("vMain--pSearch--favNam").getValue(), //MessageBox
+					type : "Active"
+				});
+
+				switch (sap.ui.getCore().byId("vMain--pSearch--SelectTransportation").getSelectedItem().getText()) {
+				case "Bus":
+					oListItem.setIcon("img/bus.jpg");
+					break;
+				case "Bahn":
+					oListItem.setIcon("img/bahn.png");
+					break;
+				case "TRAM":
+					oListItem.setIcon("img/tram.png");
+					break;
+				}
+				oListItem.attachPress(function(oEvent){
+					var resultList = sap.ui.getCore().byId("vMain--pResult--resultTable");
+					resultList.removeAllItems();
+					
+					var items = sap.ui.getCore().byId("vMain--pHome--dashboard").getItems();
+					var listItem = oEvent.getSource();
+					var dirLin = listItem.getDescription();
+					var linArr = dirLin.split("-");
+					linArr[0] = linArr[0].slice(6, linArr[0].length-1);
+					linArr[1] = linArr[1].slice(1, linArr[1].length);
+					
+					for (var i =0 ; i < items.length; i++){
+						var cells = items[i].getCells();
+						var line = cells[0].getText();
+						var dir = cells[1].getText();
+						if ((line == linArr[0]) &&
+								(dir == linArr[1])){
+							resultList.addItem(items[i]);
+						}
+					}
+					var oHashChanger = new sap.ui.core.routing.HashChanger();
+					oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
+							.getURL("Result"));
+				});
+				sap.ui.getCore().byId("vMain--pFavorites--favList").addItem(oListItem);
+				sap.m.MessageToast.show("Favorit wurde gespeichert");
+				
+				
+				
+			}
 		});
 		
-		var lineDir = this.byId("SelectDirection").getSelectedItem().getText();
-		var oListItem = new sap.m.StandardListItem({
-			description : lineDir,
-			title : input.getText(), //MessageBox
-			type : "Active"
-		});
-
-		switch (this.byId("SelectTransportation").getSelectedItem().getText()) {
-		case "Bus":
-			oListItem.setIcon("img/bus.jpg");
-			break;
-		case "Bahn":
-			oListItem.setIcon("img/bahn.png");
-			break;
-		case "TRAM":
-			oListItem.setIcon("img/tram.png");
-			break;
-		}
-		oListItem.attachPress(function(oEvent){
-			var resultList = sap.ui.getCore().byId("vMain--pResult--resultTable");
-			resultList.removeAllItems();
-			
-			var items = sap.ui.getCore().byId("vMain--pHome--dashboard").getItems();
-			var listItem = oEvent.getSource();
-			var dirLin = listItem.getDescription();
-			var linArr = dirLin.split("-");
-			linArr[0] = linArr[0].slice(6, linArr[0].length-1);
-			linArr[1] = linArr[1].slice(1, linArr[1].length);
-			
-			for (var i =0 ; i < items.length; i++){
-				var cells = items[i].getCells();
-				var line = cells[0].getText();
-				var dir = cells[1].getText();
-				if ((line == linArr[0]) &&
-						(dir == linArr[1])){
-					resultList.addItem(items[i]);
-				}
-			}
-			var oHashChanger = new sap.ui.core.routing.HashChanger();
-			oHashChanger.setHash(sap.ui.core.routing.Router.getRouter("appRouter")
-					.getURL("Result"));
-		});
-		sap.ui.getCore().byId("vMain--pFavorites--favList").addItem(oListItem);
-		sap.m.MessageToast.show("Favorit wurde gespeichert");
+		
 	},
 
 	valueHelpPressed : function(oEvent) {
