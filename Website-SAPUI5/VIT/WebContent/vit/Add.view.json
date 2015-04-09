@@ -22,7 +22,7 @@
                     "contentMiddle":[
                         {
                             "Type":"sap.m.Label",
-                            "text":"Favorit hinzufügen"
+                            "text":"Favorit hinzufÃ¼gen"
                         }
                     ],
                     "contentRight":[
@@ -48,13 +48,25 @@
                             "formElements":[
                                 {
                                     "Type":"sap.ui.layout.form.FormElement",
+                                    "label":"Name",
+                                    "fields":[
+                                        {
+                                            "Type":"sap.m.Input",
+                                            "id":"InputName",
+                                            "enabled":true,
+                                            "placeholder":"Hier bitte einen Namen eingeben"
+                                        }
+                                    ]
+                                },	
+                                {
+                                    "Type":"sap.ui.layout.form.FormElement",
                                     "label":"Verkehrsmittel",
                                     "fields":[
                                         {
                                             "Type":"sap.m.Select",
                                             "id":"SelectTransportation",
                                             "type":"Default",
-                                            "enabled":false
+                                            "enabled":true
                                         }
                                     ]
                                 },
@@ -67,7 +79,7 @@
                                             "id":"SelectStop",
                                             "change":"handleStopChoose",
                                             "type":"Default",
-                                            "enabled":false
+                                            "enabled":true
                                         }
                                     ]
                                 },
